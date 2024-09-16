@@ -23,13 +23,12 @@ The following table provides a detailed list of all models materialized within t
 
 | **Model**                    | **Description**                                                                                                                                                 |
 | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| zendesk__ticket_metrics      | Each record represents a Zendesk Support ticket, enriched with metrics about reply times, resolution times, and work times.  Calendar and business hours are supported.  |
-| zendesk__ticket_enriched    | Each record represents a Zendesk Support ticket, enriched with data about its tags, assignees, requester, submitter, organization, and group.                           |
-| zendesk__ticket_summary       | A single record table containing Zendesk Support ticket and user summary metrics.                                                              |
-| zendesk__ticket_backlog           | A daily historical view of the ticket field values defined in the `ticket_field_history_columns` variable for all backlog tickets. Backlog tickets being defined as any ticket not in a 'closed', 'deleted', or 'solved' status.                                                             |
-| zendesk__ticket_field_history | A daily historical view of the ticket field values defined in the `ticket_field_history_columns` variable and the corresponding updater fields defined in the `ticket_field_history_updater_columns` variable.                                                        |
-| zendesk__sla_policies          | Each record represents an SLA policy event and additional sla breach and achievement metrics. Calendar and business hour SLA breaches are supported.    
-| zendesk__document | Each record represents a chunk of text from ticket data, prepared for vectorization. It includes fields for use in NLP workflows. Disabled by default. |
+| v_final_ticket_metrics      | Each record represents a Zendesk Support ticket, enriched with metrics about reply times, resolution times, and work times.  Calendar and business hours are supported.  |
+| v_final_ticket_enriched    | Each record represents a Zendesk Support ticket, enriched with data about its tags, assignees, requester, submitter, organization, and group.                           |
+| v_final_ticket_summary       | A single record table containing Zendesk Support ticket and user summary metrics.                                                              |
+| v_final_ticket_backlog           | A daily historical view of the ticket field values defined in the `ticket_field_history_columns` variable for all backlog tickets. Backlog tickets being defined as any ticket not in a 'closed', 'deleted', or 'solved' status.                                                             |
+| v_final_ticket_field_history | A daily historical view of the ticket field values defined in the `ticket_field_history_columns` variable and the corresponding updater fields defined in the `ticket_field_history_updater_columns` variable.                                                        |
+| v_final_sla_policies          | Each record represents an SLA policy event and additional sla breach and achievement metrics. Calendar and business hour SLA breaches are supported.    
 <!--section-end-->
 
 # How do I use the Coalesce pipeline?
