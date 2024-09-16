@@ -1,0 +1,98 @@
+fileVersion: 1
+id: fe84b47b-a36e-4c1b-9c20-10b81c493120
+name: V_INT_TICKET_REPLY_TIMES_CALENDAR
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3bc9c1f6-48ad-4ddf-bc83-b406945f65d9
+          stepCounter: fe84b47b-a36e-4c1b-9c20-10b81c493120
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7d25d46d-f272-4be2-b448-466110cae13a
+                stepCounter: 2630639b-14e3-4546-838d-4100786f9216
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ba436311-e357-4c94-913e-4a8c9157d50e
+          stepCounter: fe84b47b-a36e-4c1b-9c20-10b81c493120
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: FIRST_REPLY_TIME_CALENDAR_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              SUM(CASE WHEN IS_FIRST_COMMENT THEN REPLY_TIME_CALENDAR_MINUTES
+                  ELSE NULL END)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 798f3ae7-a15b-46f9-ba38-5aeb5ef7a097
+          stepCounter: fe84b47b-a36e-4c1b-9c20-10b81c493120
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TOTAL_REPLY_TIME_CALENDAR_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: SUM(REPLY_TIME_CALENDAR_MINUTES)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PSTG_TICKET: 2630639b-14e3-4546-838d-4100786f9216
+          V_INT_TICKET_REPLY_TIMES: de1e6306-9637-4fd8-bbed-2cc1370f16e1
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_TICKET
+          - locationName: TARGET
+            nodeName: V_INT_TICKET_REPLY_TIMES
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'PSTG_TICKET') }} "PSTG_TICKET"
+            LEFT JOIN {{ ref('TARGET', 'V_INT_TICKET_REPLY_TIMES') }} "V_INT_TICKET_REPLY_TIMES"
+            ON "PSTG_TICKET"."TICKET_ID" = "V_INT_TICKET_REPLY_TIMES"."TICKET_ID"
+        name: V_INT_TICKET_REPLY_TIMES_CALENDAR
+        noLinkRefs: []
+  name: V_INT_TICKET_REPLY_TIMES_CALENDAR
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

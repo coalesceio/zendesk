@@ -1,0 +1,257 @@
+fileVersion: 1
+id: dab169c8-8bb5-4f70-a43e-dca70531c77f
+name: PSTG_SCHEDULE
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b485a4aa-94ef-498c-92b6-149c8c51478c
+          stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: PSTG_SCHEDULE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 71b7c55c-97c0-4097-9ed6-d1bb74938172
+          stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SCHEDULE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 99f5dff8-24b9-43f5-ae2f-e7df1d601344
+                stepCounter: 3c745fb5-fea2-4e47-9e8b-01fe4d0d47e6
+            transform: CAST("INC_SCHEDULE"."ID" AS STRING)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 741af0a3-d376-4ba3-bee1-3e139a87cf99
+          stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: END_TIME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ac3744f7-01a5-47ef-8c1f-0f5da576ff95
+                stepCounter: 3c745fb5-fea2-4e47-9e8b-01fe4d0d47e6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 17be2167-e41f-4ed0-a8c0-3ef2cff4e0b6
+          stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: START_TIME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: df697618-1aed-45b1-add0-c0dcf7dd39a8
+                stepCounter: 3c745fb5-fea2-4e47-9e8b-01fe4d0d47e6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 000ff1d5-b11d-45cb-af82-da26d5cfccc7
+          stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SCHEDULE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c04f74f0-a8d0-44b1-9f13-4d509e2f4c51
+                stepCounter: 3c745fb5-fea2-4e47-9e8b-01fe4d0d47e6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 67638462-6f9b-440f-ab06-557bd0b2155e
+          stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ea3cf24a-929f-4768-bef0-168b26e669f1
+                stepCounter: 3c745fb5-fea2-4e47-9e8b-01fe4d0d47e6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 76a433c3-a57b-4912-8c8a-e9700ee409aa
+          stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TIME_ZONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 540651b2-a8fd-4bd0-ac00-172900272d40
+                stepCounter: 3c745fb5-fea2-4e47-9e8b-01fe4d0d47e6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b81e9d5-4635-4dfd-bf79-6ef5d5178288
+          stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fab7f21e-0ff6-494d-8256-3a1369588a78
+                stepCounter: 3c745fb5-fea2-4e47-9e8b-01fe4d0d47e6
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 757aae98-fe9a-4071-8a83-c0dbb46fe364
+          stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a42986f4-184b-43e7-9c16-eba493c2865a
+          stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f1ea653-a7af-4dfd-8ce8-2bcf76a6103e
+          stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2fe136aa-507f-4619-9d71-b9aa3fad24a3
+          stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e5d1b7a-affb-4847-851d-b00f0c01a3cf
+          stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 104c9b85-8a02-424b-986e-eaef951ed73f
+          stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          INC_SCHEDULE: 3c745fb5-fea2-4e47-9e8b-01fe4d0d47e6
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: INC_SCHEDULE
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'INC_SCHEDULE') }} "INC_SCHEDULE"
+            where not coalesce("INC_SCHEDULE"."_FIVETRAN_DELETED", false)
+        name: PSTG_SCHEDULE
+        noLinkRefs: []
+  name: PSTG_SCHEDULE
+  overrideSQL: false
+  schema: ""
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node

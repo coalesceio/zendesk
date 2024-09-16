@@ -1,0 +1,71 @@
+fileVersion: 1
+id: a0461e13-462b-47da-89e6-baa3bf388d0a
+name: V_TICKET_SOLVED_TIMES
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9da3d29e-252e-424e-a628-6fc911937a72
+          stepCounter: a0461e13-462b-47da-89e6-baa3bf388d0a
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd2edeaa-7b05-49e1-9c08-807f5fd5b229
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 58788ef6-98fe-4b08-8cb1-4979e88eba57
+          stepCounter: a0461e13-462b-47da-89e6-baa3bf388d0a
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: SOLVED_AT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 36490b09-9ea0-4c48-86c7-7a2b0d064b4f
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_INT_UPDATES: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_UPDATES
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_INT_UPDATES') }} "V_INT_UPDATES"
+            where field_name = 'status'
+              and value in ('solved','closed')
+        name: V_TICKET_SOLVED_TIMES
+        noLinkRefs: []
+  name: V_TICKET_SOLVED_TIMES
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

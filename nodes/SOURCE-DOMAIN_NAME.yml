@@ -1,0 +1,96 @@
+fileVersion: 1
+id: 0e58c460-2fa6-4db6-841f-e3e49656be97
+name: DOMAIN_NAME
+operation:
+  database: ""
+  dataset: ""
+  deployEnabled: true
+  description: ""
+  locationName: SOURCE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a54d302e-ba4e-4380-885a-30f8f561f414
+          stepCounter: 0e58c460-2fa6-4db6-841f-e3e49656be97
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: ORGANIZATION_ID
+        nullable: false
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5c1dfb8-cacb-4c5e-a8b5-0b52a760c775
+          stepCounter: 0e58c460-2fa6-4db6-841f-e3e49656be97
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: INDEX
+        nullable: false
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0262a2e6-3b26-4566-bfaa-5b8b7ddbeffc
+          stepCounter: 0e58c460-2fa6-4db6-841f-e3e49656be97
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: DOMAIN_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f280328-ecf3-4a64-99bc-f07ca094ded5
+          stepCounter: 0e58c460-2fa6-4db6-841f-e3e49656be97
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+    join:
+      joinCondition: FROM {{ ref('SOURCE', 'DOMAIN_NAME') }}
+  name: DOMAIN_NAME
+  schema: ""
+  sqlType: Source
+  table: DOMAIN_NAME
+  type: sourceInput
+  version: 1
+type: Node

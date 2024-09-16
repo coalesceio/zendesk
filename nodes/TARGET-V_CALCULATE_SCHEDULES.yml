@@ -1,0 +1,220 @@
+fileVersion: 1
+id: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+name: V_CALCULATE_SCHEDULES
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b41beefb-23ea-44ef-b3eb-a7e39a20b495
+          stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SCHEDULE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 71b7c55c-97c0-4097-9ed6-d1bb74938172
+                stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c275daba-a63a-44f4-a1f1-5d5603f760a8
+          stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TIME_ZONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 76a433c3-a57b-4912-8c8a-e9700ee409aa
+                stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f11ab63c-abfc-477d-9651-638ab4ed74ad
+          stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: START_TIME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 17be2167-e41f-4ed0-a8c0-3ef2cff4e0b6
+                stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 84e6a47f-2dc3-4d8c-834b-aa74861315ae
+          stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: END_TIME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 741af0a3-d376-4ba3-bee1-3e139a87cf99
+                stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c60fd1a-3bf4-4ee5-b0f7-8552f3e00332
+          stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 67638462-6f9b-440f-ab06-557bd0b2155e
+                stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7ca9894f-0ee1-4c9e-94a5-461a4935ec45
+          stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SCHEDULE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 000ff1d5-b11d-45cb-af82-da26d5cfccc7
+                stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1037c3a-6963-40a0-9f3a-d77eeb3bfff8
+          stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: START_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: PSTG_SCHEDULE.START_TIME - COALESCE(V_SPLIT_TIMEZONES.OFFSET_MINUTES, 0)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 90322f9e-85dc-4f9e-834f-f79dc24b9a6a
+          stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: END_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: PSTG_SCHEDULE.END_TIME - COALESCE(V_SPLIT_TIMEZONES.OFFSET_MINUTES, 0)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7d0b575b-a59c-4914-87a1-c3be6fde661b
+          stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: OFFSET_MINUTES_TO_ADD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COALESCE(V_SPLIT_TIMEZONES.OFFSET_MINUTES, 0)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fba02e24-5873-49dd-b84a-b804fa55fef8
+          stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: VALID_FROM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: CAST(V_SPLIT_TIMEZONES.VALID_FROM AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: abcdd2b0-c133-4825-b74d-9abfdff2bf31
+          stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: VALID_UNTIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: CAST(V_SPLIT_TIMEZONES.VALID_UNTIL AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PSTG_SCHEDULE: dab169c8-8bb5-4f70-a43e-dca70531c77f
+          V_SPLIT_TIMEZONES: 11ad778b-ed95-43f5-bb18-55df49769f8c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_SCHEDULE
+          - locationName: TARGET
+            nodeName: V_SPLIT_TIMEZONES
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'PSTG_SCHEDULE') }} "PSTG_SCHEDULE"
+            LEFT JOIN {{ ref('TARGET', 'V_SPLIT_TIMEZONES') }} "V_SPLIT_TIMEZONES"
+            ON "V_SPLIT_TIMEZONES"."TIME_ZONE" = "PSTG_SCHEDULE"."TIME_ZONE"
+        name: V_CALCULATE_SCHEDULES
+        noLinkRefs: []
+  name: V_CALCULATE_SCHEDULES
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

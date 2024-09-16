@@ -1,0 +1,75 @@
+fileVersion: 1
+id: 27829b23-3ccc-4eb8-80d3-f326271686ba
+name: V_JOINED_FIELD_CALENDAR_SPINE
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 70bea45e-93f5-4ef9-9731-54dbb5eefb9b
+          stepCounter: 27829b23-3ccc-4eb8-80d3-f326271686ba
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DATE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 41b07f11-14e1-4e30-88d0-7e330a168b56
+                stepCounter: 4dc15ef0-faae-4693-91ff-8d559c01c17f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2aa7a6d-e795-46bf-87f6-fff4e5d50c33
+          stepCounter: 27829b23-3ccc-4eb8-80d3-f326271686ba
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cf6f6985-39ed-401c-9889-d5e55ec45cb3
+                stepCounter: 7bbdf762-db5b-41fb-997b-0b0958bc5b0c
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_CALENDER: 4dc15ef0-faae-4693-91ff-8d559c01c17f
+          V_TICKET_OPEN_UNTIL: 7bbdf762-db5b-41fb-997b-0b0958bc5b0c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_CALENDER
+          - locationName: TARGET
+            nodeName: V_TICKET_OPEN_UNTIL
+        join:
+          joinCondition: |
+            FROM {{ ref('TARGET', 'V_CALENDER') }} "V_CALENDER"
+            INNER JOIN {{ ref('TARGET', 'V_TICKET_OPEN_UNTIL') }} "V_TICKET_OPEN_UNTIL"
+            ON "V_CALENDER"."DATE_KEY" >= CAST("V_TICKET_OPEN_UNTIL"."CREATED_AT" AS DATE)
+            AND DATEADD(MONTH, 0, V_TICKET_OPEN_UNTIL.open_until) >= V_CALENDER.DATE_KEY
+        name: V_JOINED_FIELD_CALENDAR_SPINE
+        noLinkRefs: []
+  name: V_JOINED_FIELD_CALENDAR_SPINE
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

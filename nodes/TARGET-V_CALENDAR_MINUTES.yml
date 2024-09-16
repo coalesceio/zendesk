@@ -1,0 +1,267 @@
+fileVersion: 1
+id: fab7ae4f-18b8-467b-b0a1-2e50de709947
+name: V_CALENDAR_MINUTES
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5be1e8b6-62c6-4e5f-a1a7-5e243d5c7dd6
+          stepCounter: fab7ae4f-18b8-467b-b0a1-2e50de709947
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 51ae7912-b9cd-4176-9904-eaec00b8e3e6
+                stepCounter: 63c33297-1fbc-4aa0-a224-6efa30b50ced
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 19deaab4-98ac-467a-b463-c9ac4b34327b
+          stepCounter: fab7ae4f-18b8-467b-b0a1-2e50de709947
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 957283d5-4918-403c-b312-94766647a13e
+                stepCounter: 63c33297-1fbc-4aa0-a224-6efa30b50ced
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 45a6d4d3-25f3-4651-a4d0-2ffbca0c9999
+          stepCounter: fab7ae4f-18b8-467b-b0a1-2e50de709947
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: AGENT_WAIT_TIME_IN_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              case when status in ('pending') then STATUS_DURATION_CALENDAR_MINUTES
+                          else 0 end
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 02d767ca-1756-4f0d-92b4-16174b186074
+          stepCounter: fab7ae4f-18b8-467b-b0a1-2e50de709947
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: REQUESTER_WAIT_TIME_IN_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              case when status in ('new', 'open', 'hold') then STATUS_DURATION_CALENDAR_MINUTES
+                          else 0 end
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 177ef999-51f3-4c1e-8e71-d3372646740d
+          stepCounter: fab7ae4f-18b8-467b-b0a1-2e50de709947
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: SOLVE_TIME_IN_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              case when status in ('new', 'open', 'hold', 'pending') then status_duration_calendar_minutes 
+                          else 0 end
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 82f8923a-f048-41ff-b7ee-7f081d242cf3
+          stepCounter: fab7ae4f-18b8-467b-b0a1-2e50de709947
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: AGENT_WORK_TIME_IN_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              case when status in ('new', 'open') then status_duration_calendar_minutes
+                          else 0 end
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c91b80e-10f0-47d5-a91b-c8cecc206b5d
+          stepCounter: fab7ae4f-18b8-467b-b0a1-2e50de709947
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: ON_HOLD_TIME_IN_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |2-
+               case when status in ('hold') then status_duration_calendar_minutes
+                          else 0 end
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6fe6b662-aeb4-47cf-b068-4ceee66d0c0f
+          stepCounter: fab7ae4f-18b8-467b-b0a1-2e50de709947
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: NEW_STATUS_DURATION_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              case when status = 'new' then status_duration_calendar_minutes
+                          else 0 end
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d726e993-62b3-4f55-8f0f-a8bafcda12c2
+          stepCounter: fab7ae4f-18b8-467b-b0a1-2e50de709947
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: OPEN_STATUS_DURATION_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              case when status = 'open' then status_duration_calendar_minutes
+                          else 0 end
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18b894e4-f063-4eac-8244-e9ffb92b19b6
+          stepCounter: fab7ae4f-18b8-467b-b0a1-2e50de709947
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TICKET_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              case when status = 'deleted' then 1
+                          else 0 end
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: acad8213-550c-47f4-b3c8-599aaa682199
+          stepCounter: fab7ae4f-18b8-467b-b0a1-2e50de709947
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: LAST_STATUS_ASSIGNMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: first_value(valid_starting_at) over (partition by ticket_id order by valid_starting_at desc, ticket_id rows unbounded preceding)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e7cd1d04-3340-48b6-aac4-425050719d7d
+          stepCounter: fab7ae4f-18b8-467b-b0a1-2e50de709947
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TICKET_RECOVERIES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              case when lag(status) over (partition by ticket_id order by valid_starting_at) = 'deleted' and status != 'deleted'
+                          then 1
+                          else 0
+                              end
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_TICKET_HISTORICAL_STATUS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_INT_TICKET_HISTORICAL_STATUS') }} "V_INT_TICKET_HISTORICAL_STATUS"
+        name: V_CALENDAR_MINUTES
+        noLinkRefs: []
+  name: V_CALENDAR_MINUTES
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

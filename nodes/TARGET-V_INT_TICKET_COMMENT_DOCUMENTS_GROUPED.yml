@@ -1,0 +1,114 @@
+fileVersion: 1
+id: be0e4bc3-9bce-458c-a8db-3bef365e800c
+name: V_INT_TICKET_COMMENT_DOCUMENTS_GROUPED
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b8c5f37-3d18-447f-933f-3efce9aa6569
+          stepCounter: be0e4bc3-9bce-458c-a8db-3bef365e800c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ce7f579c-d8ad-4f16-a7c3-ab8ed19779c4
+                stepCounter: e3a101fc-16e3-4e94-89f4-bb2ab29d658e
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5afb4fe8-90a3-46eb-856a-408197354882
+          stepCounter: be0e4bc3-9bce-458c-a8db-3bef365e800c
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: CHUNK_INDEX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              cast(
+                  ( floor(cumulative_length - 1) ) / nullif( ( 5000 ), 0)
+               as integer) 
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6aa5db71-af50-4f93-be49-1bf467b203bd
+          stepCounter: be0e4bc3-9bce-458c-a8db-3bef365e800c
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: COMMENTS_GROUP_MARKDOWN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              LISTAGG(
+                  comment_markdown, 
+                  '\n\n--\n\n'
+              ) WITHIN GROUP (ORDER BY comment_time)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: acb485d5-5526-4443-b478-29acb4bca00b
+          stepCounter: be0e4bc3-9bce-458c-a8db-3bef365e800c
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: CHUNK_TOKENS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: sum(comment_tokens)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_GROUPED_COMMENT_DOCUMENTS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_GROUPED_COMMENT_DOCUMENTS') }} "V_GROUPED_COMMENT_DOCUMENTS"
+        name: V_INT_TICKET_COMMENT_DOCUMENTS_GROUPED
+        noLinkRefs: []
+  name: V_INT_TICKET_COMMENT_DOCUMENTS_GROUPED
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

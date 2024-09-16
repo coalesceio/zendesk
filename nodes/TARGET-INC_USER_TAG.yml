@@ -1,0 +1,91 @@
+fileVersion: 1
+id: 02e7c3c6-e586-4322-9bf7-44b07a710a70
+name: INC_USER_TAG
+operation:
+  config:
+    incColumn:
+      columnCounter: 66f09209-c18f-4463-a3b0-05b84dbadcf5
+      stepCounter: 02e7c3c6-e586-4322-9bf7-44b07a710a70
+    persistTableLocation: TARGET
+    persistTableName: PSTG_USER_TAG
+    refTable: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e707a84-11ea-4f2d-abb8-3c719e0d232c
+          stepCounter: 02e7c3c6-e586-4322-9bf7-44b07a710a70
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: TAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b7a24a9-aeea-4b8a-a7dd-29e7bcbaefe8
+                stepCounter: c773d503-8ef1-45b5-a950-1f66d7197b6d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: df789647-c059-4c4f-9335-2f7ca6c4c6c9
+          stepCounter: 02e7c3c6-e586-4322-9bf7-44b07a710a70
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6928241d-e52f-40c5-a325-94c5133e020f
+                stepCounter: c773d503-8ef1-45b5-a950-1f66d7197b6d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 66f09209-c18f-4463-a3b0-05b84dbadcf5
+          stepCounter: 02e7c3c6-e586-4322-9bf7-44b07a710a70
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 88e7b675-e7cd-445e-8b52-f26cc468b5d1
+                stepCounter: c773d503-8ef1-45b5-a950-1f66d7197b6d
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          USER_TAG: c773d503-8ef1-45b5-a950-1f66d7197b6d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: USER_TAG
+        join:
+          joinCondition: |
+
+
+            FROM{{ ref('TARGET', 'USER_TAG') }} "USER_TAG"
+              WHERE "USER_TAG"."_FIVETRAN_SYNCED" > 
+              (SELECT COALESCE(MAX("_FIVETRAN_SYNCED"), '1900-01-01') 
+                        FROM {{ ref_no_link('TARGET', 'PSTG_USER_TAG') }} )
+        name: INC_USER_TAG
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: PSTG_USER_TAG
+  name: INC_USER_TAG
+  overrideSQL: false
+  schema: ""
+  sqlType: Incr:::230
+  type: sql
+  version: 1
+type: Node

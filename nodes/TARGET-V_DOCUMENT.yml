@@ -1,0 +1,121 @@
+fileVersion: 1
+id: f07e023a-fb9e-4d96-b35a-556a56cf3461
+name: V_DOCUMENT
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 772388df-4a5f-41c2-b722-b27c484b96f4
+          stepCounter: f07e023a-fb9e-4d96-b35a-556a56cf3461
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: DOCUMENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bce71307-eed6-424d-aa8e-8cd6393242d9
+                stepCounter: 71973807-05ec-4bfd-b6ad-bcd9c5a75863
+            transform: |-
+              cast(V_INT_TICKET_DOCUMENT.ticket_id 
+              as STRING)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5f6dfd8f-7ad9-4623-9324-4ffdab3be5b6
+          stepCounter: f07e023a-fb9e-4d96-b35a-556a56cf3461
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: CHUNK_INDEX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5afb4fe8-90a3-46eb-856a-408197354882
+                stepCounter: be0e4bc3-9bce-458c-a8db-3bef365e800c
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 426934ca-4434-4f52-b4bd-dc7032c2d1db
+          stepCounter: f07e023a-fb9e-4d96-b35a-556a56cf3461
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: CHUNK_TOKENS_APPROXIMATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: acb485d5-5526-4443-b478-29acb4bca00b
+                stepCounter: be0e4bc3-9bce-458c-a8db-3bef365e800c
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 09af5360-e375-443d-af18-24f456c3a41b
+          stepCounter: f07e023a-fb9e-4d96-b35a-556a56cf3461
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: CHUNK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CONCAT(
+                  V_INT_TICKET_DOCUMENT.ticket_markdown,
+                  '\n\n## COMMENTS\n\n',
+                  V_INT_TICKET_COMMENT_DOCUMENTS_GROUPED.comments_group_markdown
+              )
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_INT_TICKET_COMMENT_DOCUMENTS_GROUPED: be0e4bc3-9bce-458c-a8db-3bef365e800c
+          V_INT_TICKET_DOCUMENT: 71973807-05ec-4bfd-b6ad-bcd9c5a75863
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_TICKET_COMMENT_DOCUMENTS_GROUPED
+          - locationName: TARGET
+            nodeName: V_INT_TICKET_DOCUMENT
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_INT_TICKET_DOCUMENT') }} "V_INT_TICKET_DOCUMENT"
+            JOIN {{ ref('TARGET', 'V_INT_TICKET_COMMENT_DOCUMENTS_GROUPED') }} "V_INT_TICKET_COMMENT_DOCUMENTS_GROUPED"
+            ON "V_INT_TICKET_COMMENT_DOCUMENTS_GROUPED"."TICKET_ID" = "V_INT_TICKET_DOCUMENT"."TICKET_ID"
+        name: V_DOCUMENT
+        noLinkRefs: []
+  name: V_DOCUMENT
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

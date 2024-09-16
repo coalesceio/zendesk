@@ -1,0 +1,85 @@
+fileVersion: 1
+id: 71973807-05ec-4bfd-b6ad-bcd9c5a75863
+name: V_INT_TICKET_DOCUMENT
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bce71307-eed6-424d-aa8e-8cd6393242d9
+          stepCounter: 71973807-05ec-4bfd-b6ad-bcd9c5a75863
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f9eed57e-e4d6-45f3-a5b3-090d037ff016
+                stepCounter: a54adc44-ef7a-4edd-b17b-cd77704e3318
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4aaf5667-7348-4900-b9dc-2c217fdc8ead
+          stepCounter: 71973807-05ec-4bfd-b6ad-bcd9c5a75863
+        config: {}
+        dataType: ""
+        description: ""
+        name: TICKET_MARKDOWN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 64ca0e3d-8f53-481f-a4ac-a58a5418ec99
+                stepCounter: a54adc44-ef7a-4edd-b17b-cd77704e3318
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9080d4b9-843a-48a9-98cf-c5804fe1ab2e
+          stepCounter: 71973807-05ec-4bfd-b6ad-bcd9c5a75863
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TICKET_TOKENS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: LENGTH(ticket_markdown) - LENGTH(REPLACE(ticket_markdown, ' ', '')) + 1
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_TICKET_DETAILS_FINAL
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_TICKET_DETAILS_FINAL') }} "V_TICKET_DETAILS_FINAL"
+        name: V_INT_TICKET_DOCUMENT
+        noLinkRefs: []
+  name: V_INT_TICKET_DOCUMENT
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

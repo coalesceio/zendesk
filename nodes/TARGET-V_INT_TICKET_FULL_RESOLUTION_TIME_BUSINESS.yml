@@ -1,0 +1,71 @@
+fileVersion: 1
+id: 6bc91437-0e9a-4005-80c8-d4e036cc17a3
+name: V_INT_TICKET_FULL_RESOLUTION_TIME_BUSINESS
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ef32a303-4a60-4d4d-9164-487787b22bb7
+          stepCounter: 6bc91437-0e9a-4005-80c8-d4e036cc17a3
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 55463a0f-b1dd-4062-9cf0-8eec2f1dd927
+                stepCounter: 7446705c-2ce9-446f-b329-e82e10536a1b
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 88e157bf-14c7-4bcb-9f4c-e90aea635db7
+          stepCounter: 6bc91437-0e9a-4005-80c8-d4e036cc17a3
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: FULL_RESOLUTION_BUSINESS_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "sum(scheduled_minutes) "
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INTERCEPTED_PERIODS_RESOLUTION
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_INTERCEPTED_PERIODS_RESOLUTION') }} "V_INTERCEPTED_PERIODS_RESOLUTION"
+        name: V_INT_TICKET_FULL_RESOLUTION_TIME_BUSINESS
+        noLinkRefs: []
+  name: V_INT_TICKET_FULL_RESOLUTION_TIME_BUSINESS
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

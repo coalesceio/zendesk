@@ -1,0 +1,91 @@
+fileVersion: 1
+id: 5df67e45-eade-4ff9-b797-c72de8059ff4
+name: INC_TICKET_TAG
+operation:
+  config:
+    incColumn:
+      columnCounter: 11b07667-4bab-412d-8ad2-3f93e63dcdc1
+      stepCounter: 5df67e45-eade-4ff9-b797-c72de8059ff4
+    persistTableLocation: TARGET
+    persistTableName: PSTG_TICKET_TAG
+    refTable: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5351288f-9794-4b06-b467-2056b31c5730
+          stepCounter: 5df67e45-eade-4ff9-b797-c72de8059ff4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2fe414ed-b14c-4898-b331-46f54d47b03c
+                stepCounter: 36f6133e-11d9-48bf-9ab9-a289e028246b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f4f07961-3626-41b2-9662-bcf49efae37b
+          stepCounter: 5df67e45-eade-4ff9-b797-c72de8059ff4
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TAG
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cfbbd5b3-9870-4a17-836a-19bf8cb56aad
+                stepCounter: 36f6133e-11d9-48bf-9ab9-a289e028246b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 11b07667-4bab-412d-8ad2-3f93e63dcdc1
+          stepCounter: 5df67e45-eade-4ff9-b797-c72de8059ff4
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32221703-41f2-439f-8ab3-5f27b98a46ef
+                stepCounter: 36f6133e-11d9-48bf-9ab9-a289e028246b
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          TICKET_TAG: 36f6133e-11d9-48bf-9ab9-a289e028246b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SOURCE
+            nodeName: TICKET_TAG
+        join:
+          joinCondition: |
+
+
+            FROM{{ ref('SOURCE', 'TICKET_TAG') }} "TICKET_TAG"
+              WHERE "TICKET_TAG"."_FIVETRAN_SYNCED" > 
+              (SELECT COALESCE(MAX("_FIVETRAN_SYNCED"), '1900-01-01') 
+                        FROM {{ ref_no_link('TARGET', 'PSTG_TICKET_TAG') }} )
+        name: INC_TICKET_TAG
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: PSTG_TICKET_TAG
+  name: INC_TICKET_TAG
+  overrideSQL: false
+  schema: ""
+  sqlType: Incr:::230
+  type: sql
+  version: 1
+type: Node

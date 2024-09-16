@@ -1,0 +1,268 @@
+fileVersion: 1
+id: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+name: V_GAP_ADJUSTMENTS
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 613e1cae-7242-473b-baa1-3de48b64e907
+          stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SCHEDULE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a70e99a-93e0-42d2-b553-07692691894a
+                stepCounter: 12f0640b-aeb2-437b-8eae-6a287801f2f6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c6391a9-8040-4533-9dc0-ff6193d33fd2
+          stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+        config: {}
+        dataType: ""
+        description: ""
+        name: PERIOD_START
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0297ca9a-5083-410e-b9cc-17207d63442a
+                stepCounter: 12f0640b-aeb2-437b-8eae-6a287801f2f6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d72b6f9-df13-42bc-ad08-54aa07d17381
+          stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+        config: {}
+        dataType: ""
+        description: ""
+        name: PERIOD_END
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ea96fc29-a42a-48d8-ad87-f0091608ca02
+                stepCounter: 12f0640b-aeb2-437b-8eae-6a287801f2f6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ad62b889-14e2-49e5-825a-1b357735c324
+          stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+        config: {}
+        dataType: ""
+        description: ""
+        name: PREV_END
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dadf66e7-28c7-4d9a-97bc-d2cb87aa9e86
+                stepCounter: 12f0640b-aeb2-437b-8eae-6a287801f2f6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fba77184-d1c8-4e59-9cf6-b5bf5c5d818e
+          stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+        config: {}
+        dataType: ""
+        description: ""
+        name: NEXT_START
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 52a1f414-6efc-4ec9-aeb6-53c91ffa825e
+                stepCounter: 12f0640b-aeb2-437b-8eae-6a287801f2f6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 348cf43c-9100-4de0-9752-329cd74c054b
+          stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+        config: {}
+        dataType: ""
+        description: ""
+        name: VALID_FROM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c329ad2-725b-408a-ada4-dc67e56bd814
+                stepCounter: 12f0640b-aeb2-437b-8eae-6a287801f2f6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1dd8a58-76fc-4f49-a08d-5fb463ed25c7
+          stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+        config: {}
+        dataType: ""
+        description: ""
+        name: VALID_UNTIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e0c4b954-aefd-4211-9e2e-285e320e47a6
+                stepCounter: 12f0640b-aeb2-437b-8eae-6a287801f2f6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7acf1c86-dc2b-4f5b-9ac4-a7c10a61c275
+          stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+        config: {}
+        dataType: ""
+        description: ""
+        name: START_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4eb01522-5b9f-470b-87ed-9e8d441d7c72
+                stepCounter: 12f0640b-aeb2-437b-8eae-6a287801f2f6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 53bc686a-cd1e-4d36-bfdc-05d16002f589
+          stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+        config: {}
+        dataType: ""
+        description: ""
+        name: END_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 704b3e9f-5cf4-407d-8996-20016ed61228
+                stepCounter: 12f0640b-aeb2-437b-8eae-6a287801f2f6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ab22c44e-328e-4313-8299-81d3e2b9579c
+          stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+        config: {}
+        dataType: ""
+        description: ""
+        name: HOLIDAY_NAME_CHECK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 06f75428-af8b-4ccc-9af1-7038eea548a3
+                stepCounter: 12f0640b-aeb2-437b-8eae-6a287801f2f6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d42f5ee7-f4dc-42b1-a333-995e36defa81
+          stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+        config: {}
+        dataType: ""
+        description: ""
+        name: IS_HOLIDAY_WEEK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aa8bb12b-09cf-483a-9062-689e5d48471b
+                stepCounter: 12f0640b-aeb2-437b-8eae-6a287801f2f6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e67fea34-d98c-435e-9473-75295c157e18
+          stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+        config: {}
+        dataType: ""
+        description: ""
+        name: MAX_VALID_UNTIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 02a1df6a-193b-4814-b0c0-f357ff1b510f
+                stepCounter: 12f0640b-aeb2-437b-8eae-6a287801f2f6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9eab733b-0e8d-4e05-84ea-454847c77e9d
+          stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+        config: {}
+        dataType: ""
+        description: ""
+        name: LEAD_NEXT_START
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 569f3293-e007-450a-8aaf-d456b4368738
+                stepCounter: 12f0640b-aeb2-437b-8eae-6a287801f2f6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b18d2bf0-9992-42d2-9eca-641fe6daa183
+          stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+        config: {}
+        dataType: ""
+        description: ""
+        name: FIRST_PREV_END
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b0dcc2f5-9b23-440b-88d3-0e72b2c86989
+                stepCounter: 12f0640b-aeb2-437b-8eae-6a287801f2f6
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0bd700bd-94c3-4ad0-8c89-eca4f4cc480b
+          stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: IS_SCHEDULE_GAP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE 
+                  WHEN 
+                      CAST(DATEADD(
+                          HOUR, 
+                          2, 
+                          TO_TIMESTAMP(VALID_UNTIL)
+                      ) AS TIMESTAMP) < TO_TIMESTAMP(LEAD_NEXT_START)
+                  THEN 'GAP'
+                  WHEN 
+                      LEAD_NEXT_START IS NULL 
+                      AND VALID_FROM < MAX_VALID_UNTIL 
+                      AND PERIOD_END != MAX_VALID_UNTIL
+                  THEN 'GAP'
+                  ELSE NULL
+              END
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_GAP_STARTER
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_GAP_STARTER') }} "V_GAP_STARTER"
+        name: V_GAP_ADJUSTMENTS
+        noLinkRefs: []
+  name: V_GAP_ADJUSTMENTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

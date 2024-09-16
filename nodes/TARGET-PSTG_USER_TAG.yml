@@ -1,0 +1,198 @@
+fileVersion: 1
+id: f90bf4ed-41f3-4ba8-93a3-ab995d2a142e
+name: PSTG_USER_TAG
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 561902d7-f9f2-455f-994b-6e156ddcb3e8
+          stepCounter: f90bf4ed-41f3-4ba8-93a3-ab995d2a142e
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: PSTG_USER_TAG_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ae49b92d-7efe-46d0-af0d-b63dc87920ff
+          stepCounter: f90bf4ed-41f3-4ba8-93a3-ab995d2a142e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: df789647-c059-4c4f-9335-2f7ca6c4c6c9
+                stepCounter: 02e7c3c6-e586-4322-9bf7-44b07a710a70
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 53ca1569-2fc4-49cf-9fb3-330f25a1d5ca
+          stepCounter: f90bf4ed-41f3-4ba8-93a3-ab995d2a142e
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: TAGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2e707a84-11ea-4f2d-abb8-3c719e0d232c
+                stepCounter: 02e7c3c6-e586-4322-9bf7-44b07a710a70
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e047e69-67ab-4cf5-8ade-16924b52f1a3
+          stepCounter: f90bf4ed-41f3-4ba8-93a3-ab995d2a142e
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 66f09209-c18f-4463-a3b0-05b84dbadcf5
+                stepCounter: 02e7c3c6-e586-4322-9bf7-44b07a710a70
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 67da4699-70ff-4fe6-9d1e-2d9c3faafdca
+          stepCounter: f90bf4ed-41f3-4ba8-93a3-ab995d2a142e
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8da730b3-a283-48c7-bd2e-df01663a40ee
+          stepCounter: f90bf4ed-41f3-4ba8-93a3-ab995d2a142e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f536750e-262a-439b-a169-c3c45a2d0ad1
+          stepCounter: f90bf4ed-41f3-4ba8-93a3-ab995d2a142e
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 29322a98-294a-4995-b73c-18c266c6363d
+          stepCounter: f90bf4ed-41f3-4ba8-93a3-ab995d2a142e
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5bba9432-9ebe-440e-a9a9-9e7359950356
+          stepCounter: f90bf4ed-41f3-4ba8-93a3-ab995d2a142e
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5f981dea-fbac-4ede-9849-e4a39b89cc71
+          stepCounter: f90bf4ed-41f3-4ba8-93a3-ab995d2a142e
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: INC_USER_TAG
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'INC_USER_TAG') }} "INC_USER_TAG"
+        name: PSTG_USER_TAG
+        noLinkRefs: []
+  name: PSTG_USER_TAG
+  overrideSQL: false
+  schema: ""
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node

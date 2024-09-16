@@ -1,0 +1,136 @@
+fileVersion: 1
+id: ab156fe1-d66f-403a-bcaf-cc229e6f335f
+name: V_FINAL_TICKET_BACKLOG
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 187294f9-b39e-4726-86fe-2063f0e49326
+          stepCounter: ab156fe1-d66f-403a-bcaf-cc229e6f335f
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DATE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 741dafba-cb0c-4b88-a8f8-7d11125706a8
+                stepCounter: c1ee9c0f-5e45-4090-baaa-3d52ce1b833d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cb75cf4b-2b1a-4b38-8047-4c9a2e334103
+          stepCounter: ab156fe1-d66f-403a-bcaf-cc229e6f335f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c00efa67-ba38-4627-ad51-9ef29c2332b3
+                stepCounter: c1ee9c0f-5e45-4090-baaa-3d52ce1b833d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b6db2a4-fd41-4d3a-a6ba-05710d44c14c
+          stepCounter: ab156fe1-d66f-403a-bcaf-cc229e6f335f
+        config: {}
+        dataType: ""
+        description: ""
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eaa52a61-97bc-4287-9e39-99b36f8c9e68
+                stepCounter: c1ee9c0f-5e45-4090-baaa-3d52ce1b833d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 82817f2f-9893-4b4a-ad8a-3f2fab896d18
+          stepCounter: ab156fe1-d66f-403a-bcaf-cc229e6f335f
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: CREATED_CHANNEL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bdb28546-9926-4fd5-850d-375977d08843
+                stepCounter: 2630639b-14e3-4546-838d-4100786f9216
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f4b74f00-9c01-45a0-9f94-550b5bdd3ffa
+          stepCounter: ab156fe1-d66f-403a-bcaf-cc229e6f335f
+        config: {}
+        dataType: ""
+        description: ""
+        name: PRIORITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bdd8237f-4562-46e3-b40b-3131df92a6ab
+                stepCounter: c1ee9c0f-5e45-4090-baaa-3d52ce1b833d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bbed90be-8f87-4d67-a04c-156e663cdec1
+          stepCounter: ab156fe1-d66f-403a-bcaf-cc229e6f335f
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: ASSIGNEE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0fab7001-7f09-4a92-9f7e-65fba91d85d3
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PSTG_TICKET: 2630639b-14e3-4546-838d-4100786f9216
+          PSTG_USER: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+          V_FINAL_TICKET_FIELD_HISTORY: c1ee9c0f-5e45-4090-baaa-3d52ce1b833d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_TICKET
+          - locationName: TARGET
+            nodeName: PSTG_USER
+          - locationName: TARGET
+            nodeName: V_FINAL_TICKET_FIELD_HISTORY
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_FINAL_TICKET_FIELD_HISTORY') }} "V_FINAL_TICKET_FIELD_HISTORY"
+            left JOIN {{ ref('TARGET', 'PSTG_TICKET') }} "PSTG_TICKET"
+            on PSTG_TICKET.ticket_id = V_FINAL_TICKET_FIELD_HISTORY.ticket_id
+            LEFT JOIN {{ ref('TARGET', 'PSTG_USER') }} "PSTG_USER"
+            ON PSTG_USER.user_id = cast(V_FINAL_TICKET_FIELD_HISTORY.assignee_id as bigint)
+             where V_FINAL_TICKET_FIELD_HISTORY.status not in ('closed', 'solved', 'deleted')
+        name: V_FINAL_TICKET_BACKLOG
+        noLinkRefs: []
+  name: V_FINAL_TICKET_BACKLOG
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

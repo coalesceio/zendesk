@@ -1,0 +1,123 @@
+fileVersion: 1
+id: 714781a9-04d5-4ffd-ab9a-fba77d61394e
+name: V_INT_FIELD_HISTORY_SCD
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9bdbd636-6654-4ae6-bb2f-fc46e71b7963
+          stepCounter: 714781a9-04d5-4ffd-ab9a-fba77d61394e
+        config: {}
+        dataType: ""
+        description: ""
+        name: VALID_FROM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: be9e5424-3c39-4844-a044-23712763069a
+                stepCounter: b77d9e8d-d483-4658-aff9-6b191a24366c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f28290e6-74c1-4d0f-9a56-59a3bce92bb4
+          stepCounter: 714781a9-04d5-4ffd-ab9a-fba77d61394e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ee239817-8464-49e9-ac3a-57a6c6a01f24
+                stepCounter: b77d9e8d-d483-4658-aff9-6b191a24366c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 98fe31d8-3358-42a1-83fd-4eccd53025a7
+          stepCounter: 714781a9-04d5-4ffd-ab9a-fba77d61394e
+        config: {}
+        dataType: ""
+        description: ""
+        name: TICKET_DAY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d9d0d5c-c598-48d7-9b6e-b8c00d36b021
+                stepCounter: b77d9e8d-d483-4658-aff9-6b191a24366c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2aeb998e-46e3-4ee0-b780-ea45570ed88d
+          stepCounter: 714781a9-04d5-4ffd-ab9a-fba77d61394e
+        config: {}
+        dataType: ""
+        description: ""
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 917436a7-9659-4898-b7e3-a87e70d7e355
+                stepCounter: b77d9e8d-d483-4658-aff9-6b191a24366c
+            transform: "first_value( status ) over (partition by status_field_partition, ticket_id order by valid_from asc rows between unbounded preceding and current row) "
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 608a020e-8369-44a5-836e-69640a04686b
+          stepCounter: 714781a9-04d5-4ffd-ab9a-fba77d61394e
+        config: {}
+        dataType: ""
+        description: ""
+        name: ASSIGNEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 27e2df76-6ade-4ba9-bd3a-a75ce0841619
+                stepCounter: b77d9e8d-d483-4658-aff9-6b191a24366c
+            transform: "first_value( assignee_id ) over (partition by assignee_id_field_partition, ticket_id order by valid_from asc rows between unbounded preceding and current row) "
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 460881ed-f418-4f80-a600-f67c9feac59e
+          stepCounter: 714781a9-04d5-4ffd-ab9a-fba77d61394e
+        config: {}
+        dataType: ""
+        description: ""
+        name: PRIORITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 98cf47a1-8f1c-43b8-836e-ef3f7552e1e4
+                stepCounter: b77d9e8d-d483-4658-aff9-6b191a24366c
+            transform: first_value( priority ) over (partition by priority_field_partition, ticket_id order by valid_from asc rows between unbounded preceding and current row)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_SET_VALUES
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_SET_VALUES') }} "V_SET_VALUES"
+        name: V_INT_FIELD_HISTORY_SCD
+        noLinkRefs: []
+  name: V_INT_FIELD_HISTORY_SCD
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

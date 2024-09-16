@@ -1,0 +1,106 @@
+fileVersion: 1
+id: 9e81eb02-d232-4576-8e7e-b3da72873aba
+name: V_COMMENT_MARKDOWNS
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 49de3126-655e-4ded-af07-a5d6da406b1f
+          stepCounter: 9e81eb02-d232-4576-8e7e-b3da72873aba
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_COMMENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 087dfc6b-ebfe-460d-838d-7db9fbfd2638
+                stepCounter: 6df2da25-4e4b-4520-9b6d-c2ef6697431a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 31faa5c5-3ffe-477a-a5fb-da6e6a4c2d65
+          stepCounter: 9e81eb02-d232-4576-8e7e-b3da72873aba
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 79d4daac-40f6-4048-a7ca-60cfd425b7e3
+                stepCounter: 6df2da25-4e4b-4520-9b6d-c2ef6697431a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d790ecd0-3fc8-495c-a2c8-3ad9101666c9
+          stepCounter: 9e81eb02-d232-4576-8e7e-b3da72873aba
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: COMMENT_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c1d4f458-29ea-48ff-ac28-e88cd595abcf
+                stepCounter: 6df2da25-4e4b-4520-9b6d-c2ef6697431a
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0e656157-bd10-42f8-89f7-8cd124b234bd
+          stepCounter: 9e81eb02-d232-4576-8e7e-b3da72873aba
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: COMMENT_MARKDOWN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CAST(
+                  CONCAT(
+                      '### message from ', commenter_name, ' (', commenter_email, ')\n',
+                      '##### sent @ ', comment_time, '\n',
+                      comment_body
+                  ) AS STRING
+              )
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_COMMENT_DETAILS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_COMMENT_DETAILS') }} "V_COMMENT_DETAILS"
+        name: V_COMMENT_MARKDOWNS
+        noLinkRefs: []
+  name: V_COMMENT_MARKDOWNS
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

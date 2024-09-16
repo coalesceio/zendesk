@@ -1,0 +1,126 @@
+fileVersion: 1
+id: 9f583326-8c16-48c3-a0eb-50b9e02e0a84
+name: V_INT_LATEST_TICKET_FORM
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0439cc4a-1b62-40b1-a7f2-95557080973b
+          stepCounter: 9f583326-8c16-48c3-a0eb-50b9e02e0a84
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_FORM_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6bb045c1-948d-493e-a213-0e798cecd17e
+                stepCounter: 107b595f-a3a3-461a-8ff9-35201aeaa551
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 78f9c87f-234b-477a-8a42-4c6c00a2436a
+          stepCounter: 9f583326-8c16-48c3-a0eb-50b9e02e0a84
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a975d275-9b25-4952-929e-06761adb6f18
+                stepCounter: 107b595f-a3a3-461a-8ff9-35201aeaa551
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3830b2b4-561d-4a9c-a8df-dc96f8b55791
+          stepCounter: 9f583326-8c16-48c3-a0eb-50b9e02e0a84
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: UPDATED_AT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a6ae4827-e559-4fc1-9384-b83fc61ff651
+                stepCounter: 107b595f-a3a3-461a-8ff9-35201aeaa551
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eee39dfd-1032-4fd3-b06c-4a3af5dad5d6
+          stepCounter: 9f583326-8c16-48c3-a0eb-50b9e02e0a84
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: DISPLAY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3411b002-5db2-43e6-88a6-e302c0c462e2
+                stepCounter: 107b595f-a3a3-461a-8ff9-35201aeaa551
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e1089f9-273f-4882-9af7-b399a95eff27
+          stepCounter: 9f583326-8c16-48c3-a0eb-50b9e02e0a84
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fe411000-85fb-4630-8047-82bafc662d42
+                stepCounter: 107b595f-a3a3-461a-8ff9-35201aeaa551
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60f8033e-8abe-4a0b-81fe-4c391fe2f01e
+          stepCounter: 9f583326-8c16-48c3-a0eb-50b9e02e0a84
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 55d3cd1b-a65d-4bdb-825c-b0e51f7517a4
+                stepCounter: 107b595f-a3a3-461a-8ff9-35201aeaa551
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PSTG_TICKET_FORM_HISTORY: 107b595f-a3a3-461a-8ff9-35201aeaa551
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_TICKET_FORM_HISTORY
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'PSTG_TICKET_FORM_HISTORY') }} "PSTG_TICKET_FORM_HISTORY"
+            QUALIFY ROW_NUMBER() OVER(PARTITION BY TICKET_FORM_ID ORDER BY UPDATED_AT DESC) = 1
+        name: V_INT_LATEST_TICKET_FORM
+        noLinkRefs: []
+  name: V_INT_LATEST_TICKET_FORM
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

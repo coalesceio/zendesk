@@ -1,0 +1,72 @@
+fileVersion: 1
+id: a1c66dca-6c90-4627-a772-2dd8455e77ef
+name: V_INT_TICKET_FIRST_RESOLUTION_TIME_BUSINESS
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7432267f-6ab4-4164-99f5-f97820b25730
+          stepCounter: a1c66dca-6c90-4627-a772-2dd8455e77ef
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b4096928-ab29-4376-aeb6-f00081a1d2be
+                stepCounter: 6e5be2ce-c07d-4e87-8b9f-3c236d91e626
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c69b02e0-4833-422d-8c4a-95493037c18c
+          stepCounter: a1c66dca-6c90-4627-a772-2dd8455e77ef
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: FIRST_RESOLUTION_BUSINESS_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "sum(scheduled_minutes) "
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_INTERCEPTED_PERIODS_RESOLUTION_FIRST: 6e5be2ce-c07d-4e87-8b9f-3c236d91e626
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INTERCEPTED_PERIODS_RESOLUTION_FIRST
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_INTERCEPTED_PERIODS_RESOLUTION_FIRST') }} "V_INTERCEPTED_PERIODS_RESOLUTION_FIRST"
+        name: V_INT_TICKET_FIRST_RESOLUTION_TIME_BUSINESS
+        noLinkRefs: []
+  name: V_INT_TICKET_FIRST_RESOLUTION_TIME_BUSINESS
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,129 @@
+fileVersion: 1
+id: 4e7b6800-de99-4f9d-a05c-0707979db696
+name: V_TICKET_FIELD_HISTORY_JOINED
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 09e3b3ee-2868-4cd9-8aa6-380e5557e359
+          stepCounter: 4e7b6800-de99-4f9d-a05c-0707979db696
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DATE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d29c1902-b7e2-4a14-8710-7ea5c76ee0e5
+                stepCounter: f7946a00-2f67-46b2-ae1e-d46995117d36
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b4de7d59-cc58-47af-b0af-9d4dd42f28b4
+          stepCounter: 4e7b6800-de99-4f9d-a05c-0707979db696
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 74606cc6-41c8-4302-8552-a9026ef6d664
+                stepCounter: f7946a00-2f67-46b2-ae1e-d46995117d36
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc02d1f8-8326-47dc-81ba-c690e9483fcb
+          stepCounter: 4e7b6800-de99-4f9d-a05c-0707979db696
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: V_INT_FIELD_HISTORY_SCD.status
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6fd2843e-0361-4518-933d-5a3ba033dd61
+          stepCounter: 4e7b6800-de99-4f9d-a05c-0707979db696
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: ASSIGNEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: V_INT_FIELD_HISTORY_SCD.assignee_id
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e9b41451-b865-471f-98be-bdc9c6a2ce2d
+          stepCounter: 4e7b6800-de99-4f9d-a05c-0707979db696
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: PRIORITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: V_INT_FIELD_HISTORY_SCD.priority
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_FIELD_HISTORY_CALENDAR: f7946a00-2f67-46b2-ae1e-d46995117d36
+          V_INT_FIELD_HISTORY_SCD: 714781a9-04d5-4ffd-ab9a-fba77d61394e
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_FIELD_HISTORY_CALENDAR
+          - locationName: TARGET
+            nodeName: V_INT_FIELD_HISTORY_SCD
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_FIELD_HISTORY_CALENDAR') }} "V_FIELD_HISTORY_CALENDAR"
+            LEFT JOIN {{ ref('TARGET', 'V_INT_FIELD_HISTORY_SCD') }} "V_INT_FIELD_HISTORY_SCD"
+            on V_FIELD_HISTORY_CALENDAR.ticket_id = V_INT_FIELD_HISTORY_SCD.ticket_id
+            and V_FIELD_HISTORY_CALENDAR.date_KEY = V_INT_FIELD_HISTORY_SCD.valid_from
+        name: V_TICKET_FIELD_HISTORY_JOINED
+        noLinkRefs: []
+  name: V_TICKET_FIELD_HISTORY_JOINED
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

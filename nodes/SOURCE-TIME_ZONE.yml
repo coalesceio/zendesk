@@ -1,0 +1,77 @@
+fileVersion: 1
+id: 5a4cb077-905c-4ab0-ad40-8e9a7a71df9d
+name: TIME_ZONE
+operation:
+  database: ""
+  dataset: ""
+  deployEnabled: true
+  description: ""
+  locationName: SOURCE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ca8de02a-c1ad-47e9-8454-43df5b60d379
+          stepCounter: 5a4cb077-905c-4ab0-ad40-8e9a7a71df9d
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: TIME_ZONE
+        nullable: false
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 40661880-501d-4a3b-8af3-305131910a24
+          stepCounter: 5a4cb077-905c-4ab0-ad40-8e9a7a71df9d
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: STANDARD_OFFSET
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6df88d17-6624-4549-942a-97cbe870c4de
+          stepCounter: 5a4cb077-905c-4ab0-ad40-8e9a7a71df9d
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+    join:
+      joinCondition: FROM {{ ref('SOURCE', 'TIME_ZONE') }}
+  name: TIME_ZONE
+  schema: ""
+  sqlType: Source
+  table: TIME_ZONE
+  type: sourceInput
+  version: 1
+type: Node

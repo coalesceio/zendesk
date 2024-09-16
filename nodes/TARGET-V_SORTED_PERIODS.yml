@@ -1,0 +1,173 @@
+fileVersion: 1
+id: a753454d-88e1-4efa-96e7-d6ab95af8594
+name: V_SORTED_PERIODS
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5897f7d8-3a9c-45cd-86aa-519ee7676ece
+          stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SCHEDULE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4e96886a-81c4-431e-a09e-bbbde6487210
+                stepCounter: 8f055aa5-98f9-48a6-9e15-dd8dc594e123
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d6669b7e-59f6-4e45-b886-6fdad1f0b3d7
+          stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+        config: {}
+        dataType: ""
+        description: ""
+        name: PERIOD_START
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 96c674f3-edf7-4e3c-8307-64d3b3551672
+                stepCounter: 8f055aa5-98f9-48a6-9e15-dd8dc594e123
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 649e0fe0-b742-4e7b-81cc-25c3e5f85053
+          stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+        config: {}
+        dataType: ""
+        description: ""
+        name: PERIOD_END
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0b446b41-948f-4582-aaca-d4056d7300ca
+                stepCounter: 8f055aa5-98f9-48a6-9e15-dd8dc594e123
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0dd9358-0c07-4353-822f-3ec0b2e3f4b6
+          stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+        config: {}
+        dataType: ""
+        description: ""
+        name: START_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 86bc3cd7-a2e1-4103-88d8-dd1dfac222c9
+                stepCounter: 8f055aa5-98f9-48a6-9e15-dd8dc594e123
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 50df3a0f-4307-41b3-9782-d4744689e680
+          stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+        config: {}
+        dataType: ""
+        description: ""
+        name: END_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 55b03034-d81a-4539-bfc3-afdc0f91de1a
+                stepCounter: 8f055aa5-98f9-48a6-9e15-dd8dc594e123
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8de15482-86df-45c4-bd36-df01aecc36f7
+          stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+        config: {}
+        dataType: ""
+        description: ""
+        name: HOLIDAY_NAME_CHECK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 57a2375e-c2ec-4ecc-9d71-b6842bdc620d
+                stepCounter: 8f055aa5-98f9-48a6-9e15-dd8dc594e123
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 49f87274-6e27-4c1d-ad3b-5c11cd063833
+          stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+        config: {}
+        dataType: ""
+        description: ""
+        name: IS_HOLIDAY_WEEK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ad658593-2203-481b-9a12-fdd9f8b8a387
+                stepCounter: 8f055aa5-98f9-48a6-9e15-dd8dc594e123
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e62af40f-b9f3-487e-bb82-caaac6d63ab8
+          stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: PREV_END
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: LAG(PERIOD_END) OVER (PARTITION BY SCHEDULE_ID ORDER BY PERIOD_START, START_TIME_UTC)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f95fd39-0e33-4b35-a83a-d1386b94ed0e
+          stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: NEXT_START
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: LEAD(PERIOD_START) OVER (PARTITION BY SCHEDULE_ID ORDER BY PERIOD_START, START_TIME_UTC)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_ALL_PERIODS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_ALL_PERIODS') }} "V_ALL_PERIODS"
+        name: V_SORTED_PERIODS
+        noLinkRefs: []
+  name: V_SORTED_PERIODS
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

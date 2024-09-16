@@ -1,0 +1,138 @@
+fileVersion: 1
+id: 6df2da25-4e4b-4520-9b6d-c2ef6697431a
+name: V_COMMENT_DETAILS
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 087dfc6b-ebfe-460d-838d-7db9fbfd2638
+          stepCounter: 6df2da25-4e4b-4520-9b6d-c2ef6697431a
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_COMMENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5fc80486-e11c-41aa-8986-e979d7ca1278
+                stepCounter: a8329502-d4a8-4dcb-bdca-95176e333173
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 79d4daac-40f6-4048-a7ca-60cfd425b7e3
+          stepCounter: 6df2da25-4e4b-4520-9b6d-c2ef6697431a
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c21a07ac-9de5-421a-87aa-4146ec03de91
+                stepCounter: a8329502-d4a8-4dcb-bdca-95176e333173
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 724e2d7d-e774-4c95-99c1-99df552a741f
+          stepCounter: 6df2da25-4e4b-4520-9b6d-c2ef6697431a
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: COMMENTER_EMAIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COALESCE(CAST(PSTG_USER.EMAIL AS STRING), 'UNKNOWN')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3bafc763-bded-45fa-a320-9c4de5b1b60b
+          stepCounter: 6df2da25-4e4b-4520-9b6d-c2ef6697431a
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: COMMENTER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COALESCE(CAST(PSTG_USER.name AS STRING), 'UNKNOWN')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1d4f458-29ea-48ff-ac28-e88cd595abcf
+          stepCounter: 6df2da25-4e4b-4520-9b6d-c2ef6697431a
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: COMMENT_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dc0ef282-4c54-4541-9017-26f45c24bebb
+                stepCounter: a8329502-d4a8-4dcb-bdca-95176e333173
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 02ead31f-db37-4a92-8994-257b6f9445f4
+          stepCounter: 6df2da25-4e4b-4520-9b6d-c2ef6697431a
+        config: {}
+        dataType: VARCHAR(65536)
+        description: ""
+        name: COMMENT_BODY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 03cdc055-383c-4e9c-bd30-b3f4b8c81655
+                stepCounter: a8329502-d4a8-4dcb-bdca-95176e333173
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PSTG_TICKET_COMMENT: a8329502-d4a8-4dcb-bdca-95176e333173
+          PSTG_USER: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_TICKET_COMMENT
+          - locationName: TARGET
+            nodeName: PSTG_USER
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'PSTG_TICKET_COMMENT') }} "PSTG_TICKET_COMMENT"
+            LEFT JOIN {{ ref('TARGET', 'PSTG_USER') }} "PSTG_USER"
+            on PSTG_TICKET_COMMENT.user_id = PSTG_USER.user_id
+        name: V_COMMENT_DETAILS
+        noLinkRefs: []
+  name: V_COMMENT_DETAILS
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

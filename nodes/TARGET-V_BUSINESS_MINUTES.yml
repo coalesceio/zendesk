@@ -1,0 +1,207 @@
+fileVersion: 1
+id: e6a1a1a1-6512-44e6-a0a2-9a8926593b61
+name: V_BUSINESS_MINUTES
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ff6d87a5-6f0d-4dc7-9ba8-937e0150ff37
+          stepCounter: e6a1a1a1-6512-44e6-a0a2-9a8926593b61
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 22204637-4412-404b-a2cd-d29f96b52aba
+                stepCounter: 6b79ac08-fe79-47b8-b66f-54789f698bbe
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c941f10-0d27-4fe7-8969-9debdce67bee
+          stepCounter: e6a1a1a1-6512-44e6-a0a2-9a8926593b61
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: TICKET_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f212c3cf-bf92-43b0-96c3-603b73a1f3b0
+                stepCounter: 6b79ac08-fe79-47b8-b66f-54789f698bbe
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8eef26c7-d748-4568-87fa-d4ad4b198750
+          stepCounter: e6a1a1a1-6512-44e6-a0a2-9a8926593b61
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: AGENT_WAIT_TIME_IN_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE WHEN TICKET_STATUS IN ('PENDING') THEN SCHEDULED_MINUTES
+                        ELSE 0 END
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1ca73fe6-b3c8-4186-a24d-6f652f4ea996
+          stepCounter: e6a1a1a1-6512-44e6-a0a2-9a8926593b61
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: REQUESTER_WAIT_TIME_IN_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE WHEN TICKET_STATUS IN ('NEW', 'OPEN', 'HOLD') THEN SCHEDULED_MINUTES
+                        ELSE 0 END
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 82fffff8-df23-45a4-9cfd-5f10a0a4b7d9
+          stepCounter: e6a1a1a1-6512-44e6-a0a2-9a8926593b61
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: SOLVE_TIME_IN_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE WHEN TICKET_STATUS IN ('NEW', 'OPEN', 'HOLD', 'PENDING') THEN SCHEDULED_MINUTES
+                        ELSE 0 END
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 95678d46-d765-4a6a-aef1-86c032e28bf8
+          stepCounter: e6a1a1a1-6512-44e6-a0a2-9a8926593b61
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: AGENT_WORK_TIME_IN_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE WHEN TICKET_STATUS IN ('NEW', 'OPEN') THEN SCHEDULED_MINUTES
+                        ELSE 0 END
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 341943f2-dd6a-4d54-b1a8-b31cd7dd3648
+          stepCounter: e6a1a1a1-6512-44e6-a0a2-9a8926593b61
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: ON_HOLD_TIME_IN_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE WHEN TICKET_STATUS IN ('HOLD') THEN SCHEDULED_MINUTES
+                        ELSE 0 END
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 30e68f7a-d15b-4d38-bf2a-4b50d676ac73
+          stepCounter: e6a1a1a1-6512-44e6-a0a2-9a8926593b61
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: NEW_STATUS_DURATION_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE WHEN TICKET_STATUS = 'NEW' THEN SCHEDULED_MINUTES
+                        ELSE 0 END
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c4a3bf8-5a6c-492e-ac87-cc59800e5625
+          stepCounter: e6a1a1a1-6512-44e6-a0a2-9a8926593b61
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: OPEN_STATUS_DURATION_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE WHEN TICKET_STATUS = 'OPEN' THEN SCHEDULED_MINUTES
+                        ELSE 0 END
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INTERCEPTED_PERIODS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_INTERCEPTED_PERIODS') }} "V_INTERCEPTED_PERIODS"
+        name: V_BUSINESS_MINUTES
+        noLinkRefs: []
+  name: V_BUSINESS_MINUTES
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

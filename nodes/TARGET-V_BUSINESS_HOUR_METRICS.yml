@@ -1,0 +1,220 @@
+fileVersion: 1
+id: 75274e6f-1784-4753-bb2b-e99cd024cc8b
+name: V_BUSINESS_HOUR_METRICS
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    orderby: false
+    postSQL: null
+    preSQL: null
+    secureoption: false
+    selectDistinct: false
+    testsEnabled: false
+    truncateBefore: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: da3977b9-d4c8-462a-8421-e4125535c1d8
+          stepCounter: 75274e6f-1784-4753-bb2b-e99cd024cc8b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 298929e6-fe5e-47bc-b566-c2644497de4c
+                stepCounter: 77f35fd8-5ba7-489d-a596-a87658074c73
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b26e47f8-b4fd-4bca-808a-908b25ea2d51
+          stepCounter: 75274e6f-1784-4753-bb2b-e99cd024cc8b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: FIRST_RESOLUTION_BUSINESS_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c69b02e0-4833-422d-8c4a-95493037c18c
+                stepCounter: a1c66dca-6c90-4627-a772-2dd8455e77ef
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9926a027-781f-4546-8d2b-37bbee83dfa4
+          stepCounter: 75274e6f-1784-4753-bb2b-e99cd024cc8b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: FULL_RESOLUTION_BUSINESS_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 88e157bf-14c7-4bcb-9f4c-e90aea635db7
+                stepCounter: 6bc91437-0e9a-4005-80c8-d4e036cc17a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9760c15-6d8d-4392-8ba6-de62292732c3
+          stepCounter: 75274e6f-1784-4753-bb2b-e99cd024cc8b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: FIRST_REPLY_TIME_BUSINESS_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d87a9375-5a6e-41ad-ac25-81ed99029e28
+                stepCounter: ac6b8fc6-2981-4acb-b208-661db8a03e37
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a3e7cebe-4092-44ba-b2ea-9f924287a035
+          stepCounter: 75274e6f-1784-4753-bb2b-e99cd024cc8b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: AGENT_WAIT_TIME_IN_BUSINESS_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c7f174e7-b8c9-499f-beb1-a94ea860c517
+                stepCounter: 17ee4f2f-5585-4cab-81b6-390928468846
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f605299e-c260-4668-80cf-517c1fc2e19d
+          stepCounter: 75274e6f-1784-4753-bb2b-e99cd024cc8b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REQUESTER_WAIT_TIME_IN_BUSINESS_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b44c9baf-6e0f-4713-bf4b-b5c3eb66d969
+                stepCounter: 17ee4f2f-5585-4cab-81b6-390928468846
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59ee3c94-b2b6-4e5a-9a25-429effb977c2
+          stepCounter: 75274e6f-1784-4753-bb2b-e99cd024cc8b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SOLVE_TIME_IN_BUSINESS_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c59631fb-d8db-44cc-a86e-fcbfacd8a406
+                stepCounter: 17ee4f2f-5585-4cab-81b6-390928468846
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 07aa6cac-c707-40f9-88e0-09f2d482ad99
+          stepCounter: 75274e6f-1784-4753-bb2b-e99cd024cc8b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: AGENT_WORK_TIME_IN_BUSINESS_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 59be5e66-5e39-44a3-a332-94fcb09b2ae9
+                stepCounter: 17ee4f2f-5585-4cab-81b6-390928468846
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e7cf68d4-8590-475c-b16a-b624750fb1c6
+          stepCounter: 75274e6f-1784-4753-bb2b-e99cd024cc8b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ON_HOLD_TIME_IN_BUSINESS_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4104972d-344b-4162-8ca9-42bff8df3faa
+                stepCounter: 17ee4f2f-5585-4cab-81b6-390928468846
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c6ea092c-c64b-4f51-a913-a5a2f18d545d
+          stepCounter: 75274e6f-1784-4753-bb2b-e99cd024cc8b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: NEW_STATUS_DURATION_IN_BUSINESS_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 515e895c-4a1d-4c35-bdf0-d127bce79fd1
+                stepCounter: 17ee4f2f-5585-4cab-81b6-390928468846
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59edacd5-0596-43fd-993d-7cae4decee53
+          stepCounter: 75274e6f-1784-4753-bb2b-e99cd024cc8b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OPEN_STATUS_DURATION_IN_BUSINESS_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 11d225b9-cc0c-4fd7-80dc-41d2b1b34172
+                stepCounter: 17ee4f2f-5585-4cab-81b6-390928468846
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_FINAL_TICKET_ENRICHED: 77f35fd8-5ba7-489d-a596-a87658074c73
+          V_INT_TICKET_FIRST_REPLY_TIME_BUSINESS: ac6b8fc6-2981-4acb-b208-661db8a03e37
+          V_INT_TICKET_FIRST_RESOLUTION_TIME_BUSINESS: a1c66dca-6c90-4627-a772-2dd8455e77ef
+          V_INT_TICKET_FULL_RESOLUTION_TIME_BUSINESS: 6bc91437-0e9a-4005-80c8-d4e036cc17a3
+          V_INT_TICKET_WORK_TIME_BUSINESS: 17ee4f2f-5585-4cab-81b6-390928468846
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_FINAL_TICKET_ENRICHED
+          - locationName: TARGET
+            nodeName: V_INT_TICKET_FIRST_REPLY_TIME_BUSINESS
+          - locationName: TARGET
+            nodeName: V_INT_TICKET_FIRST_RESOLUTION_TIME_BUSINESS
+          - locationName: TARGET
+            nodeName: V_INT_TICKET_FULL_RESOLUTION_TIME_BUSINESS
+          - locationName: TARGET
+            nodeName: V_INT_TICKET_WORK_TIME_BUSINESS
+        join:
+          joinCondition: |
+            FROM {{ ref('TARGET', 'V_FINAL_TICKET_ENRICHED') }} "V_FINAL_TICKET_ENRICHED"
+            LEFT JOIN {{ ref('TARGET', 'V_INT_TICKET_FIRST_RESOLUTION_TIME_BUSINESS') }} "V_INT_TICKET_FIRST_RESOLUTION_TIME_BUSINESS"
+            ON "V_FINAL_TICKET_ENRICHED"."TICKET_ID" = "V_INT_TICKET_FIRST_RESOLUTION_TIME_BUSINESS"."TICKET_ID"
+            LEFT JOIN {{ ref('TARGET', 'V_INT_TICKET_FULL_RESOLUTION_TIME_BUSINESS') }} "V_INT_TICKET_FULL_RESOLUTION_TIME_BUSINESS"
+            ON "V_FINAL_TICKET_ENRICHED"."TICKET_ID" = "V_INT_TICKET_FULL_RESOLUTION_TIME_BUSINESS"."TICKET_ID"
+            LEFT JOIN {{ ref('TARGET', 'V_INT_TICKET_FIRST_REPLY_TIME_BUSINESS') }} "V_INT_TICKET_FIRST_REPLY_TIME_BUSINESS"
+            ON "V_FINAL_TICKET_ENRICHED"."TICKET_ID" = "V_INT_TICKET_FIRST_REPLY_TIME_BUSINESS"."TICKET_ID"
+            LEFT JOIN {{ ref('TARGET', 'V_INT_TICKET_WORK_TIME_BUSINESS') }} "V_INT_TICKET_WORK_TIME_BUSINESS"
+            ON "V_FINAL_TICKET_ENRICHED"."TICKET_ID" = "V_INT_TICKET_WORK_TIME_BUSINESS"."TICKET_ID"
+        name: V_BUSINESS_HOUR_METRICS
+        noLinkRefs: []
+  name: V_BUSINESS_HOUR_METRICS
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::204
+  type: sql
+  version: 1
+type: Node

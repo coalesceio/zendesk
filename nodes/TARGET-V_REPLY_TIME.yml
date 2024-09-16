@@ -1,0 +1,95 @@
+fileVersion: 1
+id: 38bed834-fe82-4dff-b7ea-13edf8098add
+name: V_REPLY_TIME
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eb59d68b-8e77-4b1b-813a-c018e95b5d33
+          stepCounter: 38bed834-fe82-4dff-b7ea-13edf8098add
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd2edeaa-7b05-49e1-9c08-807f5fd5b229
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8eadd225-8191-41e5-8908-3074912ce28e
+          stepCounter: 38bed834-fe82-4dff-b7ea-13edf8098add
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: REPLY_AT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 36490b09-9ea0-4c48-86c7-7a2b0d064b4f
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bb44d0e0-d09a-4e77-aee3-f42ac72b523f
+          stepCounter: 38bed834-fe82-4dff-b7ea-13edf8098add
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: ROLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a08eb77-277d-4611-834c-a1b5a7027f62
+                stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_INT_UPDATES: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+          V_INT_USER_AGGREGRATES: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_UPDATES
+          - locationName: TARGET
+            nodeName: V_INT_USER_AGGREGRATES
+        join:
+          joinCondition: |
+            FROM {{ ref('TARGET', 'V_INT_UPDATES') }} "V_INT_UPDATES"
+            JOIN {{ ref('TARGET', 'V_INT_USER_AGGREGRATES') }} "V_INT_USER_AGGREGRATES"
+            ON "V_INT_USER_AGGREGRATES"."USER_ID" = "V_INT_UPDATES"."USER_ID"
+              where field_name = 'comment' 
+                and V_INT_UPDATES.is_public
+                and V_INT_USER_AGGREGRATES.role in ('agent','admin')
+        name: V_REPLY_TIME
+        noLinkRefs: []
+  name: V_REPLY_TIME
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

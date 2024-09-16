@@ -1,0 +1,70 @@
+fileVersion: 1
+id: 86830a5c-3b7e-49fa-b451-ac0f70126cea
+name: V_INT_TICKET_HISTORICAL_GROUP
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8f26eb26-4567-4560-a202-7f16d92423f5
+          stepCounter: 86830a5c-3b7e-49fa-b451-ac0f70126cea
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd2edeaa-7b05-49e1-9c08-807f5fd5b229
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1c6c0d65-0f50-48a9-a6ac-8b378f27b5ac
+          stepCounter: 86830a5c-3b7e-49fa-b451-ac0f70126cea
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: GROUP_STATIONS_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c0d19ec-9cd6-49ad-8036-a0ef04109ce6
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: COUNT("V_INT_UPDATES"."VALUE")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_INT_UPDATES: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_UPDATES
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_INT_UPDATES') }} "V_INT_UPDATES"
+            WHERE FIELD_NAME = 'group_id'
+        name: V_INT_TICKET_HISTORICAL_GROUP
+        noLinkRefs: []
+  name: V_INT_TICKET_HISTORICAL_GROUP
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

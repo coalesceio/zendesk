@@ -1,0 +1,179 @@
+fileVersion: 1
+id: f9a6ac7b-22af-412e-9075-03cb2f069577
+name: V_INT_REQUESTER_WAIT_TIME_FILTERED_STATUSES
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2b963da-fd76-499b-8214-00a01e3bb6ef
+          stepCounter: f9a6ac7b-22af-412e-9075-03cb2f069577
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 51ae7912-b9cd-4176-9904-eaec00b8e3e6
+                stepCounter: 63c33297-1fbc-4aa0-a224-6efa30b50ced
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e7f270ea-aa31-4cca-9dff-332244d375c7
+          stepCounter: f9a6ac7b-22af-412e-9075-03cb2f069577
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: VALID_STARTING_AT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fc96b0d7-6bb9-4702-bbe3-7cafb0ec6bc8
+                stepCounter: 63c33297-1fbc-4aa0-a224-6efa30b50ced
+            transform: "greatest(V_INT_TICKET_HISTORICAL_STATUS.valid_starting_at, V_INT_SLA_POLICY_APPLIED.sla_applied_at) "
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 95af0ebb-1b25-4f16-a4f7-25602df38944
+          stepCounter: f9a6ac7b-22af-412e-9075-03cb2f069577
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: VALID_ENDING_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a8a500dd-d052-439b-9cda-11c9258a2c2e
+                stepCounter: 63c33297-1fbc-4aa0-a224-6efa30b50ced
+            transform: |-
+              COALESCE(
+                  V_INT_TICKET_HISTORICAL_STATUS.valid_ending_at, 
+                  DATEADD(day, 30, CURRENT_TIMESTAMP())
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 42c6356b-276d-4227-85cc-589201f8ba26
+          stepCounter: f9a6ac7b-22af-412e-9075-03cb2f069577
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: TICKET_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 957283d5-4918-403c-b312-94766647a13e
+                stepCounter: 63c33297-1fbc-4aa0-a224-6efa30b50ced
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c044d02-8076-440b-b0ff-b36f28cbefde
+          stepCounter: f9a6ac7b-22af-412e-9075-03cb2f069577
+        config: {}
+        dataType: ""
+        description: ""
+        name: SLA_APPLIED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2f32c234-a922-452a-b3f0-7d4d6e749592
+                stepCounter: 0ea07523-a019-4608-95d2-90fd44901ba9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 453a0e75-0fcf-48e0-99a0-42ae288ac29d
+          stepCounter: f9a6ac7b-22af-412e-9075-03cb2f069577
+        config: {}
+        dataType: ""
+        description: ""
+        name: TARGET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 62b7da6b-ff24-4e02-ad0c-5dfd1f190ac0
+                stepCounter: 0ea07523-a019-4608-95d2-90fd44901ba9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4df3badf-0529-4738-b519-4737e153192e
+          stepCounter: f9a6ac7b-22af-412e-9075-03cb2f069577
+        config: {}
+        dataType: ""
+        description: ""
+        name: SLA_POLICY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 03a74770-c329-42d0-937f-cfaf52243a9c
+                stepCounter: 0ea07523-a019-4608-95d2-90fd44901ba9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c949daca-92c8-4550-82e9-b06e9c2feccf
+          stepCounter: f9a6ac7b-22af-412e-9075-03cb2f069577
+        config: {}
+        dataType: ""
+        description: ""
+        name: TICKET_CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cf600ad2-7877-4fdb-99cf-57daf9ba4c0d
+                stepCounter: 0ea07523-a019-4608-95d2-90fd44901ba9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6276748d-1343-4d26-a9be-ae08cc2b2237
+          stepCounter: f9a6ac7b-22af-412e-9075-03cb2f069577
+        config: {}
+        dataType: ""
+        description: ""
+        name: IN_BUSINESS_HOURS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 717e6a37-be51-491f-a3f3-e66c648cb9cd
+                stepCounter: 0ea07523-a019-4608-95d2-90fd44901ba9
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_INT_SLA_POLICY_APPLIED: 0ea07523-a019-4608-95d2-90fd44901ba9
+          V_INT_TICKET_HISTORICAL_STATUS: 63c33297-1fbc-4aa0-a224-6efa30b50ced
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_SLA_POLICY_APPLIED
+          - locationName: TARGET
+            nodeName: V_INT_TICKET_HISTORICAL_STATUS
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_INT_TICKET_HISTORICAL_STATUS') }} "V_INT_TICKET_HISTORICAL_STATUS"
+            JOIN {{ ref('TARGET', 'V_INT_SLA_POLICY_APPLIED') }} "V_INT_SLA_POLICY_APPLIED"
+            ON "V_INT_SLA_POLICY_APPLIED".METRIC = 'REQUESTER_WAIT_TIME'
+            AND "V_INT_TICKET_HISTORICAL_STATUS"."TICKET_ID" = "V_INT_SLA_POLICY_APPLIED"."TICKET_ID"
+            WHERE "V_INT_TICKET_HISTORICAL_STATUS"."STATUS" IN ('new', 'open', 'on-hold', 'hold')
+            AND "V_INT_SLA_POLICY_APPLIED"."SLA_APPLIED_AT" < "V_INT_TICKET_HISTORICAL_STATUS"."VALID_ENDING_AT"
+        name: V_INT_REQUESTER_WAIT_TIME_FILTERED_STATUSES
+        noLinkRefs: []
+  name: V_INT_REQUESTER_WAIT_TIME_FILTERED_STATUSES
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,129 @@
+fileVersion: 1
+id: c1ee9c0f-5e45-4090-baaa-3d52ce1b833d
+name: V_FINAL_TICKET_FIELD_HISTORY
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 741dafba-cb0c-4b88-a8f8-7d11125706a8
+          stepCounter: c1ee9c0f-5e45-4090-baaa-3d52ce1b833d
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DATE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6fb4004b-a063-46d0-88bc-57323f5cd06a
+                stepCounter: 307a796f-dd51-42cb-9063-12b41ea639bf
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c00efa67-ba38-4627-ad51-9ef29c2332b3
+          stepCounter: c1ee9c0f-5e45-4090-baaa-3d52ce1b833d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b465719e-b54e-4615-8f47-166c0a682c3f
+                stepCounter: 307a796f-dd51-42cb-9063-12b41ea639bf
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eaa52a61-97bc-4287-9e39-99b36f8c9e68
+          stepCounter: c1ee9c0f-5e45-4090-baaa-3d52ce1b833d
+        config: {}
+        dataType: ""
+        description: ""
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7d1cad76-c09f-490f-8db2-197680c9f911
+                stepCounter: 307a796f-dd51-42cb-9063-12b41ea639bf
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8823116a-22e2-4834-afce-a87aced90e27
+          stepCounter: c1ee9c0f-5e45-4090-baaa-3d52ce1b833d
+        config: {}
+        dataType: ""
+        description: ""
+        name: ASSIGNEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 60ca6ed1-4b82-4308-9d2f-f61ed062e2a1
+                stepCounter: 307a796f-dd51-42cb-9063-12b41ea639bf
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bdd8237f-4562-46e3-b40b-3131df92a6ab
+          stepCounter: c1ee9c0f-5e45-4090-baaa-3d52ce1b833d
+        config: {}
+        dataType: ""
+        description: ""
+        name: PRIORITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1a54f0d6-f4a9-4dd3-b44b-462853693466
+                stepCounter: 307a796f-dd51-42cb-9063-12b41ea639bf
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18c651d3-3ebe-4cba-b19c-53fcfafa2392
+          stepCounter: c1ee9c0f-5e45-4090-baaa-3d52ce1b833d
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TICKET_DAY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              md5(cast(coalesce(cast(date_KEY as TEXT), '_missing_value_') || '-' || coalesce(cast(ticket_id as TEXT), '_missing_value_') as TEXT)) 
+                     
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_TICKET_FIELD_HISTORY_FIX_NULL_VALUES
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_TICKET_FIELD_HISTORY_FIX_NULL_VALUES') }} "V_TICKET_FIELD_HISTORY_FIX_NULL_VALUES"
+        name: V_FINAL_TICKET_FIELD_HISTORY
+        noLinkRefs: []
+  name: V_FINAL_TICKET_FIELD_HISTORY
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

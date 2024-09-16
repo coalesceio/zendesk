@@ -1,0 +1,147 @@
+fileVersion: 1
+id: 70ff969e-fcef-4448-b2b7-8193e9c6c6e5
+name: INC_SCHEDULE_HOLIDAY
+operation:
+  config:
+    incColumn:
+      columnCounter: 63a2dc8c-b5f6-4e9d-9319-70e1cc12662d
+      stepCounter: 70ff969e-fcef-4448-b2b7-8193e9c6c6e5
+    persistTableLocation: TARGET
+    persistTableName: PSTG_SCHEDULE_HOLIDAY
+    refTable: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f4140042-ecd8-4e44-8d02-cf5af69b7ca0
+          stepCounter: 70ff969e-fcef-4448-b2b7-8193e9c6c6e5
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SCHEDULE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0beeb781-8a89-4027-8528-b377c8e67d10
+                stepCounter: 252b93d0-2557-4a7b-94e0-dddd6fa76e4d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7180e158-53bc-41cb-bf8f-1ffe0d438d0d
+          stepCounter: 70ff969e-fcef-4448-b2b7-8193e9c6c6e5
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 49ec3d16-3d3d-46ef-8478-3a5f3062584f
+                stepCounter: 252b93d0-2557-4a7b-94e0-dddd6fa76e4d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 33f0b30b-4cc4-469d-8810-886798500f09
+          stepCounter: 70ff969e-fcef-4448-b2b7-8193e9c6c6e5
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fd5e2805-8722-43ef-8273-cbaecc22220a
+                stepCounter: 252b93d0-2557-4a7b-94e0-dddd6fa76e4d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60a4f25d-1614-4bfe-b280-ba874d82de48
+          stepCounter: 70ff969e-fcef-4448-b2b7-8193e9c6c6e5
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 45321da4-90e1-4401-a17c-bcbfb27d21dd
+                stepCounter: 252b93d0-2557-4a7b-94e0-dddd6fa76e4d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 78f0999c-6490-4e1e-920d-82747d10a9f1
+          stepCounter: 70ff969e-fcef-4448-b2b7-8193e9c6c6e5
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 58989ae4-e296-46e6-a1f6-61c193f80118
+                stepCounter: 252b93d0-2557-4a7b-94e0-dddd6fa76e4d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f6022512-7a13-49ca-bae2-c7edcfb9b90f
+          stepCounter: 70ff969e-fcef-4448-b2b7-8193e9c6c6e5
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b762be2c-dc60-40d9-8faf-88e9f9018f12
+                stepCounter: 252b93d0-2557-4a7b-94e0-dddd6fa76e4d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63a2dc8c-b5f6-4e9d-9319-70e1cc12662d
+          stepCounter: 70ff969e-fcef-4448-b2b7-8193e9c6c6e5
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 506e915f-4287-4335-a0f1-fade419d3cd4
+                stepCounter: 252b93d0-2557-4a7b-94e0-dddd6fa76e4d
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SCHEDULE_HOLIDAY: 252b93d0-2557-4a7b-94e0-dddd6fa76e4d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SOURCE
+            nodeName: SCHEDULE_HOLIDAY
+        join:
+          joinCondition: |
+
+
+            FROM{{ ref('SOURCE', 'SCHEDULE_HOLIDAY') }} "SCHEDULE_HOLIDAY"
+              WHERE "SCHEDULE_HOLIDAY"."_FIVETRAN_SYNCED" > 
+              (SELECT COALESCE(MAX("_FIVETRAN_SYNCED"), '1900-01-01') 
+                        FROM {{ ref_no_link('TARGET', 'PSTG_SCHEDULE_HOLIDAY') }} )
+        name: INC_SCHEDULE_HOLIDAY
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: PSTG_SCHEDULE_HOLIDAY
+  name: INC_SCHEDULE_HOLIDAY
+  overrideSQL: false
+  schema: ""
+  sqlType: Incr:::230
+  type: sql
+  version: 1
+type: Node

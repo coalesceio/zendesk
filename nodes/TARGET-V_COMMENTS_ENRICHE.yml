@@ -1,0 +1,180 @@
+fileVersion: 1
+id: b729ea09-3a76-4feb-b599-f296c80ee4ba
+name: V_COMMENTS_ENRICHE
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 948811a3-03ad-4b62-853e-b2bc4faf8887
+          stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd2edeaa-7b05-49e1-9c08-807f5fd5b229
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3abd34c4-72a1-4f92-a04c-6ce0b34d9f47
+          stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FIELD_NAME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6b1907ce-6372-4637-8fa7-0c606cca0832
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8c7932a2-c1a3-4b15-b1cd-cfa771f3c674
+          stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: VALUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c0d19ec-9cd6-49ad-8036-a0ef04109ce6
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c69d1d14-a0ae-43e5-8392-98db0199906e
+          stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+        config: {}
+        dataType: ""
+        description: ""
+        name: IS_PUBLIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0c3a4fb-45fe-4204-99a6-d2e8edbedbea
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc245bbe-7ec8-413e-b7cc-54c400e13908
+          stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b561eaff-f848-4196-8040-776961429e7b
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 958f1ed3-2101-4846-939b-4f3a52e5d7b3
+          stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: VALID_STARTING_AT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 36490b09-9ea0-4c48-86c7-7a2b0d064b4f
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cdeccb23-ab08-4031-83fe-d282d63683ea
+          stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: VALID_ENDING_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6719e4d9-65df-426d-b014-092432cc2134
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9b3aff3a-a94e-4bad-a447-5301d5297839
+          stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: TICKET_CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9dd275e2-a702-43ef-a71e-03aff3d01526
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a6de567d-79e5-4dc8-8324-11111ea5e6d7
+          stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: COMMENTER_ROLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE WHEN PSTG_USER.ROLE = 'end-user' THEN 'external_comment'
+                          WHEN PSTG_USER.ROLE IN ('agent','admin') THEN 'internal_comment'
+                          ELSE 'unknown' END 
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PSTG_USER: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+          V_INT_UPDATES: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_USER
+          - locationName: TARGET
+            nodeName: V_INT_UPDATES
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_INT_UPDATES') }} "V_INT_UPDATES"
+            JOIN {{ ref('TARGET', 'PSTG_USER') }} "PSTG_USER" 
+            ON  "PSTG_USER"."USER_ID" = "V_INT_UPDATES"."USER_ID"
+            WHERE "V_INT_UPDATES"."FIELD_NAME" = 'comment'
+        name: V_COMMENTS_ENRICHE
+        noLinkRefs: []
+  name: V_COMMENTS_ENRICHE
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

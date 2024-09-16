@@ -1,0 +1,270 @@
+fileVersion: 1
+id: 8a637fb0-babd-4417-98a0-60b9fb0fd396
+name: V_INT_COMMENT_METRICS
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2fb2594a-aa01-40bd-a7fb-d70789a69276
+          stepCounter: 8a637fb0-babd-4417-98a0-60b9fb0fd396
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 22aeb5f4-bd07-4fc0-a7e6-69184d3cee6f
+                stepCounter: 9de32cb2-632e-4d29-a383-e79376e46e16
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d45f4edc-6a83-47a8-8364-b750280ee9b5
+          stepCounter: 8a637fb0-babd-4417-98a0-60b9fb0fd396
+        config: {}
+        dataType: ""
+        description: ""
+        name: LAST_COMMENT_ADDED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b2fb518-f272-48c6-9102-0f14dcfe3db3
+                stepCounter: 9de32cb2-632e-4d29-a383-e79376e46e16
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 263ae3f1-c2ab-4004-bb68-00e84f3df1d2
+          stepCounter: 8a637fb0-babd-4417-98a0-60b9fb0fd396
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: COUNT_PUBLIC_AGENT_COMMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: SUM(CASE WHEN COMMENTER_ROLE = 'internal_comment' AND IS_PUBLIC = TRUE THEN 1  ELSE 0 END)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4efda7f2-275b-4a80-ae16-11117f3e4a76
+          stepCounter: 8a637fb0-babd-4417-98a0-60b9fb0fd396
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: COUNT_AGENT_COMMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              SUM(CASE WHEN COMMENTER_ROLE = 'internal_comment'
+                          THEN 1
+                          ELSE 0
+                              END)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: dda97a6d-e68e-4e45-9687-987a83554b36
+          stepCounter: 8a637fb0-babd-4417-98a0-60b9fb0fd396
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: COUNT_END_USER_COMMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              SUM(CASE WHEN COMMENTER_ROLE = 'external_comment'
+                          THEN 1
+                          ELSE 0
+                              END)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2db15926-5b4f-4624-aecd-bb328a8a54b6
+          stepCounter: 8a637fb0-babd-4417-98a0-60b9fb0fd396
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: COUNT_PUBLIC_COMMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |2-
+               SUM(CASE WHEN IS_PUBLIC = TRUE
+                          THEN 1
+                          ELSE 0
+                              END)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f4ef42b7-b2ba-40b7-b31e-67d3734d4464
+          stepCounter: 8a637fb0-babd-4417-98a0-60b9fb0fd396
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: COUNT_INTERNAL_COMMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              SUM(CASE WHEN IS_PUBLIC = FALSE
+                          THEN 1
+                          ELSE 0
+                              END)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 083d540d-9369-4a7e-ae41-05cb7272b441
+          stepCounter: 8a637fb0-babd-4417-98a0-60b9fb0fd396
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TOTAL_COMMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COUNT(*)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5ee65d27-6cb8-4985-a045-43c2cf514384
+          stepCounter: 8a637fb0-babd-4417-98a0-60b9fb0fd396
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: COUNT_TICKET_HANDOFFS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              COUNT(DISTINCT CASE WHEN COMMENTER_ROLE = 'internal_comment'
+                          THEN USER_ID
+                              END)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b4154c1-6baf-4b61-9f42-21a4b97b9ab6
+          stepCounter: 8a637fb0-babd-4417-98a0-60b9fb0fd396
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: COUNT_AGENT_REPLIES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              SUM(CASE WHEN COMMENTER_ROLE = 'internal_comment' AND IS_PUBLIC = TRUE AND PREVIOUS_COMMENTER_ROLE != 'first_comment'
+                          THEN 1
+                          ELSE 0
+                              END)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c13904da-e74f-4fb8-9a70-318fdca8c17d
+          stepCounter: 8a637fb0-babd-4417-98a0-60b9fb0fd396
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: IS_ONE_TOUCH_RESOLUTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: CASE WHEN SUM(CASE WHEN commenter_role = 'internal_comment' AND is_public = TRUE THEN 1 ELSE 0 END) = 1 THEN TRUE ELSE FALSE END
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7d1b5577-cd1d-4259-bd44-c0d88070c099
+          stepCounter: 8a637fb0-babd-4417-98a0-60b9fb0fd396
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: IS_TWO_TOUCH_RESOLUTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: CASE WHEN SUM(CASE WHEN commenter_role = 'internal_comment' AND is_public = TRUE THEN 1 ELSE 0 END) = 2 THEN TRUE ELSE FALSE END
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_COMMENTS_ENRICHED
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_INT_COMMENTS_ENRICHED') }} "V_INT_COMMENTS_ENRICHED"
+        name: V_INT_COMMENT_METRICS
+        noLinkRefs: []
+  name: V_INT_COMMENT_METRICS
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

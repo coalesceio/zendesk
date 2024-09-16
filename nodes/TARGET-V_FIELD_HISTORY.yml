@@ -1,0 +1,113 @@
+fileVersion: 1
+id: c7dafa27-99d5-41fd-9904-c09ed6641d29
+name: V_FIELD_HISTORY
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 61a8fec1-7e9d-4ae3-8942-8cde690565d5
+          stepCounter: c7dafa27-99d5-41fd-9904-c09ed6641d29
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d4546bb4-62fc-4583-8372-21b1faa979a6
+                stepCounter: 7af48dda-d6ec-43b0-934f-c46fe02741b9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e33bb42d-1c0f-4ca1-bc7c-27295ba2d6a2
+          stepCounter: c7dafa27-99d5-41fd-9904-c09ed6641d29
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FIELD_NAME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 53f4b30c-ebcb-45ab-b1df-b962af609242
+                stepCounter: 7af48dda-d6ec-43b0-934f-c46fe02741b9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b4557b40-82fe-413e-9e26-e6e74375364a
+          stepCounter: c7dafa27-99d5-41fd-9904-c09ed6641d29
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: VALID_STARTING_AT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c0ca2466-922b-4b5a-b1a7-11546a553416
+                stepCounter: 7af48dda-d6ec-43b0-934f-c46fe02741b9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: df37793f-b41c-4ce4-8afa-3920447bbc32
+          stepCounter: c7dafa27-99d5-41fd-9904-c09ed6641d29
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: VALID_ENDING_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8ddbc921-61b5-4f2e-9b53-a656ef6ef926
+                stepCounter: 7af48dda-d6ec-43b0-934f-c46fe02741b9
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: de2dddf5-5a2d-4498-8513-a803082996cd
+          stepCounter: c7dafa27-99d5-41fd-9904-c09ed6641d29
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: VALUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: case when value is null then 'is_null' else value end
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_FIELD_HISTORY_ENRICHED
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_INT_FIELD_HISTORY_ENRICHED') }} "V_INT_FIELD_HISTORY_ENRICHED"
+        name: V_FIELD_HISTORY
+        noLinkRefs: []
+  name: V_FIELD_HISTORY
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

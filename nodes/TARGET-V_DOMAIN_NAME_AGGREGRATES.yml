@@ -1,0 +1,74 @@
+fileVersion: 1
+id: 6e1a62cb-b136-4118-a7c1-2a67df8034d5
+name: V_DOMAIN_NAME_AGGREGRATES
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b7cf953-6145-431b-be96-577eef9c4975
+          stepCounter: 6e1a62cb-b136-4118-a7c1-2a67df8034d5
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ORGANIZATION_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5f7c3746-62bd-44b2-a09a-acc26605681c
+                stepCounter: 02d09bc3-9bf0-4280-871e-0f84cf96d0e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ffe8e90d-a993-4232-adde-c8d9a4f5d08f
+          stepCounter: 6e1a62cb-b136-4118-a7c1-2a67df8034d5
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: DOMAIN_NAMES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 40002149-f89d-4500-bbe4-ded2fb5c8131
+                stepCounter: 9ac2b1bd-c9ce-4f6b-9d94-7bd186b3456c
+            transform: LISTAGG("PSTG_DOMAIN_NAME"."DOMAIN_NAME", ', ')
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PSTG_DOMAIN_NAME: 9ac2b1bd-c9ce-4f6b-9d94-7bd186b3456c
+          PSTG_ORGANIZATION: 02d09bc3-9bf0-4280-871e-0f84cf96d0e5
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_DOMAIN_NAME
+          - locationName: TARGET
+            nodeName: PSTG_ORGANIZATION
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'PSTG_ORGANIZATION') }} "PSTG_ORGANIZATION"
+            left join {{ ref('TARGET', 'PSTG_DOMAIN_NAME') }} "PSTG_DOMAIN_NAME"
+            on "PSTG_DOMAIN_NAME"."ORGANIZATION_ID" = "PSTG_ORGANIZATION"."ORGANIZATION_ID"
+        name: V_DOMAIN_NAME_AGGREGRATES
+        noLinkRefs: []
+  name: V_DOMAIN_NAME_AGGREGRATES
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

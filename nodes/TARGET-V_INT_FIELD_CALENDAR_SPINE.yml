@@ -1,0 +1,90 @@
+fileVersion: 1
+id: 62c35d34-df80-45dc-a0b1-6d5c76ee76ef
+name: V_INT_FIELD_CALENDAR_SPINE
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 43c01e0b-1db8-49d6-b585-f8f7df48c9f7
+          stepCounter: 62c35d34-df80-45dc-a0b1-6d5c76ee76ef
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DATE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 70bea45e-93f5-4ef9-9731-54dbb5eefb9b
+                stepCounter: 27829b23-3ccc-4eb8-80d3-f326271686ba
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1da0efaa-e379-4730-a4d6-64e8aba4feca
+          stepCounter: 62c35d34-df80-45dc-a0b1-6d5c76ee76ef
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c2aa7a6d-e795-46bf-87f6-fff4e5d50c33
+                stepCounter: 27829b23-3ccc-4eb8-80d3-f326271686ba
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f281a57-e59f-49bf-8a90-e6e7500480a9
+          stepCounter: 62c35d34-df80-45dc-a0b1-6d5c76ee76ef
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TICKET_DAY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |
+              MD5(
+                  CAST(
+              COALESCE(CAST(date_KEY AS STRING), '_missing_value_') || '-' || COALESCE(CAST(ticket_id AS STRING), '_missing_value_')
+                  AS STRING)
+              )
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_JOINED_FIELD_CALENDAR_SPINE
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_JOINED_FIELD_CALENDAR_SPINE') }} "V_JOINED_FIELD_CALENDAR_SPINE"
+        name: V_INT_FIELD_CALENDAR_SPINE
+        noLinkRefs: []
+  name: V_INT_FIELD_CALENDAR_SPINE
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

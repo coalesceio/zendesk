@@ -1,0 +1,271 @@
+fileVersion: 1
+id: 5b05b63e-660e-46be-8e89-72544d8e2b07
+name: V_ORDER_TIMEZONE_DT
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a428d25-e3ad-407e-8ceb-4eb4ce3802fc
+          stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: PSTG_TIME_ZONE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 791e6cc9-b8e0-4c92-815a-70e889873b15
+                stepCounter: 8c66f8d5-98c9-4642-a6a4-759a7b800048
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a18def0-4edd-4098-b95b-04a317a1abab
+          stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STANDARD_OFFSET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5d33edf6-6998-44dd-862e-b0d05e70bd16
+                stepCounter: 8c66f8d5-98c9-4642-a6a4-759a7b800048
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f95f77d8-c2c4-4e3c-9616-3be12c794866
+          stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TIME_ZONE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fecf372f-f79b-4ad0-b74f-e27f33418001
+                stepCounter: 8c66f8d5-98c9-4642-a6a4-759a7b800048
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b4f0ed4-9c11-47c7-b710-c30b800f75d2
+          stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: STANDARD_OFFSET_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 79fb5211-5b79-4ec9-87ff-4ec14d60f910
+                stepCounter: 8c66f8d5-98c9-4642-a6a4-759a7b800048
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7fc5b77b-be9c-41b6-822b-acad611459f7
+          stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 60dd8427-4d27-4967-a7d0-2c8b3a561c24
+                stepCounter: 8c66f8d5-98c9-4642-a6a4-759a7b800048
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fbc6614f-cee8-49f5-992b-b36114c28aa5
+          stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2686d354-a245-42c2-ae1f-e3542bc3692f
+                stepCounter: 8c66f8d5-98c9-4642-a6a4-759a7b800048
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eaec56a7-96cf-4692-aace-73cb528e640a
+          stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 16043581-32b2-4738-b58a-128b250cb555
+                stepCounter: 8c66f8d5-98c9-4642-a6a4-759a7b800048
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f21311a-5499-43f9-83ca-86fdae00b9a1
+          stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4e52d154-c5a8-4cd5-8a90-534fb72dede4
+                stepCounter: 8c66f8d5-98c9-4642-a6a4-759a7b800048
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e0b83aef-1f93-4d04-a9eb-b7f464373eb6
+          stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d8cb09a-2932-42fb-ae9d-6a0c7f79f087
+                stepCounter: 8c66f8d5-98c9-4642-a6a4-759a7b800048
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c5ff98f-b114-4b4d-8178-f730021ac8fe
+          stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 86a0a92e-198f-41aa-8892-a24481e06909
+                stepCounter: 8c66f8d5-98c9-4642-a6a4-759a7b800048
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e368ff9e-9a73-4e99-87a4-ea6bd3dcbd41
+          stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 805b1fd6-76db-4162-8e44-a9488461a008
+                stepCounter: 8c66f8d5-98c9-4642-a6a4-759a7b800048
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c8d14a63-f044-4524-a6bb-95b2ac3a377a
+          stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: DAYLIGHT_START_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3aecdbc3-c278-42a2-9eb4-b4e70fe08364
+                stepCounter: 8c66f8d5-98c9-4642-a6a4-759a7b800048
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 69d35099-dbd6-4f37-89ad-75f5638fffb0
+          stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: DAYLIGHT_END_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ae010c69-779b-40e3-9a63-cebe53a51666
+                stepCounter: 8c66f8d5-98c9-4642-a6a4-759a7b800048
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 79fe1767-d2cf-4bbb-94c3-ee3d1416140c
+          stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: DAYLIGHT_OFFSET_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8a87afa3-a465-48b2-b130-3a89b0d60122
+                stepCounter: 8c66f8d5-98c9-4642-a6a4-759a7b800048
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8f63fc32-6402-4aa2-b984-799bcd741fee
+          stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: LAST_DAYLIGHT_END_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "LAG(DAYLIGHT_END_UTC, 1) OVER (PARTITION BY TIME_ZONE ORDER BY DAYLIGHT_END_UTC ASC) "
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 57018a25-f43b-46a4-8c90-805d11ee62b6
+          stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: NEXT_DAYLIGHT_START_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: LEAD(DAYLIGHT_START_UTC, 1) OVER (PARTITION BY TIME_ZONE ORDER BY DAYLIGHT_START_UTC ASC)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_TIMEZONE_WITH_DT
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_TIMEZONE_WITH_DT') }} "V_TIMEZONE_WITH_DT"
+        name: V_ORDER_TIMEZONE_DT
+        noLinkRefs: []
+  name: V_ORDER_TIMEZONE_DT
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

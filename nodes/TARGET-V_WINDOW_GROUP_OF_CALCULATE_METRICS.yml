@@ -1,0 +1,123 @@
+fileVersion: 1
+id: 04b12d03-9e5c-4adc-8cdb-58a92a17a7ef
+name: V_WINDOW_GROUP_OF_CALCULATE_METRICS
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0afbbc95-7a4f-43ae-a85a-10a3f1cb14ce
+          stepCounter: 04b12d03-9e5c-4adc-8cdb-58a92a17a7ef
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2572727e-7728-4d1f-92e7-5ca9b4863b41
+                stepCounter: 4c469b1c-b124-46af-8e47-811f8439bbd9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32a6f929-bb1f-49e0-a449-abe3524d6133
+          stepCounter: 04b12d03-9e5c-4adc-8cdb-58a92a17a7ef
+        config: {}
+        dataType: ""
+        description: ""
+        name: FIRST_AGENT_ASSIGNMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 08c72750-9ce6-4dfe-ba04-9d0832a92228
+                stepCounter: 4c469b1c-b124-46af-8e47-811f8439bbd9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 20e38f5b-7816-4720-9089-2678b77ac586
+          stepCounter: 04b12d03-9e5c-4adc-8cdb-58a92a17a7ef
+        config: {}
+        dataType: ""
+        description: ""
+        name: FIRST_ASSIGNEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7f203616-a775-4017-b985-b83b4955c7a2
+                stepCounter: 4c469b1c-b124-46af-8e47-811f8439bbd9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b44dba6a-b9f4-4265-84c2-0b9d5ab073a5
+          stepCounter: 04b12d03-9e5c-4adc-8cdb-58a92a17a7ef
+        config: {}
+        dataType: ""
+        description: ""
+        name: LAST_AGENT_ASSIGNMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c3da1d94-77f1-49ea-bbf5-14564df96645
+                stepCounter: 4c469b1c-b124-46af-8e47-811f8439bbd9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2da97584-b646-48ac-8406-97b09e4305f9
+          stepCounter: 04b12d03-9e5c-4adc-8cdb-58a92a17a7ef
+        config: {}
+        dataType: ""
+        description: ""
+        name: LAST_ASSIGNEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 92cf9f83-88b6-4dd5-bf68-bf6733eed1d0
+                stepCounter: 4c469b1c-b124-46af-8e47-811f8439bbd9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: be585d3c-4f4b-4b9c-a3f0-8337b3c6736d
+          stepCounter: 04b12d03-9e5c-4adc-8cdb-58a92a17a7ef
+        config: {}
+        dataType: ""
+        description: ""
+        name: ASSIGNEE_STATIONS_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0b64f43b-1a1c-41a4-a1b8-5298e2aa9343
+                stepCounter: 4c469b1c-b124-46af-8e47-811f8439bbd9
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_CALCULATE_METRICS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_CALCULATE_METRICS') }} "V_CALCULATE_METRICS"
+        name: V_WINDOW_GROUP_OF_CALCULATE_METRICS
+        noLinkRefs: []
+  name: V_WINDOW_GROUP_OF_CALCULATE_METRICS
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

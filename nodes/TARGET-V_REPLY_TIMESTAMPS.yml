@@ -1,0 +1,118 @@
+fileVersion: 1
+id: b52cb010-c814-4769-a6e4-c52b0dc9cbdc
+name: V_REPLY_TIMESTAMPS
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2eb6202a-1cb5-4364-b077-16b217cb3f71
+          stepCounter: b52cb010-c814-4769-a6e4-c52b0dc9cbdc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 25696088-4d2f-459b-bc78-b997d54dbe69
+                stepCounter: 1de23645-73ae-44c1-ad65-bd2e08cbdbbc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e4aacec-b0f3-43ea-a954-fba1a88c9868
+          stepCounter: b52cb010-c814-4769-a6e4-c52b0dc9cbdc
+        config: {}
+        dataType: ""
+        description: ""
+        name: IS_FIRST_COMMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 48ed9e56-9792-4547-88fe-1e4ce1cd6483
+                stepCounter: 1de23645-73ae-44c1-ad65-bd2e08cbdbbc
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 854dfc36-1572-43d3-af08-98cfbca44727
+          stepCounter: b52cb010-c814-4769-a6e4-c52b0dc9cbdc
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: END_USER_COMMENT_CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: CASE WHEN IS_FIRST_COMMENT THEN V_END_USER_COMMENTS.TICKET_CREATED_DATE ELSE V_END_USER_COMMENTS.END_USER_COMMENT_CREATED_AT END
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 979fb74f-65f4-49db-8e4f-db04842399b5
+          stepCounter: b52cb010-c814-4769-a6e4-c52b0dc9cbdc
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: AGENT_RESPONDED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              MIN(CASE WHEN IS_FIRST_COMMENT 
+                      AND V_END_USER_COMMENTS.COMMENTER_ROLE != 'external_comment' 
+                      AND (V_END_USER_COMMENTS.PREVIOUS_INTERNAL_COMMENT_COUNT > 0)
+                        THEN V_END_USER_COMMENTS.END_USER_COMMENT_CREATED_AT 
+                      ELSE V_INT_COMMENTS_ENRICHED.VALID_STARTING_AT END) 
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_END_USER_COMMENTS: 1de23645-73ae-44c1-ad65-bd2e08cbdbbc
+          V_INT_COMMENTS_ENRICHED: 9de32cb2-632e-4d29-a383-e79376e46e16
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_END_USER_COMMENTS
+          - locationName: TARGET
+            nodeName: V_INT_COMMENTS_ENRICHED
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_END_USER_COMMENTS') }} "V_END_USER_COMMENTS"
+            LEFT JOIN {{ ref('TARGET', 'V_INT_COMMENTS_ENRICHED') }} "V_INT_COMMENTS_ENRICHED"
+            ON "V_END_USER_COMMENTS"."TICKET_ID" = "V_END_USER_COMMENTS"."TICKET_ID"
+            AND "V_INT_COMMENTS_ENRICHED"."COMMENTER_ROLE" = 'internal_comment'
+            AND "V_INT_COMMENTS_ENRICHED"."VALID_STARTING_AT" > "V_END_USER_COMMENTS"."END_USER_COMMENT_CREATED_AT"
+            AND IS_PUBLIC
+        name: V_REPLY_TIMESTAMPS
+        noLinkRefs: []
+  name: V_REPLY_TIMESTAMPS
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

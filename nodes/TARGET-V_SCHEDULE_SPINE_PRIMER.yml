@@ -1,0 +1,201 @@
+fileVersion: 1
+id: babf3cf7-cf22-4827-9d9a-3b25ba3cba3e
+name: V_SCHEDULE_SPINE_PRIMER
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c493474f-5c80-4bf6-9f15-9e7f3277df15
+          stepCounter: babf3cf7-cf22-4827-9d9a-3b25ba3cba3e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SCHEDULE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 613e1cae-7242-473b-baa1-3de48b64e907
+                stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5c252c03-d207-465f-888a-6d9a478f4129
+          stepCounter: babf3cf7-cf22-4827-9d9a-3b25ba3cba3e
+        config: {}
+        dataType: ""
+        description: ""
+        name: VALID_FROM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 348cf43c-9100-4de0-9752-329cd74c054b
+                stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c14b26e4-8383-47f5-92b3-284d2c3044e1
+          stepCounter: babf3cf7-cf22-4827-9d9a-3b25ba3cba3e
+        config: {}
+        dataType: ""
+        description: ""
+        name: VALID_UNTIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1dd8a58-76fc-4f49-a08d-5fb463ed25c7
+                stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3b9d0d6-cdb8-4203-aad5-7abb37bde0f1
+          stepCounter: babf3cf7-cf22-4827-9d9a-3b25ba3cba3e
+        config: {}
+        dataType: ""
+        description: ""
+        name: START_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7acf1c86-dc2b-4f5b-9ac4-a7c10a61c275
+                stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 98c6d4e0-4ef5-4f2d-8795-e4e0efb79356
+          stepCounter: babf3cf7-cf22-4827-9d9a-3b25ba3cba3e
+        config: {}
+        dataType: ""
+        description: ""
+        name: END_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 53bc686a-cd1e-4d36-bfdc-05d16002f589
+                stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0bf314d3-35b9-4dcf-ab00-59ca519e1665
+          stepCounter: babf3cf7-cf22-4827-9d9a-3b25ba3cba3e
+        config: {}
+        dataType: ""
+        description: ""
+        name: LEAD_NEXT_START
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9eab733b-0e8d-4e05-84ea-454847c77e9d
+                stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a0a61f1-e472-4df3-8767-e192fd86d66f
+          stepCounter: babf3cf7-cf22-4827-9d9a-3b25ba3cba3e
+        config: {}
+        dataType: ""
+        description: ""
+        name: MAX_VALID_UNTIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e67fea34-d98c-435e-9473-75295c157e18
+                stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 261671d9-c318-4a33-9713-3f046e8cbea0
+          stepCounter: babf3cf7-cf22-4827-9d9a-3b25ba3cba3e
+        config: {}
+        dataType: ""
+        description: ""
+        name: HOLIDAY_NAME_CHECK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ab22c44e-328e-4313-8299-81d3e2b9579c
+                stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 828e8572-9dd3-491e-a55e-12792b48717e
+          stepCounter: babf3cf7-cf22-4827-9d9a-3b25ba3cba3e
+        config: {}
+        dataType: ""
+        description: ""
+        name: IS_HOLIDAY_WEEK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d42f5ee7-f4dc-42b1-a333-995e36defa81
+                stepCounter: dd55ef57-8ddd-4f84-a394-a152fb2e1dcb
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 571af047-70b1-40a2-88ca-e3edab62f33b
+          stepCounter: babf3cf7-cf22-4827-9d9a-3b25ba3cba3e
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: IS_GAP_PERIOD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: MAX(IS_SCHEDULE_GAP) OVER (PARTITION BY SCHEDULE_ID, VALID_UNTIL)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bc4e19b1-8b02-4c2b-b346-d37bc25595e6
+          stepCounter: babf3cf7-cf22-4827-9d9a-3b25ba3cba3e
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: FILL_PRIMER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: LEAD(VALID_FROM) OVER (PARTITION BY SCHEDULE_ID ORDER BY VALID_FROM, START_TIME_UTC)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_GAP_ADJUSTMENTS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_GAP_ADJUSTMENTS') }} "V_GAP_ADJUSTMENTS"
+        name: V_SCHEDULE_SPINE_PRIMER
+        noLinkRefs: []
+  name: V_SCHEDULE_SPINE_PRIMER
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

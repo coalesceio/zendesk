@@ -1,0 +1,125 @@
+fileVersion: 1
+id: 4224b307-05ec-4a28-aa16-b23159ad384f
+name: V_EVENT_ORDER_FILTERED_PIVOT
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2374691c-7997-4e5e-839f-c967aecb4398
+          stepCounter: 4224b307-05ec-4a28-aa16-b23159ad384f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f3e92375-2be6-420a-bf44-33b150e0d2ef
+                stepCounter: 6318700f-2e75-4147-b0c7-ad4b4238e3a8
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5fe981af-0d4d-4edd-8c15-228f44671a49
+          stepCounter: 4224b307-05ec-4a28-aa16-b23159ad384f
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: DATE_DAY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "cast(date_trunc('day', valid_starting_at) as date) "
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: db319357-a51a-422c-8777-c62814c7fee5
+          stepCounter: 4224b307-05ec-4a28-aa16-b23159ad384f
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: min(case when lower(field_name) = 'status' then V_EVENT_ORDER_FILTERED.value end)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f56cea2-0274-4b88-82df-0a191977bc79
+          stepCounter: 4224b307-05ec-4a28-aa16-b23159ad384f
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: ASSIGNEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: min(case when lower(field_name) = 'assignee_id' then V_EVENT_ORDER_FILTERED.value end)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: be1d0090-89a6-435a-9f32-9ca8594dd483
+          stepCounter: 4224b307-05ec-4a28-aa16-b23159ad384f
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: PRIORITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: min(case when lower(field_name) = 'priority' then V_EVENT_ORDER_FILTERED.value end)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_EVENT_ORDER_FILTERED
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_EVENT_ORDER_FILTERED') }} "V_EVENT_ORDER_FILTERED"
+        name: V_EVENT_ORDER_FILTERED_PIVOT
+        noLinkRefs: []
+  name: V_EVENT_ORDER_FILTERED_PIVOT
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,169 @@
+fileVersion: 1
+id: 44467244-350f-4483-8937-af6878cba280
+name: V_TICKET_FIELD_HISTORY_SET_VALUES
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 474ac3a7-2f85-423f-a18a-b3f63fcc14ca
+          stepCounter: 44467244-350f-4483-8937-af6878cba280
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DATE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 09e3b3ee-2868-4cd9-8aa6-380e5557e359
+                stepCounter: 4e7b6800-de99-4f9d-a05c-0707979db696
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b65d9400-4f01-4873-8e35-a1cbb988a303
+          stepCounter: 44467244-350f-4483-8937-af6878cba280
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b4de7d59-cc58-47af-b0af-9d4dd42f28b4
+                stepCounter: 4e7b6800-de99-4f9d-a05c-0707979db696
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 386e4342-b6fd-4a2a-8b1e-d0b8803bfdb1
+          stepCounter: 44467244-350f-4483-8937-af6878cba280
+        config: {}
+        dataType: ""
+        description: ""
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dc02d1f8-8326-47dc-81ba-c690e9483fcb
+                stepCounter: 4e7b6800-de99-4f9d-a05c-0707979db696
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 11cb8803-f9d3-45e8-afce-f81c0b64c48a
+          stepCounter: 44467244-350f-4483-8937-af6878cba280
+        config: {}
+        dataType: ""
+        description: ""
+        name: ASSIGNEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6fd2843e-0361-4518-933d-5a3ba033dd61
+                stepCounter: 4e7b6800-de99-4f9d-a05c-0707979db696
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: abf27897-c625-4f4c-966f-c2497235f441
+          stepCounter: 44467244-350f-4483-8937-af6878cba280
+        config: {}
+        dataType: ""
+        description: ""
+        name: PRIORITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e9b41451-b865-471f-98be-bdc9c6a2ce2d
+                stepCounter: 4e7b6800-de99-4f9d-a05c-0707979db696
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 495182ee-9e4e-454f-a6ad-d0293641b846
+          stepCounter: 44467244-350f-4483-8937-af6878cba280
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: STATUS_FIELD_PARTITION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              sum( case when status is null then 0 else 1 end) over ( partition by ticket_id
+                          order by date_KEY rows unbounded preceding)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c70544cd-a002-4181-81b0-11fe06064be0
+          stepCounter: 44467244-350f-4483-8937-af6878cba280
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: ASSIGNEE_ID_FIELD_PARTITION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              sum( case when assignee_id is null then 0 else 1 end) over ( partition by ticket_id
+                          order by date_KEY rows unbounded preceding)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 30b3397d-bc1a-47a0-8301-e6ef21fd73c5
+          stepCounter: 44467244-350f-4483-8937-af6878cba280
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: PRIORITY_FIELD_PARTITION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              sum( case when priority is null then 0 else 1 end) over ( partition by ticket_id
+                          order by date_KEY rows unbounded preceding)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_TICKET_FIELD_HISTORY_JOINED
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_TICKET_FIELD_HISTORY_JOINED') }} "V_TICKET_FIELD_HISTORY_JOINED"
+        name: V_TICKET_FIELD_HISTORY_SET_VALUES
+        noLinkRefs: []
+  name: V_TICKET_FIELD_HISTORY_SET_VALUES
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

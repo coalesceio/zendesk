@@ -1,0 +1,154 @@
+fileVersion: 1
+id: 3f58c2a9-18db-4460-b48b-01a3dc736e6f
+name: V_SLA_POLICY_NAME
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e3002cc7-c128-42e7-be9e-8b0224372f54
+          stepCounter: 3f58c2a9-18db-4460-b48b-01a3dc736e6f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd2edeaa-7b05-49e1-9c08-807f5fd5b229
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cf393d37-577e-405d-8713-161155f67a1a
+          stepCounter: 3f58c2a9-18db-4460-b48b-01a3dc736e6f
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FIELD_NAME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6b1907ce-6372-4637-8fa7-0c606cca0832
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 903e2c68-dd6c-4800-aef1-a47d303201d3
+          stepCounter: 3f58c2a9-18db-4460-b48b-01a3dc736e6f
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: VALUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c0d19ec-9cd6-49ad-8036-a0ef04109ce6
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ba192759-3907-4291-9df7-9ca1ffa35adb
+          stepCounter: 3f58c2a9-18db-4460-b48b-01a3dc736e6f
+        config: {}
+        dataType: ""
+        description: ""
+        name: IS_PUBLIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0c3a4fb-45fe-4204-99a6-d2e8edbedbea
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f6cde1d0-380c-4502-b8b9-e707e9a93539
+          stepCounter: 3f58c2a9-18db-4460-b48b-01a3dc736e6f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b561eaff-f848-4196-8040-776961429e7b
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 43289b58-e743-48ce-852e-45e4baaa88aa
+          stepCounter: 3f58c2a9-18db-4460-b48b-01a3dc736e6f
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: VALID_STARTING_AT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 36490b09-9ea0-4c48-86c7-7a2b0d064b4f
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8ae4315c-cf77-450d-8a11-52b9adf0ea45
+          stepCounter: 3f58c2a9-18db-4460-b48b-01a3dc736e6f
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: VALID_ENDING_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6719e4d9-65df-426d-b014-092432cc2134
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 20815580-1ed6-4b2b-83c2-011673d4d8bb
+          stepCounter: 3f58c2a9-18db-4460-b48b-01a3dc736e6f
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: TICKET_CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9dd275e2-a702-43ef-a71e-03aff3d01526
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_INT_UPDATES: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_UPDATES
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_INT_UPDATES') }} "V_INT_UPDATES"
+            where field_name = ('sla_policy')
+        name: V_SLA_POLICY_NAME
+        noLinkRefs: []
+  name: V_SLA_POLICY_NAME
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,254 @@
+fileVersion: 1
+id: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+name: PSTG_SCHEDULE_HOLIDAY
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5f14fba3-9182-419e-9414-0739f44888e4
+          stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: PSTG_SCHEDULE_HOLIDAY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 99e452c6-1aba-42b4-95e6-a1dc9a2fff2f
+          stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: _FIVETRAN_DELETED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f6022512-7a13-49ca-bae2-c7edcfb9b90f
+                stepCounter: 70ff969e-fcef-4448-b2b7-8193e9c6c6e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 529ebf0b-54a4-43b2-b787-646ea47a8efa
+          stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 63a2dc8c-b5f6-4e9d-9319-70e1cc12662d
+                stepCounter: 70ff969e-fcef-4448-b2b7-8193e9c6c6e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5eba8d9e-59ff-4430-bcd7-3c4d38936d9e
+          stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: HOLIDAY_END_DATE_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 33f0b30b-4cc4-469d-8810-886798500f09
+                stepCounter: 70ff969e-fcef-4448-b2b7-8193e9c6c6e5
+            transform: CAST ("INC_SCHEDULE_HOLIDAY"."END_DATE" AS TIMESTAMP )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c09eb70-66e5-4ac5-a5aa-d37d947610d5
+          stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: HOLIDAY_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7180e158-53bc-41cb-bf8f-1ffe0d438d0d
+                stepCounter: 70ff969e-fcef-4448-b2b7-8193e9c6c6e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c654b81a-129f-445e-9a4c-b327b18651b0
+          stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: HOLIDAY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 60a4f25d-1614-4bfe-b280-ba874d82de48
+                stepCounter: 70ff969e-fcef-4448-b2b7-8193e9c6c6e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f2f0f3d7-346c-4f73-b849-0abe56ea6e5f
+          stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SCHEDULE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f4140042-ecd8-4e44-8d02-cf5af69b7ca0
+                stepCounter: 70ff969e-fcef-4448-b2b7-8193e9c6c6e5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fe10ad11-da07-4b9d-b92f-bbf2ed9ec4d0
+          stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: HOLIDAY_START_DATE_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 78f0999c-6490-4e1e-920d-82747d10a9f1
+                stepCounter: 70ff969e-fcef-4448-b2b7-8193e9c6c6e5
+            transform: CAST ("INC_SCHEDULE_HOLIDAY"."START_DATE" AS TIMESTAMP )
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 646d2a4f-fa04-4104-b4b6-a2ddbb2a3819
+          stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 23f296ae-78cf-44bc-8bc5-4635ba14841d
+          stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f157e630-b814-440e-b1eb-211f73ae322b
+          stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63d39882-0112-44d2-9a24-af89e5a0aff4
+          stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a22893f2-feb6-4305-9f16-42f9e3f496c4
+          stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f46f7df1-08c0-4b4b-b6ea-d3d8b90c7170
+          stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: INC_SCHEDULE_HOLIDAY
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'INC_SCHEDULE_HOLIDAY') }} "INC_SCHEDULE_HOLIDAY"
+        name: PSTG_SCHEDULE_HOLIDAY
+        noLinkRefs: []
+  name: PSTG_SCHEDULE_HOLIDAY
+  overrideSQL: false
+  schema: ""
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node

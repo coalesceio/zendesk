@@ -1,0 +1,91 @@
+fileVersion: 1
+id: 6d42338c-28ff-48ec-a4ff-93596aaca9f9
+name: INC_ORGANIZATION_TAG
+operation:
+  config:
+    incColumn:
+      columnCounter: b7d33ea1-536d-4831-87a2-40f33be30a6d
+      stepCounter: 6d42338c-28ff-48ec-a4ff-93596aaca9f9
+    persistTableLocation: TARGET
+    persistTableName: PSTG_ORGANIZATION_TAG
+    refTable: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: edce16be-aa40-4cd3-a62b-53ce7c6242d5
+          stepCounter: 6d42338c-28ff-48ec-a4ff-93596aaca9f9
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ORGANIZATION_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f95dd8e2-33f9-483e-adc8-09357dd9323c
+                stepCounter: 5256da83-cb86-407b-930d-af147e79149f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c4111938-dd3d-4e10-aca3-2be928e7987b
+          stepCounter: 6d42338c-28ff-48ec-a4ff-93596aaca9f9
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TAG
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 61ca2f53-50a1-478d-9339-4370812226fc
+                stepCounter: 5256da83-cb86-407b-930d-af147e79149f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b7d33ea1-536d-4831-87a2-40f33be30a6d
+          stepCounter: 6d42338c-28ff-48ec-a4ff-93596aaca9f9
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5680db4f-5562-4d91-8961-485d1b190233
+                stepCounter: 5256da83-cb86-407b-930d-af147e79149f
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ORGANIZATION_TAG: 5256da83-cb86-407b-930d-af147e79149f
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SOURCE
+            nodeName: ORGANIZATION_TAG
+        join:
+          joinCondition: |
+
+
+            FROM{{ ref('SOURCE', 'ORGANIZATION_TAG') }} "ORGANIZATION_TAG"
+              WHERE "ORGANIZATION_TAG"."_FIVETRAN_SYNCED" > 
+              (SELECT COALESCE(MAX("_FIVETRAN_SYNCED"), '1900-01-01') 
+                        FROM {{ ref_no_link('TARGET', 'PSTG_ORGANIZATION_TAG') }} )
+        name: INC_ORGANIZATION_TAG
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: PSTG_ORGANIZATION_TAG
+  name: INC_ORGANIZATION_TAG
+  overrideSQL: false
+  schema: ""
+  sqlType: Incr:::230
+  type: sql
+  version: 1
+type: Node

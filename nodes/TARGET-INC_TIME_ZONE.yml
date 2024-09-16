@@ -1,0 +1,91 @@
+fileVersion: 1
+id: a54996ff-9b65-4066-bfa7-d7fc5bd1e141
+name: INC_TIME_ZONE
+operation:
+  config:
+    incColumn:
+      columnCounter: c1b17d60-8585-4563-b998-bde15b2a0827
+      stepCounter: a54996ff-9b65-4066-bfa7-d7fc5bd1e141
+    persistTableLocation: TARGET
+    persistTableName: PSTG_TIME_ZONE
+    refTable: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 88fdd553-49e8-4e99-b43d-2eb740bcc96d
+          stepCounter: a54996ff-9b65-4066-bfa7-d7fc5bd1e141
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TIME_ZONE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ca8de02a-c1ad-47e9-8454-43df5b60d379
+                stepCounter: 5a4cb077-905c-4ab0-ad40-8e9a7a71df9d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b67474bd-a6c9-4e6d-9374-94ccc22fc27e
+          stepCounter: a54996ff-9b65-4066-bfa7-d7fc5bd1e141
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STANDARD_OFFSET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 40661880-501d-4a3b-8af3-305131910a24
+                stepCounter: 5a4cb077-905c-4ab0-ad40-8e9a7a71df9d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1b17d60-8585-4563-b998-bde15b2a0827
+          stepCounter: a54996ff-9b65-4066-bfa7-d7fc5bd1e141
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6df88d17-6624-4549-942a-97cbe870c4de
+                stepCounter: 5a4cb077-905c-4ab0-ad40-8e9a7a71df9d
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          TIME_ZONE: 5a4cb077-905c-4ab0-ad40-8e9a7a71df9d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SOURCE
+            nodeName: TIME_ZONE
+        join:
+          joinCondition: |
+
+
+            FROM{{ ref('SOURCE', 'TIME_ZONE') }} "TIME_ZONE"
+              WHERE "TIME_ZONE"."_FIVETRAN_SYNCED" > 
+              (SELECT COALESCE(MAX("_FIVETRAN_SYNCED"), '1900-01-01') 
+                        FROM {{ ref_no_link('TARGET', 'PSTG_TIME_ZONE') }} )
+        name: INC_TIME_ZONE
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: PSTG_TIME_ZONE
+  name: INC_TIME_ZONE
+  overrideSQL: false
+  schema: ""
+  sqlType: Incr:::230
+  type: sql
+  version: 1
+type: Node

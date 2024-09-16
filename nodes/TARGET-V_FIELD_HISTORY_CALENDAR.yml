@@ -1,0 +1,85 @@
+fileVersion: 1
+id: f7946a00-2f67-46b2-ae1e-d46995117d36
+name: V_FIELD_HISTORY_CALENDAR
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d29c1902-b7e2-4a14-8710-7ea5c76ee0e5
+          stepCounter: f7946a00-2f67-46b2-ae1e-d46995117d36
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DATE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 43c01e0b-1db8-49d6-b585-f8f7df48c9f7
+                stepCounter: 62c35d34-df80-45dc-a0b1-6d5c76ee76ef
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 74606cc6-41c8-4302-8552-a9026ef6d664
+          stepCounter: f7946a00-2f67-46b2-ae1e-d46995117d36
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1da0efaa-e379-4730-a4d6-64e8aba4feca
+                stepCounter: 62c35d34-df80-45dc-a0b1-6d5c76ee76ef
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 24509535-fb72-437f-8e5e-185d86cab2c9
+          stepCounter: f7946a00-2f67-46b2-ae1e-d46995117d36
+        config: {}
+        dataType: ""
+        description: ""
+        name: TICKET_DAY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f281a57-e59f-49bf-8a90-e6e7500480a9
+                stepCounter: 62c35d34-df80-45dc-a0b1-6d5c76ee76ef
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_INT_FIELD_CALENDAR_SPINE: 62c35d34-df80-45dc-a0b1-6d5c76ee76ef
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_FIELD_CALENDAR_SPINE
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_INT_FIELD_CALENDAR_SPINE') }} "V_INT_FIELD_CALENDAR_SPINE"
+             where date_KEY <= current_date  
+              --  and date_KEY >= (select max(date_KEY) from ) -- FOR INCREMENTAL DATA
+        name: V_FIELD_HISTORY_CALENDAR
+        noLinkRefs: []
+  name: V_FIELD_HISTORY_CALENDAR
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

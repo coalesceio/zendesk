@@ -1,0 +1,105 @@
+fileVersion: 1
+id: 6ad5bab9-bf18-43c1-9185-a3b9771aa3bf
+name: INC_DOMAIN_NAME
+operation:
+  config:
+    incColumn:
+      columnCounter: 3ccc4e47-890a-4d68-b3bd-1be47fc5a582
+      stepCounter: 6ad5bab9-bf18-43c1-9185-a3b9771aa3bf
+    persistTableLocation: TARGET
+    persistTableName: PSTG_DOMAIN_NAME
+    refTable: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b600a74-37a4-40fd-a06e-1b6b4158e6f0
+          stepCounter: 6ad5bab9-bf18-43c1-9185-a3b9771aa3bf
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ORGANIZATION_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a54d302e-ba4e-4380-885a-30f8f561f414
+                stepCounter: 0e58c460-2fa6-4db6-841f-e3e49656be97
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e94c017e-9661-4a0f-b251-1ef4e58d4888
+          stepCounter: 6ad5bab9-bf18-43c1-9185-a3b9771aa3bf
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: INDEX
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f5c1dfb8-cacb-4c5e-a8b5-0b52a760c775
+                stepCounter: 0e58c460-2fa6-4db6-841f-e3e49656be97
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cb518d6e-4a5e-4ecf-a16b-ebceacb63b83
+          stepCounter: 6ad5bab9-bf18-43c1-9185-a3b9771aa3bf
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: DOMAIN_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0262a2e6-3b26-4566-bfaa-5b8b7ddbeffc
+                stepCounter: 0e58c460-2fa6-4db6-841f-e3e49656be97
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3ccc4e47-890a-4d68-b3bd-1be47fc5a582
+          stepCounter: 6ad5bab9-bf18-43c1-9185-a3b9771aa3bf
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f280328-ecf3-4a64-99bc-f07ca094ded5
+                stepCounter: 0e58c460-2fa6-4db6-841f-e3e49656be97
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DOMAIN_NAME: 0e58c460-2fa6-4db6-841f-e3e49656be97
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SOURCE
+            nodeName: DOMAIN_NAME
+        join:
+          joinCondition: |
+
+
+            FROM{{ ref('SOURCE', 'DOMAIN_NAME') }} "DOMAIN_NAME"
+              WHERE "DOMAIN_NAME"."_FIVETRAN_SYNCED" > 
+              (SELECT COALESCE(MAX("_FIVETRAN_SYNCED"), '1900-01-01') 
+                        FROM {{ ref_no_link('TARGET', 'PSTG_DOMAIN_NAME') }} )
+        name: INC_DOMAIN_NAME
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: PSTG_DOMAIN_NAME
+  name: INC_DOMAIN_NAME
+  overrideSQL: false
+  schema: ""
+  sqlType: Incr:::230
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,240 @@
+fileVersion: 1
+id: c7a70a07-f40f-4f96-aed9-b1836b73222c
+name: V_INT_UPDATER_INFORMATION
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c432435-ea95-484b-9ea2-d854f836cb85
+          stepCounter: c7a70a07-f40f-4f96-aed9-b1836b73222c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: UPDATER_USER_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 18e4f1f1-0455-491a-90a0-b8ca9d635927
+                stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e818a66-e887-4252-b8c7-74978e828d94
+          stepCounter: c7a70a07-f40f-4f96-aed9-b1836b73222c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: UPDATER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 03588d7a-c559-4d56-8656-cc8ba0cc91f0
+                stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b18193a-cc0a-457a-ac48-d4c995ce6ffd
+          stepCounter: c7a70a07-f40f-4f96-aed9-b1836b73222c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: UPDATER_ROLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a08eb77-277d-4611-834c-a1b5a7027f62
+                stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 80ea6d4d-311b-4e1b-b83e-9e29e31663ee
+          stepCounter: c7a70a07-f40f-4f96-aed9-b1836b73222c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: UPDATER_EMAIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eeece0c7-25f4-49ba-8f77-62946bccb44c
+                stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2be778db-2daf-45f8-81f0-32eea3d7460d
+          stepCounter: c7a70a07-f40f-4f96-aed9-b1836b73222c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: UPDATER_EXTERNAL_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 082e6e6d-d2fe-4d7f-a29d-9119d03edce9
+                stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b6197ab2-ba1c-4db4-886e-4ca16a23a0eb
+          stepCounter: c7a70a07-f40f-4f96-aed9-b1836b73222c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: UPDATER_LOCALE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 403076ee-6ac1-4a72-a0a4-3080e62634ba
+                stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3cfba7bd-b284-4e7b-88cb-12d96ada9cfa
+          stepCounter: c7a70a07-f40f-4f96-aed9-b1836b73222c
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: UPDATER_IS_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0cd36320-4180-40b5-9c80-2c8b6d1dc21d
+                stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5bee3e3a-d671-4ee3-be29-a2dba55dbf5d
+          stepCounter: c7a70a07-f40f-4f96-aed9-b1836b73222c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UPDATER_USER_TAGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8c56e8c3-bfb1-4e20-af80-270ed1a1832a
+                stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3fa9b34-102c-44ca-ad1d-78ece96000a0
+          stepCounter: c7a70a07-f40f-4f96-aed9-b1836b73222c
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: UPDATER_LAST_LOGIN_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7f019697-f64f-410a-ac5e-a21ee315a280
+                stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7077f67c-cc5c-4c82-94f6-d77a91ef78fb
+          stepCounter: c7a70a07-f40f-4f96-aed9-b1836b73222c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: UPDATER_TIME_ZONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 22d0ebbe-7dd1-4d8f-bd0e-7eb0d5ff9a0c
+                stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 026951fb-dd71-4f67-bac8-16234460ddaa
+          stepCounter: c7a70a07-f40f-4f96-aed9-b1836b73222c
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: UPDATER_ORGANIZATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 071a803a-ccf5-443e-93b3-feafb0664cc0
+                stepCounter: 892ddc4e-7224-4efc-b406-37f065793b0a
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 521e0f9a-1778-4d29-970a-1b5dd31d7143
+          stepCounter: c7a70a07-f40f-4f96-aed9-b1836b73222c
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: UPDATER_ORGANIZATION_DOMAIN_NAMES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: be94958c-7585-4532-8b2b-34c8e246cbed
+                stepCounter: 892ddc4e-7224-4efc-b406-37f065793b0a
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 669566b3-a7da-4e9a-88ee-3ac611013e80
+          stepCounter: c7a70a07-f40f-4f96-aed9-b1836b73222c
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: UPDATER_ORGANIZATION_ORGANIZATION_TAGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 776b38f0-dcec-4c38-a616-36d3325418bf
+                stepCounter: 892ddc4e-7224-4efc-b406-37f065793b0a
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_INT_ORGANIZATION_AGGREGATES: 892ddc4e-7224-4efc-b406-37f065793b0a
+          V_INT_USER_AGGREGRATES: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_ORGANIZATION_AGGREGATES
+          - locationName: TARGET
+            nodeName: V_INT_USER_AGGREGRATES
+        join:
+          joinCondition: |
+            FROM {{ ref('TARGET', 'V_INT_USER_AGGREGRATES') }} "V_INT_USER_AGGREGRATES"
+            left JOIN {{ ref('TARGET', 'V_INT_ORGANIZATION_AGGREGATES') }} "V_INT_ORGANIZATION_AGGREGATES"
+            ON "V_INT_ORGANIZATION_AGGREGATES"."ORGANIZATION_ID" = "V_INT_USER_AGGREGRATES"."ORGANIZATION_ID"
+        name: V_INT_UPDATER_INFORMATION
+        noLinkRefs: []
+  name: V_INT_UPDATER_INFORMATION
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

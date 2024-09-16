@@ -1,0 +1,132 @@
+fileVersion: 1
+id: 1de23645-73ae-44c1-ad65-bd2e08cbdbbc
+name: V_END_USER_COMMENTS
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 25696088-4d2f-459b-bc78-b997d54dbe69
+          stepCounter: 1de23645-73ae-44c1-ad65-bd2e08cbdbbc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 22aeb5f4-bd07-4fc0-a7e6-69184d3cee6f
+                stepCounter: 9de32cb2-632e-4d29-a383-e79376e46e16
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8afcaec7-6746-4b65-b0a2-dfaafb29638e
+          stepCounter: 1de23645-73ae-44c1-ad65-bd2e08cbdbbc
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: END_USER_COMMENT_CREATED_AT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6adbb6f3-eb98-4ae9-a821-47a8e537bd3a
+                stepCounter: 9de32cb2-632e-4d29-a383-e79376e46e16
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f4e77334-a956-4fde-ba88-ee7ac773ea03
+          stepCounter: 1de23645-73ae-44c1-ad65-bd2e08cbdbbc
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: TICKET_CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 65c9e7e3-0e74-4122-9de4-944cf9847838
+                stepCounter: 9de32cb2-632e-4d29-a383-e79376e46e16
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4999c36c-2b40-4fd2-83f9-55c510306cf5
+          stepCounter: 1de23645-73ae-44c1-ad65-bd2e08cbdbbc
+        config: {}
+        dataType: ""
+        description: ""
+        name: COMMENTER_ROLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0b5eee97-aaff-44ef-b10c-0edcf5809421
+                stepCounter: 9de32cb2-632e-4d29-a383-e79376e46e16
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60252466-386b-42dd-a991-bf30705b9df2
+          stepCounter: 1de23645-73ae-44c1-ad65-bd2e08cbdbbc
+        config: {}
+        dataType: ""
+        description: ""
+        name: PREVIOUS_INTERNAL_COMMENT_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1ba2824-a799-4c40-aedb-7c1c9fc16862
+                stepCounter: 9de32cb2-632e-4d29-a383-e79376e46e16
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 48ed9e56-9792-4547-88fe-1e4ce1cd6483
+          stepCounter: 1de23645-73ae-44c1-ad65-bd2e08cbdbbc
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: IS_FIRST_COMMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: PREVIOUS_COMMENTER_ROLE = 'first_comment'
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_INT_COMMENTS_ENRICHED: 9de32cb2-632e-4d29-a383-e79376e46e16
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_COMMENTS_ENRICHED
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_INT_COMMENTS_ENRICHED') }} "V_INT_COMMENTS_ENRICHED"
+            WHERE IS_PUBLIC
+            AND (COMMENTER_ROLE = 'external_comment' AND PREVIOUS_COMMENTER_ROLE != 'external_comment')
+            OR PREVIOUS_COMMENTER_ROLE = 'first_comment' 
+        name: V_END_USER_COMMENTS
+        noLinkRefs: []
+  name: V_END_USER_COMMENTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

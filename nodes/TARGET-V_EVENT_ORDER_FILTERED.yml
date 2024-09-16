@@ -1,0 +1,115 @@
+fileVersion: 1
+id: 6318700f-2e75-4147-b0c7-ad4b4238e3a8
+name: V_EVENT_ORDER_FILTERED
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3e92375-2be6-420a-bf44-33b150e0d2ef
+          stepCounter: 6318700f-2e75-4147-b0c7-ad4b4238e3a8
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 61a8fec1-7e9d-4ae3-8942-8cde690565d5
+                stepCounter: c7dafa27-99d5-41fd-9904-c09ed6641d29
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 89129b43-84d3-45f6-ab94-808fe3ecd488
+          stepCounter: 6318700f-2e75-4147-b0c7-ad4b4238e3a8
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FIELD_NAME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e33bb42d-1c0f-4ca1-bc7c-27295ba2d6a2
+                stepCounter: c7dafa27-99d5-41fd-9904-c09ed6641d29
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 06a816e5-3197-4bfc-b6a2-5ebc90306495
+          stepCounter: 6318700f-2e75-4147-b0c7-ad4b4238e3a8
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: VALID_STARTING_AT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b4557b40-82fe-413e-9e26-e6e74375364a
+                stepCounter: c7dafa27-99d5-41fd-9904-c09ed6641d29
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cced5468-2fc6-4901-88c3-c9c488dd19a3
+          stepCounter: 6318700f-2e75-4147-b0c7-ad4b4238e3a8
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: VALID_ENDING_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: df37793f-b41c-4ce4-8afa-3920447bbc32
+                stepCounter: c7dafa27-99d5-41fd-9904-c09ed6641d29
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 167ea996-2d2e-4e44-b436-fa257083d00d
+          stepCounter: 6318700f-2e75-4147-b0c7-ad4b4238e3a8
+        config: {}
+        dataType: ""
+        description: ""
+        name: VALUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: de2dddf5-5a2d-4498-8513-a803082996cd
+                stepCounter: c7dafa27-99d5-41fd-9904-c09ed6641d29
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_FIELD_HISTORY: c7dafa27-99d5-41fd-9904-c09ed6641d29
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_FIELD_HISTORY
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_FIELD_HISTORY') }} "V_FIELD_HISTORY"
+            QUALIFY row_number() over (
+                        partition by cast(valid_starting_at as date), ticket_id, field_name
+                        order by valid_starting_at desc
+                        ) = 1
+        name: V_EVENT_ORDER_FILTERED
+        noLinkRefs: []
+  name: V_EVENT_ORDER_FILTERED
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

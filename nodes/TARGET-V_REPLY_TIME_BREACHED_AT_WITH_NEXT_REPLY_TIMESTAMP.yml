@@ -1,0 +1,265 @@
+fileVersion: 1
+id: d52742a4-cc77-4f26-8374-4c61a295312c
+name: V_REPLY_TIME_BREACHED_AT_WITH_NEXT_REPLY_TIMESTAMP
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1ac1cca9-b045-4027-aa16-e69a4db15689
+          stepCounter: d52742a4-cc77-4f26-8374-4c61a295312c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c0541815-4fd8-4a07-a918-acc38e90a3cc
+                stepCounter: a3ee2135-7f17-4968-aaa7-e901392ba3c7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d0ef91fd-b4ef-43b9-8a0a-9971c0d77161
+          stepCounter: d52742a4-cc77-4f26-8374-4c61a295312c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SLA_POLICY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ecf67aa3-34ab-43c4-b541-b991fcf7b51d
+                stepCounter: a3ee2135-7f17-4968-aaa7-e901392ba3c7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e145a0c3-cc77-40f6-8330-fccec4b0ecf8
+          stepCounter: d52742a4-cc77-4f26-8374-4c61a295312c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: METRIC
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a6c52c9d-5a41-49fe-84fe-d2ecebc7cb7c
+                stepCounter: a3ee2135-7f17-4968-aaa7-e901392ba3c7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1095ba65-2569-4625-bb8f-84b9d5414674
+          stepCounter: d52742a4-cc77-4f26-8374-4c61a295312c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TICKET_CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 17fb6e6f-77a2-46a6-ad16-5f07e16d1f7b
+                stepCounter: a3ee2135-7f17-4968-aaa7-e901392ba3c7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e947f58a-91e5-49fd-9898-ae029f855df2
+          stepCounter: d52742a4-cc77-4f26-8374-4c61a295312c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SLA_APPLIED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 27309509-f06d-4dbc-a695-b4ed771e5308
+                stepCounter: a3ee2135-7f17-4968-aaa7-e901392ba3c7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 39e4747f-91eb-4ba8-95c0-b6238dda6a7d
+          stepCounter: d52742a4-cc77-4f26-8374-4c61a295312c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SUM_LAPSED_BUSINESS_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8513bfe3-64d7-46f6-931a-b71076341462
+                stepCounter: a3ee2135-7f17-4968-aaa7-e901392ba3c7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cda05ebd-546a-42b3-b416-5bd9b7f3e10c
+          stepCounter: d52742a4-cc77-4f26-8374-4c61a295312c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TARGET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a0fc337-e56e-44b9-a3bd-325913382fcb
+                stepCounter: a3ee2135-7f17-4968-aaa7-e901392ba3c7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a38288f-a803-47a0-bfd7-1a6dfd4e2f99
+          stepCounter: d52742a4-cc77-4f26-8374-4c61a295312c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: IN_BUSINESS_HOURS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5cf33241-e4f6-4b69-9d77-17f0f4251c83
+                stepCounter: a3ee2135-7f17-4968-aaa7-e901392ba3c7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: da4562ac-d727-4e2b-add6-f72ab127a2c0
+          stepCounter: d52742a4-cc77-4f26-8374-4c61a295312c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SLA_BREACH_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 23ecd397-85dd-4c90-be2e-d561bb9631e5
+                stepCounter: a3ee2135-7f17-4968-aaa7-e901392ba3c7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 526e48aa-1339-426e-b680-0e8d5b371b15
+          stepCounter: d52742a4-cc77-4f26-8374-4c61a295312c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: WEEK_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 81a68347-b060-4778-a48c-6e2c261a6156
+                stepCounter: a3ee2135-7f17-4968-aaa7-e901392ba3c7
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e029c60d-aece-4773-a344-2bf330c76f53
+          stepCounter: d52742a4-cc77-4f26-8374-4c61a295312c
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: SLA_SCHEDULE_START_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: min(V_REPLY_TIME_BREACHED_AT.sla_schedule_start_at)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5d35925-abef-43fc-8f66-43aa5282d1cc
+          stepCounter: d52742a4-cc77-4f26-8374-4c61a295312c
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: SLA_SCHEDULE_END_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: min(V_REPLY_TIME_BREACHED_AT.sla_schedule_end_at)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b98bd7a-b80f-456d-a7e0-1e83fd494db9
+          stepCounter: d52742a4-cc77-4f26-8374-4c61a295312c
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: AGENT_REPLY_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: min(reply_at)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fca2614c-00e1-4718-a1ac-eeb8a6b6e9fc
+          stepCounter: d52742a4-cc77-4f26-8374-4c61a295312c
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: NEXT_SOLVED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: min(solved_at)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_REPLY_TIME: 38bed834-fe82-4dff-b7ea-13edf8098add
+          V_REPLY_TIME_BREACHED_AT: a3ee2135-7f17-4968-aaa7-e901392ba3c7
+          V_TICKET_SOLVED_TIMES: a0461e13-462b-47da-89e6-baa3bf388d0a
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_REPLY_TIME
+          - locationName: TARGET
+            nodeName: V_REPLY_TIME_BREACHED_AT
+          - locationName: TARGET
+            nodeName: V_TICKET_SOLVED_TIMES
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_REPLY_TIME_BREACHED_AT') }} "V_REPLY_TIME_BREACHED_AT"
+            LEFT JOIN {{ ref('TARGET', 'V_REPLY_TIME') }} "V_REPLY_TIME"
+                on V_REPLY_TIME.ticket_id = V_REPLY_TIME_BREACHED_AT.ticket_id
+                and V_REPLY_TIME.reply_at > V_REPLY_TIME_BREACHED_AT.sla_applied_at
+            LEFT JOIN {{ ref('TARGET', 'V_TICKET_SOLVED_TIMES') }} "V_TICKET_SOLVED_TIMES"
+                on V_REPLY_TIME.ticket_id = V_TICKET_SOLVED_TIMES.ticket_id
+                and V_TICKET_SOLVED_TIMES.solved_at > V_REPLY_TIME_BREACHED_AT.sla_applied_at
+        name: V_REPLY_TIME_BREACHED_AT_WITH_NEXT_REPLY_TIMESTAMP
+        noLinkRefs: []
+  name: V_REPLY_TIME_BREACHED_AT_WITH_NEXT_REPLY_TIMESTAMP
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

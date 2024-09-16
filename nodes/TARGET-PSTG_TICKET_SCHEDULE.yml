@@ -1,0 +1,212 @@
+fileVersion: 1
+id: e6a89093-1411-4e3a-a5e3-fe640aa58b82
+name: PSTG_TICKET_SCHEDULE
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 014931d9-d951-43ca-bfe9-7b4951206046
+          stepCounter: e6a89093-1411-4e3a-a5e3-fe640aa58b82
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: PSTG_TICKET_SCHEDULE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f93d6146-b010-451c-a55f-54f1dab0bc64
+          stepCounter: e6a89093-1411-4e3a-a5e3-fe640aa58b82
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c78e8391-532a-4afa-9d96-5a6cb6c533d5
+                stepCounter: fcf8b0df-bb41-4e8d-b217-4b82d135655a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc6cfa8f-c194-4182-ba5e-95fe89793381
+          stepCounter: e6a89093-1411-4e3a-a5e3-fe640aa58b82
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 46037446-91ab-4d0d-ab27-ce067374802c
+                stepCounter: fcf8b0df-bb41-4e8d-b217-4b82d135655a
+            transform: CAST("INC_TICKET_SCHEDULE"."CREATED_AT" AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 21ad170c-802b-426f-8b60-795e30d8cbeb
+          stepCounter: e6a89093-1411-4e3a-a5e3-fe640aa58b82
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SCHEDULE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b9dfe0f6-f16b-48ed-a854-b963eb93f632
+                stepCounter: fcf8b0df-bb41-4e8d-b217-4b82d135655a
+            transform: CAST("INC_TICKET_SCHEDULE"."SCHEDULE_ID" AS STRING )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0335d748-ff7d-4508-8ef0-3f69d5c41341
+          stepCounter: e6a89093-1411-4e3a-a5e3-fe640aa58b82
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b3dbdf90-efdc-4346-a55e-7e56bb5839c8
+                stepCounter: fcf8b0df-bb41-4e8d-b217-4b82d135655a
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fbf2b4cf-4175-4bc8-933b-7728599b6fb2
+          stepCounter: e6a89093-1411-4e3a-a5e3-fe640aa58b82
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc8e938f-15e7-4def-9485-779f68a0d918
+          stepCounter: e6a89093-1411-4e3a-a5e3-fe640aa58b82
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e560cd93-58de-4da8-a34d-78cfcc8f7a20
+          stepCounter: e6a89093-1411-4e3a-a5e3-fe640aa58b82
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c6ca9c6d-6baf-4456-ae68-d2676855425c
+          stepCounter: e6a89093-1411-4e3a-a5e3-fe640aa58b82
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 74810ae2-bec3-47bb-8452-302e79361d7d
+          stepCounter: e6a89093-1411-4e3a-a5e3-fe640aa58b82
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: cd00be3d-ebbd-426e-ab79-3a43bdec5983
+          stepCounter: e6a89093-1411-4e3a-a5e3-fe640aa58b82
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: INC_TICKET_SCHEDULE
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'INC_TICKET_SCHEDULE') }} "INC_TICKET_SCHEDULE"
+        name: PSTG_TICKET_SCHEDULE
+        noLinkRefs: []
+  name: PSTG_TICKET_SCHEDULE
+  overrideSQL: false
+  schema: ""
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node

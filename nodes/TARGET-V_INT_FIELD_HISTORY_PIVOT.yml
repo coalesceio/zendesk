@@ -1,0 +1,127 @@
+fileVersion: 1
+id: 3b80ea28-5325-4788-bd50-cb810561ffbd
+name: V_INT_FIELD_HISTORY_PIVOT
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9160a9c-6472-45b7-940c-d5dfba47941c
+          stepCounter: 3b80ea28-5325-4788-bd50-cb810561ffbd
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2374691c-7997-4e5e-839f-c967aecb4398
+                stepCounter: 4224b307-05ec-4a28-aa16-b23159ad384f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fbc8b059-2bfb-4f66-a122-6af90234f63c
+          stepCounter: 3b80ea28-5325-4788-bd50-cb810561ffbd
+        config: {}
+        dataType: ""
+        description: ""
+        name: DATE_DAY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5fe981af-0d4d-4edd-8c15-228f44671a49
+                stepCounter: 4224b307-05ec-4a28-aa16-b23159ad384f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e227b872-4424-43a2-9420-704129252b59
+          stepCounter: 3b80ea28-5325-4788-bd50-cb810561ffbd
+        config: {}
+        dataType: ""
+        description: ""
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: db319357-a51a-422c-8777-c62814c7fee5
+                stepCounter: 4224b307-05ec-4a28-aa16-b23159ad384f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0ef3342f-51e6-4e17-b64d-84de72501879
+          stepCounter: 3b80ea28-5325-4788-bd50-cb810561ffbd
+        config: {}
+        dataType: ""
+        description: ""
+        name: ASSIGNEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7f56cea2-0274-4b88-82df-0a191977bc79
+                stepCounter: 4224b307-05ec-4a28-aa16-b23159ad384f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d07c465-8dad-40d2-996b-ad6ac0e3c8e5
+          stepCounter: 3b80ea28-5325-4788-bd50-cb810561ffbd
+        config: {}
+        dataType: ""
+        description: ""
+        name: PRIORITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: be1d0090-89a6-435a-9f32-9ca8594dd483
+                stepCounter: 4224b307-05ec-4a28-aa16-b23159ad384f
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ff464ab2-43eb-43cc-a4e7-cd32b0f26095
+          stepCounter: 3b80ea28-5325-4788-bd50-cb810561ffbd
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TICKET_DAY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "md5(cast(coalesce(cast(ticket_id as TEXT), '_missing_value_') || '-' || coalesce(cast(date_day as TEXT), '_missing_value_') as TEXT)) "
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_EVENT_ORDER_FILTERED_PIVOT
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_EVENT_ORDER_FILTERED_PIVOT') }} "V_EVENT_ORDER_FILTERED_PIVOT"
+        name: V_INT_FIELD_HISTORY_PIVOT
+        noLinkRefs: []
+  name: V_INT_FIELD_HISTORY_PIVOT
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,184 @@
+fileVersion: 1
+id: fbd7f5c8-405a-4e44-8829-93e47ae714eb
+name: V_TICKET_STATUS_CROSSED_WITH_SCHEDULE_REQ
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e9786de4-abb1-4b0b-a6bf-97c199b6ef78
+          stepCounter: fbd7f5c8-405a-4e44-8829-93e47ae714eb
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d2b963da-fd76-499b-8214-00a01e3bb6ef
+                stepCounter: f9a6ac7b-22af-412e-9075-03cb2f069577
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0b80161e-a0c3-4ae6-8b50-98d4ce8df6c8
+          stepCounter: fbd7f5c8-405a-4e44-8829-93e47ae714eb
+        config: {}
+        dataType: ""
+        description: ""
+        name: SLA_APPLIED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2c044d02-8076-440b-b0ff-b36f28cbefde
+                stepCounter: f9a6ac7b-22af-412e-9075-03cb2f069577
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed6c8872-1ac9-4789-8655-9f13f14521b7
+          stepCounter: fbd7f5c8-405a-4e44-8829-93e47ae714eb
+        config: {}
+        dataType: ""
+        description: ""
+        name: TARGET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 453a0e75-0fcf-48e0-99a0-42ae288ac29d
+                stepCounter: f9a6ac7b-22af-412e-9075-03cb2f069577
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e8ff3d5-dcc5-45bb-9104-2036d12a7d7b
+          stepCounter: fbd7f5c8-405a-4e44-8829-93e47ae714eb
+        config: {}
+        dataType: ""
+        description: ""
+        name: SLA_POLICY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4df3badf-0529-4738-b519-4737e153192e
+                stepCounter: f9a6ac7b-22af-412e-9075-03cb2f069577
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 72b56d45-b0f7-4ad2-a08a-8d795872c481
+          stepCounter: fbd7f5c8-405a-4e44-8829-93e47ae714eb
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SCEDULED_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b2bd20ec-9116-4a8b-8790-fccfdcdeadd7
+                stepCounter: 36b4afbb-82dc-4c03-83b2-d362d14f4c12
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 28229b5a-ac64-47c4-b2c1-13f179474a45
+          stepCounter: fbd7f5c8-405a-4e44-8829-93e47ae714eb
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: VALID_STARTING_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: greatest(valid_starting_at, schedule_created_at)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2bb6211-f315-4bbc-9686-2fb4b40a4ad1
+          stepCounter: fbd7f5c8-405a-4e44-8829-93e47ae714eb
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: VALID_ENDING_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: least(valid_ending_at, schedule_invalidated_at)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d3aaf91-bbbe-4e55-9916-2af5ac43ea60
+          stepCounter: fbd7f5c8-405a-4e44-8829-93e47ae714eb
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: STATUS_VALID_STARTING_AT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e7f270ea-aa31-4cca-9dff-332244d375c7
+                stepCounter: f9a6ac7b-22af-412e-9075-03cb2f069577
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f9e63fde-56e4-48b4-8098-9aa433d579cf
+          stepCounter: fbd7f5c8-405a-4e44-8829-93e47ae714eb
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: STATUS_VALID_ENDING_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 95af0ebb-1b25-4f16-a4f7-25602df38944
+                stepCounter: f9a6ac7b-22af-412e-9075-03cb2f069577
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_INT_REQUESTER_WAIT_TIME_FILTERED_STATUSES: f9a6ac7b-22af-412e-9075-03cb2f069577
+          V_INT_TICKET_SCHEDULES: 36b4afbb-82dc-4c03-83b2-d362d14f4c12
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_REQUESTER_WAIT_TIME_FILTERED_STATUSES
+          - locationName: TARGET
+            nodeName: V_INT_TICKET_SCHEDULES
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_INT_REQUESTER_WAIT_TIME_FILTERED_STATUSES') }} "V_INT_REQUESTER_WAIT_TIME_FILTERED_STATUSES"
+            LEFT JOIN {{ ref('TARGET', 'V_INT_TICKET_SCHEDULES') }} "V_INT_TICKET_SCHEDULES"
+            ON "V_INT_REQUESTER_WAIT_TIME_FILTERED_STATUSES"."TICKET_ID" = "V_INT_TICKET_SCHEDULES"."TICKET_ID"
+            WHERE DATEDIFF(
+                second, 
+                GREATEST(valid_starting_at, schedule_created_at), 
+                LEAST(valid_ending_at, schedule_invalidated_at) ) > 0
+        name: V_TICKET_STATUS_CROSSED_WITH_SCHEDULE_REQ
+        noLinkRefs: []
+  name: V_TICKET_STATUS_CROSSED_WITH_SCHEDULE_REQ
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

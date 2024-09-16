@@ -1,0 +1,95 @@
+fileVersion: 1
+id: 2df68ae9-5859-4509-9b27-eb426a4a8877
+name: V_SCORE_GROUP
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ede33923-dc08-4bc7-a63e-a1909dc6bcab
+          stepCounter: 2df68ae9-5859-4509-9b27-eb426a4a8877
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 416d3942-6c23-494c-8229-b33c0a9a69d0
+                stepCounter: bf8f2358-4dc2-4291-bd44-5424a2fbd872
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 083b42f6-16fe-448d-a0d3-ea39a344da39
+          stepCounter: 2df68ae9-5859-4509-9b27-eb426a4a8877
+        config: {}
+        dataType: ""
+        description: ""
+        name: COUNT_SATISFACTION_SCORES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 22c81577-dd3c-4825-aaf5-202ea8f2b9b5
+                stepCounter: bf8f2358-4dc2-4291-bd44-5424a2fbd872
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 726fdf8b-7216-4472-9a22-f1b40c781664
+          stepCounter: 2df68ae9-5859-4509-9b27-eb426a4a8877
+        config: {}
+        dataType: ""
+        description: ""
+        name: TOTAL_GOOD_TO_BAD_SCORE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f93a02eb-47fc-4bd9-b327-6beb615f5990
+                stepCounter: bf8f2358-4dc2-4291-bd44-5424a2fbd872
+            transform: SUM("V_SATISFACTION_SCORE"."GOOD_TO_BAD_SCORE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e04380e-39d8-4898-899a-1d940c323b72
+          stepCounter: 2df68ae9-5859-4509-9b27-eb426a4a8877
+        config: {}
+        dataType: ""
+        description: ""
+        name: TOTAL_BAD_TO_GOOD_SCORE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: de91b4d7-14e1-4d67-8da7-4ee577a12594
+                stepCounter: bf8f2358-4dc2-4291-bd44-5424a2fbd872
+            transform: SUM("V_SATISFACTION_SCORE"."BAD_TO_GOOD_SCORE")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_SATISFACTION_SCORE
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_SATISFACTION_SCORE') }} "V_SATISFACTION_SCORE"
+        name: V_SCORE_GROUP
+        noLinkRefs: []
+  name: V_SCORE_GROUP
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

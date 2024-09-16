@@ -1,0 +1,182 @@
+fileVersion: 1
+id: c6eb7962-f518-469f-a7e2-84fec4786f44
+name: V_AGENT_WORK_TIME_SLA
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f003d3ed-87a4-4d35-8dfc-6542d39eba3f
+          stepCounter: c6eb7962-f518-469f-a7e2-84fec4786f44
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d15e378b-e269-4d2e-b6dc-b36ad878ebdf
+                stepCounter: 0ea07523-a019-4608-95d2-90fd44901ba9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7ac40fd2-e36d-410a-976f-7eb6fbc4bcc1
+          stepCounter: c6eb7962-f518-469f-a7e2-84fec4786f44
+        config: {}
+        dataType: ""
+        description: ""
+        name: TICKET_CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cf600ad2-7877-4fdb-99cf-57daf9ba4c0d
+                stepCounter: 0ea07523-a019-4608-95d2-90fd44901ba9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a1b8f69d-2843-4c67-a1e6-a0499c20b354
+          stepCounter: c6eb7962-f518-469f-a7e2-84fec4786f44
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: VALID_STARTING_AT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4ce574a7-29cb-476a-b249-dfd31c738aac
+                stepCounter: 0ea07523-a019-4608-95d2-90fd44901ba9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a8acc5c4-5cdb-40cc-853d-309ac36c35cf
+          stepCounter: c6eb7962-f518-469f-a7e2-84fec4786f44
+        config: {}
+        dataType: ""
+        description: ""
+        name: TICKET_CURRENT_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7347215f-a0be-4e74-9ef4-14e8a3270d48
+                stepCounter: 0ea07523-a019-4608-95d2-90fd44901ba9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d709bc1f-1aee-4d04-9302-8923fd5ab6dd
+          stepCounter: c6eb7962-f518-469f-a7e2-84fec4786f44
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: METRIC
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01c2729e-6dee-4b06-8676-b1b0fb9d8fe5
+                stepCounter: 0ea07523-a019-4608-95d2-90fd44901ba9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f741884-b2c8-4feb-bc52-859cc684b18c
+          stepCounter: c6eb7962-f518-469f-a7e2-84fec4786f44
+        config: {}
+        dataType: ""
+        description: ""
+        name: LATEST_SLA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 58c28f44-ba79-43bd-87ae-f7a5341caa94
+                stepCounter: 0ea07523-a019-4608-95d2-90fd44901ba9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 513105d2-579e-4b40-ac3a-6d1e2932cf3a
+          stepCounter: c6eb7962-f518-469f-a7e2-84fec4786f44
+        config: {}
+        dataType: ""
+        description: ""
+        name: SLA_APPLIED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2f32c234-a922-452a-b3f0-7d4d6e749592
+                stepCounter: 0ea07523-a019-4608-95d2-90fd44901ba9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9bec2fc0-c528-4781-83a6-73dfb101f8f2
+          stepCounter: c6eb7962-f518-469f-a7e2-84fec4786f44
+        config: {}
+        dataType: ""
+        description: ""
+        name: TARGET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 62b7da6b-ff24-4e02-ad0c-5dfd1f190ac0
+                stepCounter: 0ea07523-a019-4608-95d2-90fd44901ba9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: adfa5a6e-d63d-41e2-a747-7970173bfaa1
+          stepCounter: c6eb7962-f518-469f-a7e2-84fec4786f44
+        config: {}
+        dataType: ""
+        description: ""
+        name: IN_BUSINESS_HOURS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 717e6a37-be51-491f-a3f3-e66c648cb9cd
+                stepCounter: 0ea07523-a019-4608-95d2-90fd44901ba9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9560a701-8bc7-45a6-9997-af12315b5d43
+          stepCounter: c6eb7962-f518-469f-a7e2-84fec4786f44
+        config: {}
+        dataType: ""
+        description: ""
+        name: SLA_POLICY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 03a74770-c329-42d0-937f-cfaf52243a9c
+                stepCounter: 0ea07523-a019-4608-95d2-90fd44901ba9
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_INT_SLA_POLICY_APPLIED: 0ea07523-a019-4608-95d2-90fd44901ba9
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_SLA_POLICY_APPLIED
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_INT_SLA_POLICY_APPLIED') }} "V_INT_SLA_POLICY_APPLIED"
+            WHERE "V_INT_SLA_POLICY_APPLIED"."METRIC" = 'agent_work_time'
+        name: V_AGENT_WORK_TIME_SLA
+        noLinkRefs: []
+  name: V_AGENT_WORK_TIME_SLA
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

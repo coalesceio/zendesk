@@ -1,0 +1,71 @@
+fileVersion: 1
+id: 51dff2be-4c2d-490a-b902-7501e3c2d823
+name: V_SCHEDULE_BUSINESS_HOURS
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 06d70bff-1567-4bf9-a8c4-c6dd2d9fcf5e
+          stepCounter: 51dff2be-4c2d-490a-b902-7501e3c2d823
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SCHEDULE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 71b7c55c-97c0-4097-9ed6-d1bb74938172
+                stepCounter: dab169c8-8bb5-4f70-a43e-dca70531c77f
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a59b9ae-b7f9-41fa-8520-aa9c11b12515
+          stepCounter: 51dff2be-4c2d-490a-b902-7501e3c2d823
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TOTAL_SCHEDULE_WEEKLY_BUSINESS_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "sum(end_time - start_time) "
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_SCHEDULE
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'PSTG_SCHEDULE') }} "PSTG_SCHEDULE"
+        name: V_SCHEDULE_BUSINESS_HOURS
+        noLinkRefs: []
+  name: V_SCHEDULE_BUSINESS_HOURS
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

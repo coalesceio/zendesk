@@ -1,0 +1,284 @@
+fileVersion: 1
+id: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+name: V_INT_USER_AGGREGRATES
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18e4f1f1-0455-491a-90a0-b8ca9d635927
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: USER_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 418c99c0-b45e-4109-9118-0f232c26eecb
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 082e6e6d-d2fe-4d7f-a29d-9119d03edce9
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: EXTERNAL_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ab5d4d17-4300-4cc0-a157-518d2f4dc296
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8099eb59-9db0-4120-b315-486e46256699
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ae8a8811-0665-47ce-99c7-7ef01f7f390c
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f019697-f64f-410a-ac5e-a21ee315a280
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: LAST_LOGIN_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 97ab629b-9708-409c-9748-0343fe844593
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5f0eeaad-dd67-4762-b1da-1cdb9b9de038
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f400d486-9b83-4b57-8848-15c0a874e643
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 412c1140-714d-4d18-b88d-9754c22784c9
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: UPDATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 03865940-f4d2-41f2-9bed-3717172fd031
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eeece0c7-25f4-49ba-8f77-62946bccb44c
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: EMAIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd837160-13b0-4323-ab0b-0e7bbf9e2a56
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 03588d7a-c559-4d56-8656-cc8ba0cc91f0
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0fab7001-7f09-4a92-9f7e-65fba91d85d3
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f9ff65d-91a8-44ff-9e66-9c6ad26580b8
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ORGANIZATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 57253298-7c6c-4c1e-a24b-c53577ed1968
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2cb0a774-15f9-4675-93eb-7d1806a45a40
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: PHONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d008c1d8-dce7-4841-8957-62188991642d
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5a08eb77-277d-4611-834c-a1b5a7027f62
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: ROLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 64ad7da1-26b2-4179-8219-8cfee4810af0
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8166d996-e77e-4559-9cfb-74c51daa9202
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TICKET_RESTRICTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f2bb4a1a-650f-4b84-9467-41656be68991
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 22d0ebbe-7dd1-4d8f-bd0e-7eb0d5ff9a0c
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TIME_ZONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bd020bb8-4365-42e8-9523-c467a75787eb
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 403076ee-6ac1-4a72-a0a4-3080e62634ba
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: LOCALE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 41d52936-5185-4011-aaab-04a07f98216f
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0cd36320-4180-40b5-9c80-2c8b6d1dc21d
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 45553865-bf45-48b8-82b7-13816cd14f89
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2b9e2df-db97-4667-ac09-07327a60afc9
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_SUSPENDED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ced4166a-8937-4672-8946-ddca10e7bb0e
+                stepCounter: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8c56e8c3-bfb1-4e20-af80-270ed1a1832a
+          stepCounter: 2a89b055-8b39-4d24-92f3-6d66c479fae3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: USER_TAGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 947e5458-9c2d-4fed-9888-a33e8e90a4ef
+                stepCounter: eabfe23d-b125-4b4b-9df8-b04fce12e65c
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PSTG_USER: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+          V_USER_TAG_AGGREGRATES: eabfe23d-b125-4b4b-9df8-b04fce12e65c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_USER
+          - locationName: TARGET
+            nodeName: V_USER_TAG_AGGREGRATES
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'PSTG_USER') }} "PSTG_USER"
+            LEFT JOIN {{ ref('TARGET', 'V_USER_TAG_AGGREGRATES') }} "V_USER_TAG_AGGREGRATES"
+            ON "V_USER_TAG_AGGREGRATES"."USER_ID" = "PSTG_USER"."USER_ID"
+        name: V_INT_USER_AGGREGRATES
+        noLinkRefs: []
+  name: V_INT_USER_AGGREGRATES
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

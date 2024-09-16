@@ -1,0 +1,495 @@
+fileVersion: 1
+id: 611da0e4-57e6-4302-9aaa-3114e69731a8
+name: TICKET_COMMENT
+operation:
+  database: ""
+  dataset: ""
+  deployEnabled: true
+  description: ""
+  locationName: SOURCE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d4a1c9b-4a8f-4033-b19c-91e6f23c094d
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: ID
+        nullable: false
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f874d298-7bd7-48eb-abc8-74de104107c9
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: VARCHAR(65536)
+        defaultValue: ""
+        description: ""
+        name: BODY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f6ea64c-dcbc-4b6d-9c52-653ceb37aba5
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: TICKET_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2032b57-584a-44b1-b994-4c6159eba0c8
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: VARCHAR(1024)
+        defaultValue: ""
+        description: ""
+        name: METADATA
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d96f03b7-2b13-4024-ab9f-59a7b80a5682
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: FACEBOOK_COMMENT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f650465c-67ac-4aab-8f88-f752d3b56199
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: VOICE_COMMENT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ca79bdef-d74e-4d1e-bb74-6ab702551f8d
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: TWEET
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d80d447d-e0f9-4a9e-a22b-819badd4875f
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: CREATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1f13c34-bc7e-4ed6-a87b-cecc672afc31
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: VIA_CHANNEL
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 95e9454c-b182-464d-aae7-5a0d18af9c58
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: VIA_SOURCE_FROM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 799a9126-f860-4831-9a2b-eee212b79f8e
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: VIA_SOURCE_FROM_TITLE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e3543c0-5d61-4e22-81a1-6fc3fc11d77a
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: VIA_SOURCE_FROM_ADDRESS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d826e487-1e97-400e-9371-81646896381e
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: VIA_SOURCE_TO_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a02f222-5312-472c-947a-fdf6b1f0f623
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: VIA_SOURCE_TO_ADDRESS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6efa06ac-683e-4023-9254-15c0f5f638af
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: VIA_SOURCE_REL
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b2cf7db-7c8f-4d0c-bdb8-e890845dd874
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: USER_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 70721f7c-fd51-4397-9605-c080bdc53967
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: VARCHAR(131072)
+        defaultValue: ""
+        description: ""
+        name: HTML_BODY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c032adaa-7c70-4845-8cea-62d697c2452b
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: VARCHAR(65536)
+        defaultValue: ""
+        description: ""
+        name: PLAIN_BODY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bce1cece-48d8-499b-b5b6-0e94b68838b7
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 80258f17-6672-4371-b25c-40837a538f98
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: PUBLIC
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8f453a70-37f8-4885-86bb-421f713b1aed
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: VARIANT
+        defaultValue: ""
+        description: ""
+        name: VIA_SOURCE_FROM_ORIGINAL_RECIPIENTS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9dd7d735-467f-4da8-8b50-92774a3f8cbc
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: VIA_SOURCE_FROM_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bfc90d4e-15ec-472f-97df-525886fb50c2
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: VARIANT
+        defaultValue: ""
+        description: ""
+        name: VIA_SOURCE_TO_EMAIL_CCS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e6749ce-56ae-4506-b7e2-552977e65101
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: VIA_SOURCE_FROM_SUBJECT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5873db30-91da-44f5-8f69-a2a2021c9f81
+          stepCounter: 611da0e4-57e6-4302-9aaa-3114e69731a8
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: VIA_SOURCE_FROM_CHANNEL
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+    join:
+      joinCondition: FROM {{ ref('SOURCE', 'TICKET_COMMENT') }}
+  name: TICKET_COMMENT
+  schema: ""
+  sqlType: Source
+  table: TICKET_COMMENT
+  type: sourceInput
+  version: 1
+type: Node

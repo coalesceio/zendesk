@@ -1,0 +1,78 @@
+fileVersion: 1
+id: a54adc44-ef7a-4edd-b17b-cd77704e3318
+name: V_TICKET_DETAILS_FINAL
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f9eed57e-e4d6-45f3-a5b3-090d037ff016
+          stepCounter: a54adc44-ef7a-4edd-b17b-cd77704e3318
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6eaa2040-990d-408d-9dc0-ac5d08b29f69
+                stepCounter: 6afd7af6-4be8-430b-9292-39b87612f644
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 64ca0e3d-8f53-481f-a4ac-a58a5418ec99
+          stepCounter: a54adc44-ef7a-4edd-b17b-cd77704e3318
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TICKET_MARKDOWN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CONCAT(
+                  '# Ticket : ', ticket_name, '\n\n',
+                  'Created By : ', user_name, ' (', created_by, ')\n',
+                  'Created On : ', created_on, '\n',
+                  'Status : ', status, '\n',
+                  'Priority : ', priority
+              )
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_TICKET_DETAILS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_TICKET_DETAILS') }} "V_TICKET_DETAILS"
+        name: V_TICKET_DETAILS_FINAL
+        noLinkRefs: []
+  name: V_TICKET_DETAILS_FINAL
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

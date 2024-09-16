@@ -1,0 +1,286 @@
+fileVersion: 1
+id: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+name: V_INTERCEPTED_PERIODS_AGENT_WITH_BREACH_FLAG
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 934ca4fa-3861-4fc3-a785-ed1a89f86cb8
+          stepCounter: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2e6f6f8e-f710-4a3a-93b2-3a842a4dec43
+                stepCounter: 8680d134-18b7-4d10-8c49-a59546a94006
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ad703d73-01d8-4f1a-93f5-0733e9fb3054
+          stepCounter: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+        config: {}
+        dataType: ""
+        description: ""
+        name: SLA_APPLIED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a15fe515-6d1f-4b04-84f1-76303b0b997d
+                stepCounter: 8680d134-18b7-4d10-8c49-a59546a94006
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 82fe5130-1985-4b28-8cf2-ecb1a851733a
+          stepCounter: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+        config: {}
+        dataType: ""
+        description: ""
+        name: TARGET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0deb9564-591e-42ba-a098-a0a19dbef696
+                stepCounter: 8680d134-18b7-4d10-8c49-a59546a94006
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f72885cd-175e-4fe3-b79f-e2982f66f137
+          stepCounter: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+        config: {}
+        dataType: ""
+        description: ""
+        name: SLA_POLICY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f7eb777c-9d95-410f-8d68-838b95b6a18d
+                stepCounter: 8680d134-18b7-4d10-8c49-a59546a94006
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16b85d94-4100-44c3-8d74-5870a1bbd60e
+          stepCounter: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+        config: {}
+        dataType: ""
+        description: ""
+        name: VALID_STARTING_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d6afed92-b835-40aa-a09c-09a06553c817
+                stepCounter: 8680d134-18b7-4d10-8c49-a59546a94006
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93abe557-d6a5-4a93-aa05-370333d23c2b
+          stepCounter: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+        config: {}
+        dataType: ""
+        description: ""
+        name: VALID_ENDING_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0dae751a-074f-4044-9a1b-265e5ecaa97e
+                stepCounter: 8680d134-18b7-4d10-8c49-a59546a94006
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3edf3c3f-570b-4ecd-be7b-db2462dcf99d
+          stepCounter: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+        config: {}
+        dataType: ""
+        description: ""
+        name: WEEK_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ad535ad6-58de-4299-aea5-3341e5987093
+                stepCounter: 8680d134-18b7-4d10-8c49-a59546a94006
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ae921a0c-a37e-43d0-bb27-ea713166b73c
+          stepCounter: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+        config: {}
+        dataType: ""
+        description: ""
+        name: TICKET_WEEK_START_TIME_MINUTE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c8f3aa1f-dd4c-43b6-8f07-a0f776a63b31
+                stepCounter: 8680d134-18b7-4d10-8c49-a59546a94006
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 309287e6-8788-4b3a-a116-bb35b7e9b5ef
+          stepCounter: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+        config: {}
+        dataType: ""
+        description: ""
+        name: TICKET_WEEK_END_TIME_MINUTE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 897388a1-c16c-4059-b4d2-45e8b949a4ec
+                stepCounter: 8680d134-18b7-4d10-8c49-a59546a94006
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c5cddadf-b28e-4e46-b1c6-537a4fc1fe75
+          stepCounter: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+        config: {}
+        dataType: ""
+        description: ""
+        name: SCHEDULE_START_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ae802c52-fb12-4e50-8f61-551df14b4e6c
+                stepCounter: 8680d134-18b7-4d10-8c49-a59546a94006
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b54c6cd5-a73d-4eff-a912-b9c175065950
+          stepCounter: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+        config: {}
+        dataType: ""
+        description: ""
+        name: SCHEDULE_END_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: deb963d7-ab17-4b02-9432-288d38f19505
+                stepCounter: 8680d134-18b7-4d10-8c49-a59546a94006
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e0468e79-6b7f-4680-81d3-896714191585
+          stepCounter: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+        config: {}
+        dataType: ""
+        description: ""
+        name: SCHEDULED_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 618c6fff-aa4e-4f78-aeb7-28c534375716
+                stepCounter: 8680d134-18b7-4d10-8c49-a59546a94006
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e374e337-dc26-4e40-b837-677440cce6f4
+          stepCounter: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+        config: {}
+        dataType: ""
+        description: ""
+        name: RUNNING_TOTAL_SCHEDULED_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f17109ec-ee34-4203-a429-a5ea3e653202
+                stepCounter: 8680d134-18b7-4d10-8c49-a59546a94006
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd97a6d2-89f3-418a-9365-8ef55b08524f
+          stepCounter: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: REMAINING_TARGET_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: TARGET - RUNNING_TOTAL_SCHEDULED_MINUTES
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c440ce84-ea1c-49c2-85f5-f5714648e3ed
+          stepCounter: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: LAG_CHECK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              LAG(TARGET - RUNNING_TOTAL_SCHEDULED_MINUTES) OVER
+                        (PARTITION BY TICKET_ID, SLA_APPLIED_AT ORDER BY VALID_STARTING_AT, WEEK_NUMBER, SCHEDULE_END_TIME)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 499fe139-9641-4d0b-8cb2-fa483a4845f4
+          stepCounter: 27e1180f-712b-439a-bed4-d9aa5e5902dd
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: IS_BREACHED_DURING_SCHEDULE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE WHEN (TARGET - RUNNING_TOTAL_SCHEDULED_MINUTES) = 0 THEN TRUE
+                    WHEN (TARGET - RUNNING_TOTAL_SCHEDULED_MINUTES) < 0 
+                      AND 
+                        (LAG(TARGET - RUNNING_TOTAL_SCHEDULED_MINUTES) OVER
+                        (PARTITION BY TICKET_ID, SLA_APPLIED_AT ORDER BY VALID_STARTING_AT, WEEK_NUMBER, SCHEDULE_END_TIME) > 0 
+                        OR 
+                        LAG(TARGET - RUNNING_TOTAL_SCHEDULED_MINUTES) OVER
+                        (PARTITION BY TICKET_ID, SLA_APPLIED_AT ORDER BY VALID_STARTING_AT, WEEK_NUMBER, SCHEDULE_END_TIME) IS NULL) 
+                        THEN TRUE ELSE FALSE END
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INTERCEPTED_PERIODS_WITH_RUNNING_TOTAL
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_INTERCEPTED_PERIODS_WITH_RUNNING_TOTAL') }} "V_INTERCEPTED_PERIODS_WITH_RUNNING_TOTAL"
+        name: V_INTERCEPTED_PERIODS_AGENT_WITH_BREACH_FLAG
+        noLinkRefs: []
+  name: V_INTERCEPTED_PERIODS_AGENT_WITH_BREACH_FLAG
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,333 @@
+fileVersion: 1
+id: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+name: V_INT_TICKET_RESOLUTION_TIMES_CALENDAR
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60bac521-e111-4b94-adf7-0613453cbae0
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7d25d46d-f272-4be2-b448-466110cae13a
+                stepCounter: 2630639b-14e3-4546-838d-4100786f9216
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5d8af1b-923a-4e2e-a2e1-7028e9aa3e71
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a9c7abcd-bdbf-4645-b09c-b7d5eb16fbcb
+                stepCounter: 2630639b-14e3-4546-838d-4100786f9216
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 477f8640-2dd1-4779-b0f6-c25d9a78d1c5
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: ""
+        description: ""
+        name: FIRST_SOLVED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 83c8b0bc-c39c-418f-8af7-f6dad9bc72f9
+                stepCounter: 2223babc-2ac5-4611-9334-7bfc4ecd06dd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e665200a-8c20-4a42-b7b2-c28b35b100f4
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: ""
+        description: ""
+        name: LAST_SOLVED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e640063-b131-4cff-8f63-931c9ba9d7db
+                stepCounter: 2223babc-2ac5-4611-9334-7bfc4ecd06dd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e35c6b6d-1ad7-44e6-ae7f-047998a23a9e
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: UNIQUE_ASSIGNEE_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d8123d7-d448-4e6c-9743-a822185846fb
+                stepCounter: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a05170c8-2440-4e49-b15c-4135b15fd660
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: ""
+        description: ""
+        name: ASSIGNEE_STATIONS_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c5bf2d7c-aff9-43db-a0e8-4d85439045e4
+                stepCounter: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 00db8206-5221-4f26-afea-211fc6ceb7b6
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: GROUP_STATIONS_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1c6c0d65-0f50-48a9-a6ac-8b378f27b5ac
+                stepCounter: 86830a5c-3b7e-49fa-b451-ac0f70126cea
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f15d0985-e8e6-40c4-9404-e05cb551c9c2
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: ""
+        description: ""
+        name: FIRST_ASSIGNEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 22ce5573-e1d9-4795-8ed8-84168d27ec85
+                stepCounter: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 68c3ff75-b044-49a9-83a3-cd4ed8ece79e
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: ""
+        description: ""
+        name: LAST_ASSIGNEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e9f7f2e9-dc80-4ece-9486-1f4bb06661c2
+                stepCounter: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f2705c15-44c3-409d-a453-e02838cf348c
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: ""
+        description: ""
+        name: FIRST_AGENT_ASSIGNMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8499b6a3-f293-44df-820e-07aa1707c0ae
+                stepCounter: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ece566cc-00a9-4ef3-97ff-0f654e403924
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: ""
+        description: ""
+        name: LAST_AGENT_ASSIGNMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c1e1294f-f8a1-49f8-8d46-956fdf7f3d80
+                stepCounter: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 37242849-2b56-41c1-8332-0e19e6795293
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: ""
+        description: ""
+        name: TICKET_UNASSIGNED_DURATION_CALENDAR_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aabf75d4-937f-4b8f-ad61-783aa796790a
+                stepCounter: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3a7fa48d-f66d-465f-bc29-b0ea0fe09b52
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: ""
+        description: ""
+        name: TOTAL_RESOLUTIONS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b4cb20ff-04a3-4266-ad9a-8a4aea5ec88a
+                stepCounter: 2223babc-2ac5-4611-9334-7bfc4ecd06dd
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c61b3249-c9e4-467f-be38-541229e8a8d6
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: COUNT_REOPENS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CASE WHEN V_HISTORICAL_SOLVED_TIMES.SOLVED_COUNT <= 1  THEN 0
+                    ELSE V_HISTORICAL_SOLVED_TIMES.SOLVED_COUNT - 1  END
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ba0e81e0-918d-4934-86ee-b4820e020035
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: FIRST_ASSIGNMENT_TO_RESOLUTION_CALENDAR_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |
+              TIMESTAMPDIFF(MINUTE, V_INT_TICKET_HISTORICAL_ASSIGNEE.first_agent_assignment_date, V_HISTORICAL_SOLVED_TIMES.last_solved_at) 
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f72d2503-73dc-4581-afd1-500e065c0a29
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: LAST_ASSIGNMENT_TO_RESOLUTION_CALENDAR_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |
+              TIMESTAMPDIFF(MINUTE, V_INT_TICKET_HISTORICAL_ASSIGNEE.last_agent_assignment_date, V_HISTORICAL_SOLVED_TIMES.last_solved_at) 
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e1e6ed1e-8135-43fe-8073-b82e86ff4db1
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: FIRST_RESOLUTION_CALENDAR_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |
+              TIMESTAMPDIFF(MINUTE, PSTG_TICKET.created_at, V_HISTORICAL_SOLVED_TIMES.first_solved_at) 
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e6062b1-c272-43a7-acf6-9136958e74e9
+          stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: FINAL_RESOLUTION_CALENDAR_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "TIMESTAMPDIFF(MINUTE, PSTG_TICKET.created_at, V_HISTORICAL_SOLVED_TIMES.last_solved_at) "
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PSTG_TICKET: 2630639b-14e3-4546-838d-4100786f9216
+          V_HISTORICAL_SOLVED_TIMES: 2223babc-2ac5-4611-9334-7bfc4ecd06dd
+          V_INT_TICKET_HISTORICAL_ASSIGNEE: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+          V_INT_TICKET_HISTORICAL_GROUP: 86830a5c-3b7e-49fa-b451-ac0f70126cea
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_TICKET
+          - locationName: TARGET
+            nodeName: V_HISTORICAL_SOLVED_TIMES
+          - locationName: TARGET
+            nodeName: V_INT_TICKET_HISTORICAL_ASSIGNEE
+          - locationName: TARGET
+            nodeName: V_INT_TICKET_HISTORICAL_GROUP
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'PSTG_TICKET') }} "PSTG_TICKET"
+            LEFT JOIN {{ ref('TARGET', 'V_HISTORICAL_SOLVED_TIMES') }} "V_HISTORICAL_SOLVED_TIMES"
+            ON "PSTG_TICKET"."TICKET_ID" = "V_HISTORICAL_SOLVED_TIMES"."TICKET_ID"
+            LEFT JOIN {{ ref('TARGET', 'V_INT_TICKET_HISTORICAL_ASSIGNEE') }} "V_INT_TICKET_HISTORICAL_ASSIGNEE"
+            ON "PSTG_TICKET"."TICKET_ID" = "V_INT_TICKET_HISTORICAL_ASSIGNEE"."TICKET_ID"
+            LEFT JOIN {{ ref('TARGET', 'V_INT_TICKET_HISTORICAL_GROUP') }} "V_INT_TICKET_HISTORICAL_GROUP"
+            ON "PSTG_TICKET"."TICKET_ID"= "V_INT_TICKET_HISTORICAL_GROUP"."TICKET_ID"
+        name: V_INT_TICKET_RESOLUTION_TIMES_CALENDAR
+        noLinkRefs: []
+  name: V_INT_TICKET_RESOLUTION_TIMES_CALENDAR
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

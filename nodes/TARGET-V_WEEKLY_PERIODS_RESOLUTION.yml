@@ -1,0 +1,201 @@
+fileVersion: 1
+id: b81ebed1-af22-4080-abe5-19be513cb641
+name: V_WEEKLY_PERIODS_RESOLUTION
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 440a31dd-85ed-49f6-a788-aecb3ffd45f2
+          stepCounter: b81ebed1-af22-4080-abe5-19be513cb641
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b5f53ab2-4f05-4079-b6c9-b5b8a90628cc
+                stepCounter: 2ad14f2a-9479-4fc6-944d-2599f151c1ae
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fba1e3e1-54d9-4504-91da-2b98d1700847
+          stepCounter: b81ebed1-af22-4080-abe5-19be513cb641
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SCHEDULE_CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e637a948-3d0c-46d4-a42c-ef08f50dedd2
+                stepCounter: 2ad14f2a-9479-4fc6-944d-2599f151c1ae
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3aaa782f-5d92-450e-8f0b-945a732cb066
+          stepCounter: b81ebed1-af22-4080-abe5-19be513cb641
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SCHEDULE_INVALIDATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aa343550-02c8-4734-8103-0ac7c7259149
+                stepCounter: 2ad14f2a-9479-4fc6-944d-2599f151c1ae
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16024e00-dccd-4f64-aed5-1c201e7cb2db
+          stepCounter: b81ebed1-af22-4080-abe5-19be513cb641
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SCEDULED_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 049643c3-b17c-4fe8-abdb-ab451be3d9aa
+                stepCounter: 2ad14f2a-9479-4fc6-944d-2599f151c1ae
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f4e66634-3918-4b8c-94b0-2b84eb0cbf56
+          stepCounter: b81ebed1-af22-4080-abe5-19be513cb641
+        config: {}
+        dataType: ""
+        description: ""
+        name: LAST_SOLVED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 03fd4b38-6f08-4128-83a4-a2044eb982b2
+                stepCounter: 2ad14f2a-9479-4fc6-944d-2599f151c1ae
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c471c6b1-f409-49b1-81dc-f38001eaa1a0
+          stepCounter: b81ebed1-af22-4080-abe5-19be513cb641
+        config: {}
+        dataType: ""
+        description: ""
+        name: START_TIME_IN_MINUTES_FROM_WEEK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a29a0cf-3ffa-4922-b171-96accb5128ef
+                stepCounter: 2ad14f2a-9479-4fc6-944d-2599f151c1ae
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 87274b9b-1851-479d-9bc5-21ddeff31fcf
+          stepCounter: b81ebed1-af22-4080-abe5-19be513cb641
+        config: {}
+        dataType: ""
+        description: ""
+        name: RAW_DELTA_IN_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b17ead80-6fa2-40d9-a892-f757e5aa2e74
+                stepCounter: 2ad14f2a-9479-4fc6-944d-2599f151c1ae
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 50031315-500c-47f7-a921-28471cdc82a0
+          stepCounter: b81ebed1-af22-4080-abe5-19be513cb641
+        config: {}
+        dataType: ""
+        description: ""
+        name: START_WEEK_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 98c5c5f8-5ff6-41d5-bbe5-e1120285b4cd
+                stepCounter: 2ad14f2a-9479-4fc6-944d-2599f151c1ae
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 470545a0-8d16-4777-8bf3-c6849a745bad
+          stepCounter: b81ebed1-af22-4080-abe5-19be513cb641
+        config: {}
+        dataType: ""
+        description: ""
+        name: WEEK_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7d84bf4b-40ea-46f6-a5bb-9877131aaf62
+                stepCounter: 2ad14f2a-9479-4fc6-944d-2599f151c1ae
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4b9d87df-d9bc-46b6-953a-384b1e2341ac
+          stepCounter: b81ebed1-af22-4080-abe5-19be513cb641
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TICKET_WEEK_START_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: cast(greatest(0, start_time_in_minutes_from_week - week_number * (7*24*60)) as  INT)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d318c0f1-e97a-4e02-95e7-6afec1359fdc
+          stepCounter: b81ebed1-af22-4080-abe5-19be513cb641
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TICKET_WEEK_END_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: cast(least(start_time_in_minutes_from_week + raw_delta_in_minutes - week_number * (7*24*60), (7*24*60)) as INT)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_WEEKS_CROSS_TICKET_FULL_RESOLUTION_TIME
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_WEEKS_CROSS_TICKET_FULL_RESOLUTION_TIME') }} "V_WEEKS_CROSS_TICKET_FULL_RESOLUTION_TIME"
+        name: V_WEEKLY_PERIODS_RESOLUTION
+        noLinkRefs: []
+  name: V_WEEKLY_PERIODS_RESOLUTION
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

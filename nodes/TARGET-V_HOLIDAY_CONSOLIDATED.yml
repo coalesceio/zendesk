@@ -1,0 +1,187 @@
+fileVersion: 1
+id: 026a61e8-782c-49fc-bb8c-1e437db56501
+name: V_HOLIDAY_CONSOLIDATED
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5bd2d330-faef-47ca-9f6d-7f4485d5e1a8
+          stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SCHEDULE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 57bdcd23-79d9-4757-b2d5-f8a0bd4184c1
+                stepCounter: f3f4f482-a7a3-4d17-b4cc-e94deefb9cf4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dd584acc-daf0-410d-8bb0-fc50b28fedfa
+          stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TIME_ZONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 19686757-3e27-49ca-ae6a-912a21f5984f
+                stepCounter: f3f4f482-a7a3-4d17-b4cc-e94deefb9cf4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a1aa343-37f1-44bc-a6fb-a278b4142b1a
+          stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SCHEDULE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 12776812-07c2-4569-9fa2-5d4c1b8078c9
+                stepCounter: f3f4f482-a7a3-4d17-b4cc-e94deefb9cf4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8fe3e3b6-f11e-45bb-a971-dddc1ff2b2a5
+          stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+        config: {}
+        dataType: ""
+        description: ""
+        name: VALID_FROM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2df733db-c8b1-4133-9e96-c7070c88d603
+                stepCounter: f3f4f482-a7a3-4d17-b4cc-e94deefb9cf4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 572e13ee-41d9-4781-a15a-d1e186ac6566
+          stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+        config: {}
+        dataType: ""
+        description: ""
+        name: VALID_UNTIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 37ca5d70-ba9a-4fda-93c4-23d7d2d354ef
+                stepCounter: f3f4f482-a7a3-4d17-b4cc-e94deefb9cf4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b94b16a3-3160-4478-97c7-58e127a2ed47
+          stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+        config: {}
+        dataType: ""
+        description: ""
+        name: START_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a8ea7388-ddd7-4186-ad9f-9b7e4a3665ee
+                stepCounter: f3f4f482-a7a3-4d17-b4cc-e94deefb9cf4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d5629255-ac92-4fd0-954c-f2c8ee85674e
+          stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+        config: {}
+        dataType: ""
+        description: ""
+        name: END_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fbfd596f-b65a-4948-a4cf-676d4c05c907
+                stepCounter: f3f4f482-a7a3-4d17-b4cc-e94deefb9cf4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a4be9a1c-eb51-433a-bd67-aac0ff368a7b
+          stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+        config: {}
+        dataType: ""
+        description: ""
+        name: HOLIDAY_WEEK_START
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b504a6f2-de66-422a-8714-540d85c7869c
+                stepCounter: f3f4f482-a7a3-4d17-b4cc-e94deefb9cf4
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9629d40-b74a-4498-906f-d99f478d731a
+          stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: HOLIDAY_WEEK_END
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: CAST( DATEADD(SECOND, 86400, TO_TIMESTAMP(HOLIDAY_WEEK_END)) AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 335315b9-496a-4282-8cf4-6a858793814c
+          stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: HOLIDAY_NAME_CHECK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: MAX(HOLIDAY_NAME_CHECK)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_HOLIDAY_CHECK
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_HOLIDAY_CHECK') }} "V_HOLIDAY_CHECK"
+        name: V_HOLIDAY_CONSOLIDATED
+        noLinkRefs: []
+  name: V_HOLIDAY_CONSOLIDATED
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

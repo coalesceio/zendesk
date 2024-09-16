@@ -1,0 +1,176 @@
+fileVersion: 1
+id: a8321a59-449d-40fe-b0bd-b91650dd82f2
+name: V_UNION_TICKET_COMMENT_FIELD-HISTORY
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION ALL
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: true
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0192084b-30ef-4f66-a8a4-38c4699ae5d9
+          stepCounter: a8321a59-449d-40fe-b0bd-b91650dd82f2
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 390f4620-e3fc-4f11-ac49-d9c202b4cb08
+                stepCounter: bb83e13d-33a0-40c5-b7d6-3144ad0a8bde
+            transform: ""
+          - columnReferences:
+              - columnCounter: c21a07ac-9de5-421a-87aa-4146ec03de91
+                stepCounter: a8329502-d4a8-4dcb-bdca-95176e333173
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c8b07043-21ac-49e7-9c9c-a5f5f1366efb
+          stepCounter: a8321a59-449d-40fe-b0bd-b91650dd82f2
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FIELD_NAME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0591a818-c206-4541-b31c-dce034d99c6b
+                stepCounter: bb83e13d-33a0-40c5-b7d6-3144ad0a8bde
+            transform: ""
+          - columnReferences: []
+            transform: CAST('comment' AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0692d9dc-d577-4cea-a74d-2af908b63ac2
+          stepCounter: a8321a59-449d-40fe-b0bd-b91650dd82f2
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: VALUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a713e5dd-3ebe-4964-8162-8daa96d76b60
+                stepCounter: bb83e13d-33a0-40c5-b7d6-3144ad0a8bde
+            transform: ""
+          - columnReferences:
+              - columnCounter: 03cdc055-383c-4e9c-bd30-b3f4b8c81655
+                stepCounter: a8329502-d4a8-4dcb-bdca-95176e333173
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8afc4c2b-2f74-47f4-832c-f5cdc5fcd8b1
+          stepCounter: a8321a59-449d-40fe-b0bd-b91650dd82f2
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: IS_PUBLIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "NULL"
+          - columnReferences:
+              - columnCounter: 7a1f2e40-a665-4f19-8e71-26fffe505b18
+                stepCounter: a8329502-d4a8-4dcb-bdca-95176e333173
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1520952e-2d6d-4e32-9243-907b50001206
+          stepCounter: a8321a59-449d-40fe-b0bd-b91650dd82f2
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 24a640b7-ec6a-4315-a94e-7ad2b4e40004
+                stepCounter: bb83e13d-33a0-40c5-b7d6-3144ad0a8bde
+            transform: ""
+          - columnReferences:
+              - columnCounter: da3602c1-9121-4b01-928a-3a4d03c79f1f
+                stepCounter: a8329502-d4a8-4dcb-bdca-95176e333173
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c57161e-5ab9-4b84-9760-ebeba0902d2b
+          stepCounter: a8321a59-449d-40fe-b0bd-b91650dd82f2
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: VALID_STARTING_AT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f7ecfa6b-9eb8-453f-8a71-9e17b63a2626
+                stepCounter: bb83e13d-33a0-40c5-b7d6-3144ad0a8bde
+            transform: ""
+          - columnReferences:
+              - columnCounter: dc0ef282-4c54-4541-9017-26f45c24bebb
+                stepCounter: a8329502-d4a8-4dcb-bdca-95176e333173
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4073826f-1687-414d-8212-3703875ab25c
+          stepCounter: a8321a59-449d-40fe-b0bd-b91650dd82f2
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: VALID_ENDING_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3ca0fcd4-96a6-4854-81a0-d0800719fa50
+                stepCounter: bb83e13d-33a0-40c5-b7d6-3144ad0a8bde
+            transform: ""
+          - columnReferences: []
+            transform: LEAD("PSTG_TICKET_COMMENT"."CREATED_AT") OVER (PARTITION BY "PSTG_TICKET_COMMENT"."TICKET_ID" ORDER BY "PSTG_TICKET_COMMENT"."CREATED_AT")
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_TICKET_FIELD_HISTORY
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'PSTG_TICKET_FIELD_HISTORY') }} "PSTG_TICKET_FIELD_HISTORY"
+        name: PSTG_TICKET_FIELD_HISTORY
+        noLinkRefs: []
+      - aliases:
+          PSTG_TICKET_COMMENT: a8329502-d4a8-4dcb-bdca-95176e333173
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_TICKET_COMMENT
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'PSTG_TICKET_COMMENT') }} "PSTG_TICKET_COMMENT"
+        name: PSTG_TICKET_COMMENT
+        noLinkRefs: []
+  name: V_UNION_TICKET_COMMENT_FIELD-HISTORY
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

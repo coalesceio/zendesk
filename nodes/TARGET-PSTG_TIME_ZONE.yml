@@ -1,0 +1,224 @@
+fileVersion: 1
+id: 2d4ed34c-c1bd-4980-a598-1d0c8e3fef7a
+name: PSTG_TIME_ZONE
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ac7f2e98-93bc-4b73-b2c1-254cf04b6adc
+          stepCounter: 2d4ed34c-c1bd-4980-a598-1d0c8e3fef7a
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: PSTG_TIME_ZONE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9173d00b-aefc-4b30-b878-4889edaa8000
+          stepCounter: 2d4ed34c-c1bd-4980-a598-1d0c8e3fef7a
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: STANDARD_OFFSET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b67474bd-a6c9-4e6d-9374-94ccc22fc27e
+                stepCounter: a54996ff-9b65-4066-bfa7-d7fc5bd1e141
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e0db4a0-7675-4377-a21a-1a840045a039
+          stepCounter: 2d4ed34c-c1bd-4980-a598-1d0c8e3fef7a
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TIME_ZONE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 88fdd553-49e8-4e99-b43d-2eb740bcc96d
+                stepCounter: a54996ff-9b65-4066-bfa7-d7fc5bd1e141
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e03ad1d-6cbe-4848-b840-e179be58a74e
+          stepCounter: 2d4ed34c-c1bd-4980-a598-1d0c8e3fef7a
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: STANDARD_OFFSET_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b67474bd-a6c9-4e6d-9374-94ccc22fc27e
+                stepCounter: a54996ff-9b65-4066-bfa7-d7fc5bd1e141
+            transform: |-
+              CAST(
+                  SPLIT("INC_TIME_ZONE"."STANDARD_OFFSET", ':')[0] AS NUMBER) * 60 
+                  +
+              CAST(
+                  SPLIT("INC_TIME_ZONE"."STANDARD_OFFSET", ':')[1] AS NUMBER
+              ) *
+              (
+                  CASE 
+                      WHEN "INC_TIME_ZONE"."STANDARD_OFFSET" LIKE '-%' THEN -1 
+                      ELSE 1 
+                  END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1d7e815e-04a7-41a3-9679-e62597300ee2
+          stepCounter: 2d4ed34c-c1bd-4980-a598-1d0c8e3fef7a
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c1b17d60-8585-4563-b998-bde15b2a0827
+                stepCounter: a54996ff-9b65-4066-bfa7-d7fc5bd1e141
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd065057-997e-4ac3-bc20-ced982c33052
+          stepCounter: 2d4ed34c-c1bd-4980-a598-1d0c8e3fef7a
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a46ef9bc-fca8-451f-a131-51af23bbc8e7
+          stepCounter: 2d4ed34c-c1bd-4980-a598-1d0c8e3fef7a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 66ef9250-8d37-42d9-993c-49bf0fa90ff9
+          stepCounter: 2d4ed34c-c1bd-4980-a598-1d0c8e3fef7a
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d0c1264-5826-4807-b6a3-b6e663a9ed50
+          stepCounter: 2d4ed34c-c1bd-4980-a598-1d0c8e3fef7a
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e9678d42-f71a-48e9-b9f4-1bc5278dce7f
+          stepCounter: 2d4ed34c-c1bd-4980-a598-1d0c8e3fef7a
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2bf5ba9-87fe-4e26-9681-621f70b4ccee
+          stepCounter: 2d4ed34c-c1bd-4980-a598-1d0c8e3fef7a
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: INC_TIME_ZONE
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'INC_TIME_ZONE') }} "INC_TIME_ZONE"
+        name: PSTG_TIME_ZONE
+        noLinkRefs: []
+  name: PSTG_TIME_ZONE
+  overrideSQL: false
+  schema: ""
+  sqlType: persistentStage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,215 @@
+fileVersion: 1
+id: 84e36bce-72a3-4654-bc8e-40608a5d3eb5
+name: V_AGENT_WORK_TIME_CALENDAR_MINUTES
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: eb0e1a67-4994-42a4-a99d-f775df7f31a9
+          stepCounter: 84e36bce-72a3-4654-bc8e-40608a5d3eb5
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bfc449d2-488c-4f8f-9fc9-28d2dbefe272
+                stepCounter: dd6f85ed-6cfc-4448-8f2a-46446807b308
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 058973cf-380e-46eb-85ed-dd99be1442a9
+          stepCounter: 84e36bce-72a3-4654-bc8e-40608a5d3eb5
+        config: {}
+        dataType: ""
+        description: ""
+        name: VALID_STARTING_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eeb60d40-0eca-4664-9694-b717ded67e84
+                stepCounter: dd6f85ed-6cfc-4448-8f2a-46446807b308
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 830c4650-7519-4eec-9108-9cc83101426a
+          stepCounter: 84e36bce-72a3-4654-bc8e-40608a5d3eb5
+        config: {}
+        dataType: ""
+        description: ""
+        name: VALID_ENDING_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 52e51318-8de8-435a-be67-64479cbfc2d5
+                stepCounter: dd6f85ed-6cfc-4448-8f2a-46446807b308
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ea4a7445-7967-43fb-a26a-bb21cae92d53
+          stepCounter: 84e36bce-72a3-4654-bc8e-40608a5d3eb5
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: TICKET_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0834aba4-b76f-4af2-88e5-19c19ce75bd3
+                stepCounter: dd6f85ed-6cfc-4448-8f2a-46446807b308
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 81c1e0fc-37e8-4041-8fd0-8d0bf0f25bd8
+          stepCounter: 84e36bce-72a3-4654-bc8e-40608a5d3eb5
+        config: {}
+        dataType: ""
+        description: ""
+        name: SLA_APPLIED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8ec27226-9237-45c9-86c1-a4f93ddf49fb
+                stepCounter: dd6f85ed-6cfc-4448-8f2a-46446807b308
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a657dad3-97e6-4046-82f3-5f38500c516f
+          stepCounter: 84e36bce-72a3-4654-bc8e-40608a5d3eb5
+        config: {}
+        dataType: ""
+        description: ""
+        name: TARGET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b0b9314-cc34-4c57-a465-40f4066bb958
+                stepCounter: dd6f85ed-6cfc-4448-8f2a-46446807b308
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a31764e1-1f11-48b5-b9c0-0b243cabf9c5
+          stepCounter: 84e36bce-72a3-4654-bc8e-40608a5d3eb5
+        config: {}
+        dataType: ""
+        description: ""
+        name: SLA_POLICY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1c543470-623c-4c8f-a29f-561c96734563
+                stepCounter: dd6f85ed-6cfc-4448-8f2a-46446807b308
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 76124338-e10c-418a-a626-12a8440a4753
+          stepCounter: 84e36bce-72a3-4654-bc8e-40608a5d3eb5
+        config: {}
+        dataType: ""
+        description: ""
+        name: TICKET_CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c059806d-8752-463d-9de6-5ee83e9235f9
+                stepCounter: dd6f85ed-6cfc-4448-8f2a-46446807b308
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b2131b8b-7762-41c4-8bf0-c10a77fbac96
+          stepCounter: 84e36bce-72a3-4654-bc8e-40608a5d3eb5
+        config: {}
+        dataType: ""
+        description: ""
+        name: IN_BUSINESS_HOURS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 265490d9-cd70-4f31-b573-a546b957b9b9
+                stepCounter: dd6f85ed-6cfc-4448-8f2a-46446807b308
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 623394fc-d5a4-4544-9418-1b6a6c4d2c43
+          stepCounter: 84e36bce-72a3-4654-bc8e-40608a5d3eb5
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: CALENDAR_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              DATEDIFF(
+                  minute,
+                  valid_starting_at,
+                  valid_ending_at
+              )
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 46a35499-f24a-4859-9eb3-e6b925c67081
+          stepCounter: 84e36bce-72a3-4654-bc8e-40608a5d3eb5
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: RUNNING_TOTAL_CALENDAR_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              sum (DATEDIFF(
+                  minute,
+                  valid_starting_at,
+                  valid_ending_at
+              ))
+              over (partition by ticket_id, sla_applied_at order by valid_starting_at rows between unbounded preceding and current row) 
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_INT_AGENT_WORK_TIME_FILTERED_STATUSES: dd6f85ed-6cfc-4448-8f2a-46446807b308
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_AGENT_WORK_TIME_FILTERED_STATUSES
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_INT_AGENT_WORK_TIME_FILTERED_STATUSES') }} "V_INT_AGENT_WORK_TIME_FILTERED_STATUSES"
+            where not in_business_hours
+        name: V_AGENT_WORK_TIME_CALENDAR_MINUTES
+        noLinkRefs: []
+  name: V_AGENT_WORK_TIME_CALENDAR_MINUTES
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

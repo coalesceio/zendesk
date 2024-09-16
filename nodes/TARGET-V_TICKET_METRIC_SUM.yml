@@ -1,0 +1,463 @@
+fileVersion: 1
+id: 2024d6b8-4507-47bd-96f3-150233251bf7
+name: V_TICKET_METRIC_SUM
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 287bfa24-8b6e-48ef-88b6-fbcdace2472d
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: SUMMARY_HELPER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: cast(1 as INT)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1ff842b-4ff9-45b2-9839-1cee28178cb8
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: NEW_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              sum(case when lower(status) = 'new'
+                          then 1
+                          else 0
+                              end) 
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8bbaaeb2-cd65-4391-9c1b-1743eca057ee
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: ON_HOLD_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              sum(case when lower(status) = 'hold'
+                          then 1
+                          else 0
+                              end)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60a324f5-a45e-473a-a412-73dea536a6c2
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: OPEN_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |2-
+               sum(case when lower(status) = 'open'
+                          then 1
+                          else 0
+                              end)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8bab9c3b-8ecf-4be0-b4f5-faa10f3ff513
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: PENDING_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              sum(case when lower(status) = 'pending'
+                          then 1
+                          else 0
+                              end)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 06886ede-7fc4-4aed-ac18-e33d826a8bc1
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: PROBLEM_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              sum(case when lower(type) = 'problem'
+                          then 1
+                          else 0
+                              end)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: cf816695-b644-4d24-97ca-bceeecc52873
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: REASSIGNED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              sum(case when first_assignee_id != last_assignee_id
+                          then 1
+                          else 0
+                              end)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97825ef3-8257-472b-8c3f-b8434dfb7684
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: REOPENED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              sum(case when count_reopens > 0
+                          then 1
+                          else 0
+                              end) 
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 664640a8-e760-4bee-b9ab-8a0c4a3d4b7e
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: SURVEYED_SATISFACTION_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              sum(case when lower(ticket_satisfaction_score) in ('offered', 'good', 'bad')
+                          then 1
+                          else 0
+                              end)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: cd58b715-646d-47e9-a094-3d9c024dc4df
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: UNASSIGNED_UNSOLVED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |2-
+               sum(case when assignee_id is null and lower(status) not in ('solved', 'closed')
+                          then 1
+                          else 0
+                              end) 
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b991153f-9a4d-48d1-bb18-c7eac5a17771
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: UNREPLIED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              sum(case when total_agent_replies < 0
+                          then 1
+                          else 0
+                              end)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2a8aae5-bd6a-43c6-8f37-c88fb53182a0
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: UNREPLIED_UNSOLVED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              sum(case when total_agent_replies < 0 and lower(status) not in ('solved', 'closed')
+                          then 1
+                          else 0
+                              end)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c78a3d1b-5bb5-488c-8d06-2984a795b64d
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: UNSOLVED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              sum(case when lower(status) not in ('solved', 'closed')
+                          then 1
+                          else 0
+                              end)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f331ab32-890a-4ae0-825d-c9c9d53ffb5f
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: SOLVED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |2-
+               sum(case when lower(status) in ('solved', 'closed')
+                          then 1
+                          else 0
+                              end)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a10bf11b-d67f-4c6a-acfd-041d472a0afd
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: DELETED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              sum(case when lower(status) in ('deleted')
+                          then 1
+                          else 0
+                              end) 
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 72631db3-aac0-4757-bc58-2e8960e7417c
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: RECOVERED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |2-
+                 sum(case when total_ticket_recoveries > 0
+                          then 1
+                          else 0
+                              end)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 78638594-d5fc-4b31-8df6-9312e4adc111
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: ASSIGNED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |2-
+               sum(case when assignee_stations_count > 0
+                          then 1
+                          else 0
+                              end) 
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0cc47074-3e69-4522-83e9-0e474ef3f342
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TOTAL_INTERNAL_COMMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "count(count_internal_comments) "
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3ed777ad-ca33-46a8-8e89-56aba8f217b7
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TOTAL_PUBLIC_COMMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "count(count_public_comments) "
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 999398f7-9030-4d5e-ada6-f8e0ee700742
+          stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TOTAL_COMMENTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: " count(total_comments)"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_FINAL_TICKET_METRICS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_FINAL_TICKET_METRICS') }} "V_FINAL_TICKET_METRICS"
+        name: V_TICKET_METRIC_SUM
+        noLinkRefs: []
+  name: V_TICKET_METRIC_SUM
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

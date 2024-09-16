@@ -1,0 +1,115 @@
+fileVersion: 1
+id: e35be408-d941-4f85-8ee3-12c5bef8aeb1
+name: V_INT_TICKET_COMMENT_DOCUMENT
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 11fa1efa-e05a-484a-9738-6402d81be446
+          stepCounter: e35be408-d941-4f85-8ee3-12c5bef8aeb1
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_COMMENT_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1947b829-de4a-42ba-9661-101ff1fcb89b
+                stepCounter: 5c298197-9fa2-45d0-8680-989c2f61e4fc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6b8f35bb-5518-4b2c-89c3-9dbf364cc619
+          stepCounter: e35be408-d941-4f85-8ee3-12c5bef8aeb1
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4544362e-9410-4cf0-b557-11d588d8e0af
+                stepCounter: 5c298197-9fa2-45d0-8680-989c2f61e4fc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aaeb51ce-f134-4a5e-b550-c8122c350f4d
+          stepCounter: e35be408-d941-4f85-8ee3-12c5bef8aeb1
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: COMMENT_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c0fe2c74-42ce-4c80-baf7-cb458b74bae9
+                stepCounter: 5c298197-9fa2-45d0-8680-989c2f61e4fc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 13ee4984-fa88-4a3c-92b7-07db5b96f3c3
+          stepCounter: e35be408-d941-4f85-8ee3-12c5bef8aeb1
+        config: {}
+        dataType: ""
+        description: ""
+        name: COMMENT_MARKDOWN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: afba9059-d54e-4830-afc5-17fb26d93f41
+                stepCounter: 5c298197-9fa2-45d0-8680-989c2f61e4fc
+            transform: |-
+              case when comment_tokens > 5000 then left(comment_markdown, 5000 * 4)  -- approximate 4 characters per token
+                          else comment_markdown
+                          end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 44d069fe-087e-4af0-bb30-3e4e4d354d89
+          stepCounter: e35be408-d941-4f85-8ee3-12c5bef8aeb1
+        config: {}
+        dataType: ""
+        description: ""
+        name: COMMENT_TOKENS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 24be9f54-59e4-4b78-92ce-af2ed43294ef
+                stepCounter: 5c298197-9fa2-45d0-8680-989c2f61e4fc
+            transform: |-
+              case when comment_tokens > 5000 then 5000
+                          else comment_tokens
+                          end 
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_COMMENT_TOKENS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_COMMENT_TOKENS') }} "V_COMMENT_TOKENS"
+        name: V_INT_TICKET_COMMENT_DOCUMENT
+        noLinkRefs: []
+  name: V_INT_TICKET_COMMENT_DOCUMENT
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

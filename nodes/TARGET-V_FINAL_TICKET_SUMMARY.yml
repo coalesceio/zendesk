@@ -1,0 +1,340 @@
+fileVersion: 1
+id: aed268c8-c2c6-41ce-853f-1eab00a99e03
+name: V_FINAL_TICKET_SUMMARY
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: abbb3c0d-eb2b-41d0-a4cf-038f6fe3c246
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: USER_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1c7a593c-5703-46c4-b506-85c5e8b73316
+                stepCounter: 4f2b95a5-a23d-499e-92a3-11d25ead6d67
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1c6520ed-9524-46da-a559-281062d4a59f
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ACTIVE_AGENT_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 19da6efe-335b-4d71-887a-6542081468b1
+                stepCounter: 4f2b95a5-a23d-499e-92a3-11d25ead6d67
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a089b96-04f8-4b38-9d51-79a0ea0b5f6e
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: DELETED_USER_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2a09657e-b592-470f-8701-5981bdf5fa1d
+                stepCounter: 4f2b95a5-a23d-499e-92a3-11d25ead6d67
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0fba2c1b-f60e-4f16-85eb-9567c4284ef3
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: END_USER_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a6e95dbb-cd51-4573-876d-b2685ec55abe
+                stepCounter: 4f2b95a5-a23d-499e-92a3-11d25ead6d67
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 47b43733-1841-4d12-b61c-992c3fd71251
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SUSPENDED_USER_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6af256ff-ae2f-4a45-a7d7-538df19e0172
+                stepCounter: 4f2b95a5-a23d-499e-92a3-11d25ead6d67
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 46430e2d-bf32-46fa-945c-3d2ed29db938
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: NEW_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d1ff842b-4ff9-45b2-9839-1cee28178cb8
+                stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5bc93d83-86b5-4a79-b21c-14b453607fef
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ON_HOLD_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8bbaaeb2-cd65-4391-9c1b-1743eca057ee
+                stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 355465f5-b09d-431c-8232-41ee6633c9de
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: OPEN_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 60a324f5-a45e-473a-a412-73dea536a6c2
+                stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a75cdfea-5654-4410-93c3-17c2c6a20a09
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PENDING_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8bab9c3b-8ecf-4be0-b4f5-faa10f3ff513
+                stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 561ad8b3-bd20-46da-857e-05b9f3179a25
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SOLVED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f331ab32-890a-4ae0-825d-c9c9d53ffb5f
+                stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f30261c-f015-4d00-a17f-5e538245c1d0
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROBLEM_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 06886ede-7fc4-4aed-ac18-e33d826a8bc1
+                stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e7da1b81-b41e-4b78-abd4-800e95c3b4b7
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ASSIGNED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 78638594-d5fc-4b31-8df6-9312e4adc111
+                stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6309c242-d3f3-476f-a15b-564cc78dd0bd
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REASSIGNED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cf816695-b644-4d24-97ca-bceeecc52873
+                stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e90bd09-d906-45e3-90f5-a7f16db1ad3d
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REOPENED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 97825ef3-8257-472b-8c3f-b8434dfb7684
+                stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 66a934f0-28bf-4ee4-bb7c-0d9c43fbb45a
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SURVEYED_SATISFACTION_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 664640a8-e760-4bee-b9ab-8a0c4a3d4b7e
+                stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b83581f7-3a3d-4d4c-b40c-2c65c0b1285c
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: UNASSIGNED_UNSOLVED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd58b715-646d-47e9-a094-3d9c024dc4df
+                stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8c8ccb4a-9a01-40fb-8b50-9ffb06ffb760
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: UNREPLIED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b991153f-9a4d-48d1-bb18-c7eac5a17771
+                stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 309adaab-52d9-4e24-8377-d445a754b528
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: UNREPLIED_UNSOLVED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d2a8aae5-bd6a-43c6-8f37-c88fb53182a0
+                stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ffee744a-1608-47a3-8c72-8f2d32bd2680
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: UNSOLVED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c78a3d1b-5bb5-488c-8d06-2984a795b64d
+                stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7aa3fd87-a560-4cd6-b964-dc22800d94a8
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: RECOVERED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 72631db3-aac0-4757-bc58-2e8960e7417c
+                stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f8fb6322-ef86-42e9-abb2-830d6d1319b2
+          stepCounter: aed268c8-c2c6-41ce-853f-1eab00a99e03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: DELETED_TICKET_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a10bf11b-d67f-4c6a-acfd-041d472a0afd
+                stepCounter: 2024d6b8-4507-47bd-96f3-150233251bf7
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_TICKET_METRIC_SUM: 2024d6b8-4507-47bd-96f3-150233251bf7
+          V_USER_SUM: 4f2b95a5-a23d-499e-92a3-11d25ead6d67
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_TICKET_METRIC_SUM
+          - locationName: TARGET
+            nodeName: V_USER_SUM
+        join:
+          joinCondition: |
+            FROM {{ ref('TARGET', 'V_USER_SUM') }} "V_USER_SUM"
+            LEFT JOIN {{ ref('TARGET', 'V_TICKET_METRIC_SUM') }} "V_TICKET_METRIC_SUM"
+            ON "V_TICKET_METRIC_SUM"."SUMMARY_HELPER" = "V_USER_SUM"."SUMMARY_HELPER"
+        name: V_FINAL_TICKET_SUMMARY
+        noLinkRefs: []
+  name: V_FINAL_TICKET_SUMMARY
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

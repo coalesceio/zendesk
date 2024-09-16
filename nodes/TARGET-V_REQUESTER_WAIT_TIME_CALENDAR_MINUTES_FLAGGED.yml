@@ -1,0 +1,237 @@
+fileVersion: 1
+id: 3f4c6795-cc28-4ebb-9a85-a953ea423139
+name: V_REQUESTER_WAIT_TIME_CALENDAR_MINUTES_FLAGGED
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: da355562-fd3c-4bee-af32-3eb44dc7dd5c
+          stepCounter: 3f4c6795-cc28-4ebb-9a85-a953ea423139
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 75413ce4-3064-4646-8f22-ae90fe925bc4
+                stepCounter: a29681a1-f1ff-4c67-9b8e-4cae34569ace
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d8e8913-bb83-4ba3-bad3-940701efc50a
+          stepCounter: 3f4c6795-cc28-4ebb-9a85-a953ea423139
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: VALID_STARTING_AT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9491ebd3-1566-40c9-a6e5-15e4706da2ef
+                stepCounter: a29681a1-f1ff-4c67-9b8e-4cae34569ace
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5426c8d7-46fc-4f67-bcfe-74fee25a37c2
+          stepCounter: 3f4c6795-cc28-4ebb-9a85-a953ea423139
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: VALID_ENDING_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8aa56961-d481-4023-8a64-a609447aace6
+                stepCounter: a29681a1-f1ff-4c67-9b8e-4cae34569ace
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: df347222-968c-45a2-b14c-8886a0d413e7
+          stepCounter: 3f4c6795-cc28-4ebb-9a85-a953ea423139
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: TICKET_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 387408b0-7145-4355-be0d-d1a02e141b30
+                stepCounter: a29681a1-f1ff-4c67-9b8e-4cae34569ace
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b555fb0e-6256-4aaf-8144-03cd560785cf
+          stepCounter: 3f4c6795-cc28-4ebb-9a85-a953ea423139
+        config: {}
+        dataType: ""
+        description: ""
+        name: SLA_APPLIED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8bfddd93-e3ef-42e6-92b2-94a357042cb0
+                stepCounter: a29681a1-f1ff-4c67-9b8e-4cae34569ace
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e7ab2c58-92a7-4844-9390-09b796b6d78f
+          stepCounter: 3f4c6795-cc28-4ebb-9a85-a953ea423139
+        config: {}
+        dataType: ""
+        description: ""
+        name: TARGET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aa435e2b-1421-4c0b-a233-53a4696c1d23
+                stepCounter: a29681a1-f1ff-4c67-9b8e-4cae34569ace
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d2f09a0-dbb1-436c-be05-62405d36fa4e
+          stepCounter: 3f4c6795-cc28-4ebb-9a85-a953ea423139
+        config: {}
+        dataType: ""
+        description: ""
+        name: SLA_POLICY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 10321533-1706-447f-a4cd-25018a23858a
+                stepCounter: a29681a1-f1ff-4c67-9b8e-4cae34569ace
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5c3d492c-117c-4edb-8d78-781a81595ac9
+          stepCounter: 3f4c6795-cc28-4ebb-9a85-a953ea423139
+        config: {}
+        dataType: ""
+        description: ""
+        name: TICKET_CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4615330a-8c27-47e1-9d8b-5c0577e8d0d6
+                stepCounter: a29681a1-f1ff-4c67-9b8e-4cae34569ace
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dcd9d67a-e742-45a8-b282-6b3ce44c54d4
+          stepCounter: 3f4c6795-cc28-4ebb-9a85-a953ea423139
+        config: {}
+        dataType: ""
+        description: ""
+        name: IN_BUSINESS_HOURS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 30a4a3cd-413a-434b-8c8d-3ceaad037166
+                stepCounter: a29681a1-f1ff-4c67-9b8e-4cae34569ace
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e60faaa5-1f6d-431d-83d0-44515f75038b
+          stepCounter: 3f4c6795-cc28-4ebb-9a85-a953ea423139
+        config: {}
+        dataType: ""
+        description: ""
+        name: CALENDAR_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9d7c22ef-da32-43d7-b412-df452e99a5f6
+                stepCounter: a29681a1-f1ff-4c67-9b8e-4cae34569ace
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 586e2bf2-d152-4acc-b7bc-d3f5bec62257
+          stepCounter: 3f4c6795-cc28-4ebb-9a85-a953ea423139
+        config: {}
+        dataType: ""
+        description: ""
+        name: RUNNING_TOTAL_CALENDAR_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a92046ad-3964-4b84-9de2-f73a47a88283
+                stepCounter: a29681a1-f1ff-4c67-9b8e-4cae34569ace
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a1fb797f-3d64-4043-a6bd-acaf089e85e9
+          stepCounter: 3f4c6795-cc28-4ebb-9a85-a953ea423139
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: REMAINING_TARGET_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: target - running_total_calendar_minutes
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0ac7bc6c-9ba2-4c1e-9381-681a14214c31
+          stepCounter: 3f4c6795-cc28-4ebb-9a85-a953ea423139
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: IS_BREACHED_DURING_SCHEDULE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              case when (target - running_total_calendar_minutes) < 0 
+                    and 
+                      (lag(target - running_total_calendar_minutes) over
+                      (partition by ticket_id, sla_applied_at order by valid_starting_at) >= 0 
+                      or 
+                      lag(target - running_total_calendar_minutes) over
+                      (partition by ticket_id, sla_applied_at order by valid_starting_at) is null) 
+                      then true else false end
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_REQUESTER_WAIT_TIME_CALENDAR_MINUTES
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_REQUESTER_WAIT_TIME_CALENDAR_MINUTES') }} "V_REQUESTER_WAIT_TIME_CALENDAR_MINUTES"
+        name: V_REQUESTER_WAIT_TIME_CALENDAR_MINUTES_FLAGGED
+        noLinkRefs: []
+  name: V_REQUESTER_WAIT_TIME_CALENDAR_MINUTES_FLAGGED
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

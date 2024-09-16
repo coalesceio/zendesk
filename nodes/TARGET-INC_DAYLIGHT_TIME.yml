@@ -1,0 +1,133 @@
+fileVersion: 1
+id: 6e495c2e-df3a-4d19-9c2c-5a5b1800524a
+name: INC_DAYLIGHT_TIME
+operation:
+  config:
+    incColumn:
+      columnCounter: e580a1f9-00e9-4dc1-b04b-c7128bcef3f3
+      stepCounter: 6e495c2e-df3a-4d19-9c2c-5a5b1800524a
+    persistTableLocation: TARGET
+    persistTableName: PSTG_DAYLIGHT_TIME
+    refTable: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 43508aa9-2a8a-4f69-97d0-5eb521e8cbdc
+          stepCounter: 6e495c2e-df3a-4d19-9c2c-5a5b1800524a
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TIME_ZONE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fcb8098d-5d74-4b34-98db-17564e8f6d1f
+                stepCounter: 9cfffc6d-99f3-47ed-9fb5-2bd7e0fc08ae
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 736d65ff-b169-480b-abe5-2b65d3bd6f64
+          stepCounter: 6e495c2e-df3a-4d19-9c2c-5a5b1800524a
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: YEAR
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 39f36d8b-1afa-47c7-b1bf-18238caddf26
+                stepCounter: 9cfffc6d-99f3-47ed-9fb5-2bd7e0fc08ae
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d21295d7-6b3f-4786-a628-6553bfc88a45
+          stepCounter: 6e495c2e-df3a-4d19-9c2c-5a5b1800524a
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: DAYLIGHT_START_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6016479b-a7d6-4f66-a6c1-a3b6865d4c5a
+                stepCounter: 9cfffc6d-99f3-47ed-9fb5-2bd7e0fc08ae
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4bfd3eaa-a350-44f6-99d4-32f1a2dcfdf8
+          stepCounter: 6e495c2e-df3a-4d19-9c2c-5a5b1800524a
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: DAYLIGHT_END_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1e48924d-e2a1-499f-997f-02c63f378034
+                stepCounter: 9cfffc6d-99f3-47ed-9fb5-2bd7e0fc08ae
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f0157711-9b47-4618-9da5-0340b0f9badc
+          stepCounter: 6e495c2e-df3a-4d19-9c2c-5a5b1800524a
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: DAYLIGHT_OFFSET
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 670a2f10-d509-46c8-9ec3-457267ea5bac
+                stepCounter: 9cfffc6d-99f3-47ed-9fb5-2bd7e0fc08ae
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e580a1f9-00e9-4dc1-b04b-c7128bcef3f3
+          stepCounter: 6e495c2e-df3a-4d19-9c2c-5a5b1800524a
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4fa6efb0-c71d-4cde-ba6a-eb59a19cf192
+                stepCounter: 9cfffc6d-99f3-47ed-9fb5-2bd7e0fc08ae
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DAYLIGHT_TIME: 9cfffc6d-99f3-47ed-9fb5-2bd7e0fc08ae
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SOURCE
+            nodeName: DAYLIGHT_TIME
+        join:
+          joinCondition: |
+
+
+            FROM{{ ref('SOURCE', 'DAYLIGHT_TIME') }} "DAYLIGHT_TIME"
+              WHERE "DAYLIGHT_TIME"."_FIVETRAN_SYNCED" > 
+              (SELECT COALESCE(MAX("_FIVETRAN_SYNCED"), '1900-01-01') 
+                        FROM {{ ref_no_link('TARGET', 'PSTG_DAYLIGHT_TIME') }} )
+        name: INC_DAYLIGHT_TIME
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: PSTG_DAYLIGHT_TIME
+  name: INC_DAYLIGHT_TIME
+  overrideSQL: false
+  schema: ""
+  sqlType: Incr:::230
+  type: sql
+  version: 1
+type: Node

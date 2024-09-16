@@ -1,0 +1,72 @@
+fileVersion: 1
+id: eabfe23d-b125-4b4b-9df8-b04fce12e65c
+name: V_USER_TAG_AGGREGRATES
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    orderby: false
+    postSQL: null
+    preSQL: null
+    secureoption: false
+    selectDistinct: false
+    testsEnabled: false
+    truncateBefore: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1a1f8c2e-0997-48e1-8adb-708f1f9bd8dd
+          stepCounter: eabfe23d-b125-4b4b-9df8-b04fce12e65c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ae49b92d-7efe-46d0-af0d-b63dc87920ff
+                stepCounter: f90bf4ed-41f3-4ba8-93a3-ab995d2a142e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 947e5458-9c2d-4fed-9888-a33e8e90a4ef
+          stepCounter: eabfe23d-b125-4b4b-9df8-b04fce12e65c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: USER_TAGS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 53ca1569-2fc4-49cf-9fb3-330f25a1d5ca
+                stepCounter: f90bf4ed-41f3-4ba8-93a3-ab995d2a142e
+            transform: LISTAGG(tags, ', ')
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_USER_TAG
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'PSTG_USER_TAG') }} "PSTG_USER_TAG"
+        name: V_USER_TAG_AGGREGRATES
+        noLinkRefs: []
+  name: V_USER_TAG_AGGREGRATES
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

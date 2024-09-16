@@ -1,0 +1,102 @@
+fileVersion: 1
+id: 41716627-8536-4b81-9a52-102f498d9c4b
+name: V_DEFAULT_SCHEDULE_EVENT
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 34b6e856-86e2-469f-8ca9-9ed4331c1630
+          stepCounter: 41716627-8536-4b81-9a52-102f498d9c4b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7d25d46d-f272-4be2-b448-466110cae13a
+                stepCounter: 2630639b-14e3-4546-838d-4100786f9216
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 13f7d016-ca89-4f4e-bbb8-ad15f9368b2a
+          stepCounter: 41716627-8536-4b81-9a52-102f498d9c4b
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a9c7abcd-bdbf-4645-b09c-b7d5eb16fbcb
+                stepCounter: 2630639b-14e3-4546-838d-4100786f9216
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 62bbedab-4097-4362-b2a9-67fc1fdb578f
+          stepCounter: 41716627-8536-4b81-9a52-102f498d9c4b
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: SCEDULED_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              (
+              SELECT "PSTG_SCHEDULE"."SCHEDULE_ID"
+              FROM {{ ref('TARGET', 'PSTG_SCHEDULE') }} "PSTG_SCHEDULE"
+              QUALIFY ROW_NUMBER() OVER (ORDER BY CREATED_AT) = 1
+              )
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          FIRST_SCHEDULE: e6a89093-1411-4e3a-a5e3-fe640aa58b82
+          PSTG_TICKET: 2630639b-14e3-4546-838d-4100786f9216
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_SCHEDULE
+          - locationName: TARGET
+            nodeName: PSTG_TICKET
+          - locationName: TARGET
+            nodeName: PSTG_TICKET_SCHEDULE
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'PSTG_TICKET') }} "PSTG_TICKET"
+            LEFT JOIN {{ ref('TARGET', 'PSTG_TICKET_SCHEDULE') }} "FIRST_SCHEDULE"
+            ON "FIRST_SCHEDULE"."TICKET_ID" = "PSTG_TICKET"."TICKET_ID"
+            AND TIMESTAMPADD(SECOND, -5, "FIRST_SCHEDULE"."CREATED_AT") <= "PSTG_TICKET"."CREATED_AT"
+            AND "FIRST_SCHEDULE"."CREATED_AT" >= "PSTG_TICKET"."CREATED_AT"
+            WHERE "FIRST_SCHEDULE"."TICKET_ID" IS NULL
+        name: V_DEFAULT_SCHEDULE_EVENT
+        noLinkRefs: []
+  name: V_DEFAULT_SCHEDULE_EVENT
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

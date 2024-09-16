@@ -1,0 +1,228 @@
+fileVersion: 1
+id: ff5e7d2c-9b9f-461c-99b6-92a47e73512b
+name: V_NON_HOLIDAY_PERIOD_ADJUSTMENTS
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 044b2188-8dab-4827-a64b-5790f913a1bb
+          stepCounter: ff5e7d2c-9b9f-461c-99b6-92a47e73512b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SCHEDULE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5897f7d8-3a9c-45cd-86aa-519ee7676ece
+                stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 720d212f-8bbb-41c8-a28d-2447727c0ae3
+          stepCounter: ff5e7d2c-9b9f-461c-99b6-92a47e73512b
+        config: {}
+        dataType: ""
+        description: ""
+        name: PERIOD_START
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d6669b7e-59f6-4e45-b886-6fdad1f0b3d7
+                stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 590bab16-1a42-45dd-9e6c-81819451e830
+          stepCounter: ff5e7d2c-9b9f-461c-99b6-92a47e73512b
+        config: {}
+        dataType: ""
+        description: ""
+        name: PERIOD_END
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 649e0fe0-b742-4e7b-81cc-25c3e5f85053
+                stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 03747859-243a-4ab3-83db-b1edfb9741c6
+          stepCounter: ff5e7d2c-9b9f-461c-99b6-92a47e73512b
+        config: {}
+        dataType: ""
+        description: ""
+        name: PREV_END
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e62af40f-b9f3-487e-bb82-caaac6d63ab8
+                stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 82b38913-02cb-44d9-a10c-f0316e6eeee3
+          stepCounter: ff5e7d2c-9b9f-461c-99b6-92a47e73512b
+        config: {}
+        dataType: ""
+        description: ""
+        name: NEXT_START
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2f95fd39-0e33-4b35-a83a-d1386b94ed0e
+                stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 96cab8bf-e6de-4efd-80ee-b081c9c56fd9
+          stepCounter: ff5e7d2c-9b9f-461c-99b6-92a47e73512b
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: VALID_FROM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              COALESCE(
+                  GREATEST(
+                      CASE 
+                          WHEN NOT is_holiday_week AND prev_end IS NOT NULL THEN
+                              FIRST_VALUE(prev_end) OVER (
+                                  PARTITION BY schedule_id, period_start 
+                                  ORDER BY start_time_utc 
+                                  ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+                              )
+                          ELSE period_start
+                      END,
+                      period_start
+                  ),
+                  period_start
+              ) 
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 15180738-70f1-4a56-b00f-66f956a5c649
+          stepCounter: ff5e7d2c-9b9f-461c-99b6-92a47e73512b
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: VALID_UNTIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              COALESCE(
+                  CASE 
+                      WHEN NOT IS_HOLIDAY_WEEK AND NEXT_START IS NOT NULL THEN
+                          LAST_VALUE(NEXT_START) OVER (
+                              PARTITION BY SCHEDULE_ID, PERIOD_START 
+                              ORDER BY START_TIME_UTC 
+                              ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+                          )
+                      ELSE PERIOD_END
+                  END,
+                  PERIOD_END
+              )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b771368-b905-4ffd-bab4-0b26893447b3
+          stepCounter: ff5e7d2c-9b9f-461c-99b6-92a47e73512b
+        config: {}
+        dataType: ""
+        description: ""
+        name: START_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c0dd9358-0c07-4353-822f-3ec0b2e3f4b6
+                stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e4753fb3-6dec-48f9-b2eb-16eb24ae8075
+          stepCounter: ff5e7d2c-9b9f-461c-99b6-92a47e73512b
+        config: {}
+        dataType: ""
+        description: ""
+        name: END_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 50df3a0f-4307-41b3-9782-d4744689e680
+                stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d453d46f-3943-4bc6-83f4-b221484b2618
+          stepCounter: ff5e7d2c-9b9f-461c-99b6-92a47e73512b
+        config: {}
+        dataType: ""
+        description: ""
+        name: HOLIDAY_NAME_CHECK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8de15482-86df-45c4-bd36-df01aecc36f7
+                stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5a07203-dd6b-47c4-b9f3-59aec088196e
+          stepCounter: ff5e7d2c-9b9f-461c-99b6-92a47e73512b
+        config: {}
+        dataType: ""
+        description: ""
+        name: IS_HOLIDAY_WEEK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 49f87274-6e27-4c1d-ad3b-5c11cd063833
+                stepCounter: a753454d-88e1-4efa-96e7-d6ab95af8594
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_SORTED_PERIODS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_SORTED_PERIODS') }} "V_SORTED_PERIODS"
+        name: V_NON_HOLIDAY_PERIOD_ADJUSTMENTS
+        noLinkRefs: []
+  name: V_NON_HOLIDAY_PERIOD_ADJUSTMENTS
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

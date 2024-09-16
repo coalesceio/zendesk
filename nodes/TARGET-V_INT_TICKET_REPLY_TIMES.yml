@@ -1,0 +1,115 @@
+fileVersion: 1
+id: de1e6306-9637-4fd8-bbed-2cc1370f16e1
+name: V_INT_TICKET_REPLY_TIMES
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c33269b-7a18-4384-b153-f4623ce83fa8
+          stepCounter: de1e6306-9637-4fd8-bbed-2cc1370f16e1
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2eb6202a-1cb5-4364-b077-16b217cb3f71
+                stepCounter: b52cb010-c814-4769-a6e4-c52b0dc9cbdc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e011eeeb-1999-4aa5-ac95-a8ea3cf21905
+          stepCounter: de1e6306-9637-4fd8-bbed-2cc1370f16e1
+        config: {}
+        dataType: ""
+        description: ""
+        name: IS_FIRST_COMMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8e4aacec-b0f3-43ea-a954-fba1a88c9868
+                stepCounter: b52cb010-c814-4769-a6e4-c52b0dc9cbdc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a7055d30-1ebf-4cdf-97b4-6d2760da106c
+          stepCounter: de1e6306-9637-4fd8-bbed-2cc1370f16e1
+        config: {}
+        dataType: ""
+        description: ""
+        name: END_USER_COMMENT_CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 854dfc36-1572-43d3-af08-98cfbca44727
+                stepCounter: b52cb010-c814-4769-a6e4-c52b0dc9cbdc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 282b7dca-d911-44f5-b926-1e305f47dd11
+          stepCounter: de1e6306-9637-4fd8-bbed-2cc1370f16e1
+        config: {}
+        dataType: ""
+        description: ""
+        name: AGENT_RESPONDED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 979fb74f-65f4-49db-8e4f-db04842399b5
+                stepCounter: b52cb010-c814-4769-a6e4-c52b0dc9cbdc
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 25a19ee2-a63e-4dc8-a24d-1f6146988088
+          stepCounter: de1e6306-9637-4fd8-bbed-2cc1370f16e1
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: REPLY_TIME_CALENDAR_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: (TIMESTAMPDIFF('SECOND', CAST(END_USER_COMMENT_CREATED_AT AS TIMESTAMP), CAST(AGENT_RESPONDED_AT AS TIMESTAMP)) / 60)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_REPLY_TIMESTAMPS
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_REPLY_TIMESTAMPS') }} "V_REPLY_TIMESTAMPS"
+            ORDER BY TICKET_ID,END_USER_COMMENT_CREATED_AT
+        name: V_INT_TICKET_REPLY_TIMES
+        noLinkRefs: []
+  name: V_INT_TICKET_REPLY_TIMES
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

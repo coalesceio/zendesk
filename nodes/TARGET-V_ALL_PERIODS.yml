@@ -1,0 +1,182 @@
+fileVersion: 1
+id: 8f055aa5-98f9-48a6-9e15-dd8dc594e123
+name: V_ALL_PERIODS
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION ALL
+    secureoption: false
+    selectDistinct: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: true
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4e96886a-81c4-431e-a09e-bbbde6487210
+          stepCounter: 8f055aa5-98f9-48a6-9e15-dd8dc594e123
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SCHEDULE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 63ca1e2d-89a6-450a-92e4-85900501bedb
+                stepCounter: 81865730-162a-42f0-802a-204549c2286e
+            transform: ""
+          - columnReferences:
+              - columnCounter: 63ca1e2d-89a6-450a-92e4-85900501bedb
+                stepCounter: 81865730-162a-42f0-802a-204549c2286e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 96c674f3-edf7-4e3c-8307-64d3b3551672
+          stepCounter: 8f055aa5-98f9-48a6-9e15-dd8dc594e123
+        config: {}
+        dataType: ""
+        description: ""
+        name: PERIOD_START
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 59b26706-03f1-4973-a72f-9fefffc5139a
+                stepCounter: 81865730-162a-42f0-802a-204549c2286e
+            transform: ""
+          - columnReferences:
+              - columnCounter: 5e9d3935-1999-41db-83fc-db53bf9e2c15
+                stepCounter: 81865730-162a-42f0-802a-204549c2286e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0b446b41-948f-4582-aaca-d4056d7300ca
+          stepCounter: 8f055aa5-98f9-48a6-9e15-dd8dc594e123
+        config: {}
+        dataType: ""
+        description: ""
+        name: PERIOD_END
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cbcb6a57-d95d-4bf3-a8eb-dbdfd76c4e07
+                stepCounter: 81865730-162a-42f0-802a-204549c2286e
+            transform: ""
+          - columnReferences:
+              - columnCounter: 9736427f-e336-478b-a5d2-2055451f9a62
+                stepCounter: 81865730-162a-42f0-802a-204549c2286e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 86bc3cd7-a2e1-4103-88d8-dd1dfac222c9
+          stepCounter: 8f055aa5-98f9-48a6-9e15-dd8dc594e123
+        config: {}
+        dataType: ""
+        description: ""
+        name: START_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9f296d85-a21f-4e6f-955f-6689db657e17
+                stepCounter: 81865730-162a-42f0-802a-204549c2286e
+            transform: ""
+          - columnReferences:
+              - columnCounter: 9f296d85-a21f-4e6f-955f-6689db657e17
+                stepCounter: 81865730-162a-42f0-802a-204549c2286e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 55b03034-d81a-4539-bfc3-afdc0f91de1a
+          stepCounter: 8f055aa5-98f9-48a6-9e15-dd8dc594e123
+        config: {}
+        dataType: ""
+        description: ""
+        name: END_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c7a48564-e0cc-4f0b-a0b4-caa1fe62d6a8
+                stepCounter: 81865730-162a-42f0-802a-204549c2286e
+            transform: ""
+          - columnReferences:
+              - columnCounter: c7a48564-e0cc-4f0b-a0b4-caa1fe62d6a8
+                stepCounter: 81865730-162a-42f0-802a-204549c2286e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 57a2375e-c2ec-4ecc-9d71-b6842bdc620d
+          stepCounter: 8f055aa5-98f9-48a6-9e15-dd8dc594e123
+        config: {}
+        dataType: ""
+        description: ""
+        name: HOLIDAY_NAME_CHECK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd343b21-9e4a-411a-a0ea-7874c1fb8fba
+                stepCounter: 81865730-162a-42f0-802a-204549c2286e
+            transform: ""
+          - columnReferences:
+              - columnCounter: cd343b21-9e4a-411a-a0ea-7874c1fb8fba
+                stepCounter: 81865730-162a-42f0-802a-204549c2286e
+            transform: "CAST(NULL AS STRING) "
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ad658593-2203-481b-9a12-fdd9f8b8a387
+          stepCounter: 8f055aa5-98f9-48a6-9e15-dd8dc594e123
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: IS_HOLIDAY_WEEK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "TRUE"
+          - columnReferences: []
+            transform: "FALSE"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_SPINE_UNION: 81865730-162a-42f0-802a-204549c2286e
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_SPINE_UNION
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_SPINE_UNION') }} "V_SPINE_UNION"
+                WHERE HOLIDAY_WEEK_START IS NOT NULL
+                    AND HOLIDAY_WEEK_END IS NOT NULL
+        name: HOLIDAY_WEEK
+        noLinkRefs: []
+      - aliases:
+          V_SPINE_UNION: 81865730-162a-42f0-802a-204549c2286e
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_SPINE_UNION
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_SPINE_UNION') }} "V_SPINE_UNION"
+        name: NON_HOLIDAY_WEEK
+        noLinkRefs: []
+  name: V_ALL_PERIODS
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

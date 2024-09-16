@@ -1,0 +1,295 @@
+fileVersion: 1
+id: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+name: V_HOLIDAY_START_END_TIMES
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0b78051b-8c14-48aa-a421-9e775d235d1b
+          stepCounter: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SCHEDULE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b41beefb-23ea-44ef-b3eb-a7e39a20b495
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 902d2b92-c1fd-4182-ac2b-96bb00bd5147
+          stepCounter: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TIME_ZONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c275daba-a63a-44f4-a1f1-5d5603f760a8
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 28631008-282b-4a18-ad30-c0f709ccab05
+          stepCounter: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: START_TIME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f11ab63c-abfc-477d-9651-638ab4ed74ad
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 188f50c9-3806-4805-9d1a-e927bb58e22e
+          stepCounter: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: END_TIME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 84e6a47f-2dc3-4d8c-834b-aa74861315ae
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0cd48103-8adb-47fe-8168-03f80e3c1fd3
+          stepCounter: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c60fd1a-3bf4-4ee5-b0f7-8552f3e00332
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ad374bb6-26a6-4004-bbf2-af3733fe189d
+          stepCounter: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SCHEDULE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7ca9894f-0ee1-4c9e-94a5-461a4935ec45
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c487191c-535d-4c8d-be4d-6a4c7b37934d
+          stepCounter: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+        config: {}
+        dataType: ""
+        description: ""
+        name: START_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b1037c3a-6963-40a0-9f3a-d77eeb3bfff8
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: deb2ee54-78a0-4633-abd2-0285ccda1f6d
+          stepCounter: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+        config: {}
+        dataType: ""
+        description: ""
+        name: END_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 90322f9e-85dc-4f9e-834f-f79dc24b9a6a
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ff8287ab-2a25-4dbf-8b29-857b23e2e596
+          stepCounter: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+        config: {}
+        dataType: ""
+        description: ""
+        name: OFFSET_MINUTES_TO_ADD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7d0b575b-a59c-4914-87a1-c3be6fde661b
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0e8fd83b-23be-469d-97df-54c3f427da0f
+          stepCounter: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+        config: {}
+        dataType: ""
+        description: ""
+        name: VALID_FROM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fba02e24-5873-49dd-b84a-b804fa55fef8
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5ff6e93b-3f92-4f57-925c-eaf5d238d1d5
+          stepCounter: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+        config: {}
+        dataType: ""
+        description: ""
+        name: VALID_UNTIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: abcdd2b0-c133-4825-b74d-9abfdff2bf31
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f0622d41-7835-4257-ade9-6378d81d39a9
+          stepCounter: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: HOLIDAY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3672ce60-7164-48ce-a2f9-c7d913989043
+                stepCounter: def2198b-35aa-4bc1-bf5a-475c284d326e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fda2d2cb-144e-4903-aad1-220c043684a2
+          stepCounter: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+        config: {}
+        dataType: ""
+        description: ""
+        name: HOLIDAY_START_DATE_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2cd81cc3-6add-43dc-9df5-df309a53e5c1
+                stepCounter: def2198b-35aa-4bc1-bf5a-475c284d326e
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 994efd56-b752-4b68-89aa-b9f277c28d63
+          stepCounter: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: HOLIDAY_END_DATE_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CAST(
+                  DATEADD(
+                      SECOND, 
+                      86400, 
+                      CAST(V_SCHEDULE_HOLIDAY.HOLIDAY_END_DATE_AT AS TIMESTAMP)
+                  ) 
+              AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 48d6bfa5-56f8-4814-ab7b-0e88ee38ab79
+          stepCounter: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: HOLIDAY_WEEK_START
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              CAST(DATE_TRUNC(
+                  'WEEK',
+                  TO_TIMESTAMP(V_SCHEDULE_HOLIDAY.HOLIDAY_START_DATE_AT)
+              ) AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 53882c66-f8da-4b93-81f1-0e507247c459
+          stepCounter: 06952af6-a7c7-4dd3-9272-99c8c65f81e8
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: HOLIDAY_WEEK_END
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: CAST( CAST(DATEADD(DAY, -1, DATEADD( 'WEEK', 1,  CAST(DATE_TRUNC( 'WEEK', TO_TIMESTAMP(V_SCHEDULE_HOLIDAY.HOLIDAY_END_DATE_AT)) AS TIMESTAMP)) ) AS TIMESTAMP ) AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_CALCULATE_SCHEDULES: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+          V_SCHEDULE_HOLIDAY: def2198b-35aa-4bc1-bf5a-475c284d326e
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_CALCULATE_SCHEDULES
+          - locationName: TARGET
+            nodeName: V_SCHEDULE_HOLIDAY
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_SCHEDULE_HOLIDAY') }} "V_SCHEDULE_HOLIDAY"
+            INNER JOIN {{ ref('TARGET', 'V_CALCULATE_SCHEDULES') }} "V_CALCULATE_SCHEDULES"
+            ON "V_CALCULATE_SCHEDULES"."SCHEDULE_ID" = "V_SCHEDULE_HOLIDAY"."SCHEDULE_ID"
+            AND "V_SCHEDULE_HOLIDAY"."HOLIDAY_START_DATE_AT" >= "V_CALCULATE_SCHEDULES"."VALID_FROM"
+            AND "V_SCHEDULE_HOLIDAY"."HOLIDAY_START_DATE_AT" < "V_CALCULATE_SCHEDULES"."VALID_UNTIL"
+        name: V_HOLIDAY_START_END_TIMES
+        noLinkRefs: []
+  name: V_HOLIDAY_START_END_TIMES
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

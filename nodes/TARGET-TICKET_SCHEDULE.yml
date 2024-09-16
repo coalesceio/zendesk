@@ -1,0 +1,96 @@
+fileVersion: 1
+id: 429bd6e1-60ab-4430-8ef6-012d489c869d
+name: TICKET_SCHEDULE
+operation:
+  database: ""
+  dataset: ""
+  deployEnabled: true
+  description: ""
+  locationName: TARGET
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 91d4c894-294a-4bf1-9602-0e47bf800fe5
+          stepCounter: 429bd6e1-60ab-4430-8ef6-012d489c869d
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: CREATED_AT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 85b437f1-cb13-44e3-b55b-4ff7e48931e4
+          stepCounter: 429bd6e1-60ab-4430-8ef6-012d489c869d
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: TICKET_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d536fe91-4b65-44b3-b0ea-a1394c42dc61
+          stepCounter: 429bd6e1-60ab-4430-8ef6-012d489c869d
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0d77c605-2352-4d95-909b-b4b7298e14c9
+          stepCounter: 429bd6e1-60ab-4430-8ef6-012d489c869d
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: SCHEDULE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+    join:
+      joinCondition: FROM {{ ref('TARGET', 'TICKET_SCHEDULE') }}
+  name: TICKET_SCHEDULE
+  schema: ""
+  sqlType: Source
+  table: TICKET_SCHEDULE
+  type: sourceInput
+  version: 1
+type: Node

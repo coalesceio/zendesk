@@ -1,0 +1,74 @@
+fileVersion: 1
+id: b3450842-f34e-43f5-9e27-5a2fbb66eb79
+name: V_LATEST_REASON
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9141c6df-d232-49a6-82b9-299cce6f9860
+          stepCounter: b3450842-f34e-43f5-9e27-5a2fbb66eb79
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cd2edeaa-7b05-49e1-9c08-807f5fd5b229
+                stepCounter: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0337dee-cb1a-4cd6-bbf9-053a4192b7ec
+          stepCounter: b3450842-f34e-43f5-9e27-5a2fbb66eb79
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: LATEST_SATISFATION_REASON
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: FIRST_VALUE(VALUE) OVER (PARTITION BY TICKET_ID ORDER BY VALID_STARTING_AT DESC, TICKET_ID ROWS UNBOUNDED PRECEDING)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_INT_UPDATES: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_UPDATES
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_INT_UPDATES') }} "V_INT_UPDATES"
+            where "V_INT_UPDATES"."FIELD_NAME" = 'satisfaction_reason_code'
+        name: V_LATEST_REASON
+        noLinkRefs: []
+  name: V_LATEST_REASON
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,111 @@
+fileVersion: 1
+id: 7b898250-e0fb-4eab-b449-aae9edbc917a
+name: V_INT_REQUESTER_UPDATES
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a749a88d-bc1f-4524-bb98-3a305ac27394
+          stepCounter: 7b898250-e0fb-4eab-b449-aae9edbc917a
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7d25d46d-f272-4be2-b448-466110cae13a
+                stepCounter: 2630639b-14e3-4546-838d-4100786f9216
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 48ba9def-8375-4b4a-aae8-60d338770cba
+          stepCounter: 7b898250-e0fb-4eab-b449-aae9edbc917a
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: REQUESTER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 13d6c927-5a52-41e4-afe1-6fbb1daa2ddd
+                stepCounter: 2630639b-14e3-4546-838d-4100786f9216
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 98eadef3-6753-4650-bf6f-50773f7059fc
+          stepCounter: 7b898250-e0fb-4eab-b449-aae9edbc917a
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: LAST_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: MAX(VALID_STARTING_AT)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f29f5bfe-f70e-4095-8ac7-fffce1df1bf7
+          stepCounter: 7b898250-e0fb-4eab-b449-aae9edbc917a
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TOTAL_UPDATES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COUNT(*)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PSTG_TICKET: 2630639b-14e3-4546-838d-4100786f9216
+          V_INT_UPDATES: 71ff4fc9-ce5d-4c99-8959-a2fd7fd1c57b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_TICKET
+          - locationName: TARGET
+            nodeName: V_INT_UPDATES
+        join:
+          joinCondition: |
+            FROM {{ ref('TARGET', 'PSTG_TICKET') }} "PSTG_TICKET" 
+            LEFT JOIN {{ ref('TARGET', 'V_INT_UPDATES') }} "V_INT_UPDATES"
+            ON "PSTG_TICKET"."TICKET_ID" = "V_INT_UPDATES"."TICKET_ID"
+            AND "PSTG_TICKET"."REQUESTER_ID" = "V_INT_UPDATES"."USER_ID"
+        name: V_INT_REQUESTER_UPDATES
+        noLinkRefs: []
+  name: V_INT_REQUESTER_UPDATES
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

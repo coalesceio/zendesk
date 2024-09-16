@@ -1,0 +1,160 @@
+fileVersion: 1
+id: 6afd7af6-4be8-430b-9292-39b87612f644
+name: V_TICKET_DETAILS
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6eaa2040-990d-408d-9dc0-ac5d08b29f69
+          stepCounter: 6afd7af6-4be8-430b-9292-39b87612f644
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7d25d46d-f272-4be2-b448-466110cae13a
+                stepCounter: 2630639b-14e3-4546-838d-4100786f9216
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a1b9fab-19c3-4065-ad27-eea06221ad92
+          stepCounter: 6afd7af6-4be8-430b-9292-39b87612f644
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TICKET_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9a84378b-b779-464d-aa0e-4db1a42f7424
+                stepCounter: 2630639b-14e3-4546-838d-4100786f9216
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a8397e85-f48c-4255-87fe-56aa7e45f0d8
+          stepCounter: 6afd7af6-4be8-430b-9292-39b87612f644
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: USER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COALESCE(CAST(PSTG_USER.name AS STRING), 'UNKNOWN')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f61527e1-630d-438b-9814-52058d3923be
+          stepCounter: 6afd7af6-4be8-430b-9292-39b87612f644
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: CREATED_BY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COALESCE(CAST(PSTG_USER.EMAIL AS STRING), 'UNKNOWN')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b9204291-db6f-4122-b9cd-c180ff0b1ce1
+          stepCounter: 6afd7af6-4be8-430b-9292-39b87612f644
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: CREATED_ON
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a9c7abcd-bdbf-4645-b09c-b7d5eb16fbcb
+                stepCounter: 2630639b-14e3-4546-838d-4100786f9216
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 29fd1c88-6ff8-4b84-aff7-8a6ddfaa5a0a
+          stepCounter: 6afd7af6-4be8-430b-9292-39b87612f644
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COALESCE(CAST(PSTG_TICKET.STATUS AS STRING), 'UNKNOWN')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 19324af0-7a4b-42c9-a010-bd7fdbc0fe4d
+          stepCounter: 6afd7af6-4be8-430b-9292-39b87612f644
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: PRIORITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COALESCE(CAST(PSTG_TICKET.PRIORITY AS STRING), 'UNKNOWN')
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          PSTG_TICKET: 2630639b-14e3-4546-838d-4100786f9216
+          PSTG_USER: 4d9c6310-8def-4c5e-b76a-fb2529b7213c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_TICKET
+          - locationName: TARGET
+            nodeName: PSTG_USER
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'PSTG_TICKET') }} "PSTG_TICKET"
+            LEFT JOIN {{ ref('TARGET', 'PSTG_USER') }} "PSTG_USER"
+                    on PSTG_TICKET.requester_id = PSTG_USER.user_id
+        name: V_TICKET_DETAILS
+        noLinkRefs: []
+  name: V_TICKET_DETAILS
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

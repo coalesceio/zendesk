@@ -1,0 +1,157 @@
+fileVersion: 1
+id: 11ad778b-ed95-43f5-bb18-55df49769f8c
+name: V_SPLIT_TIMEZONES
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION ALL
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: true
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 057857a1-d4b8-4cfe-8d78-6b20b1f55de1
+          stepCounter: 11ad778b-ed95-43f5-bb18-55df49769f8c
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TIME_ZONE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f95f77d8-c2c4-4e3c-9616-3be12c794866
+                stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+            transform: ""
+          - columnReferences:
+              - columnCounter: f95f77d8-c2c4-4e3c-9616-3be12c794866
+                stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+            transform: ""
+          - columnReferences:
+              - columnCounter: f95f77d8-c2c4-4e3c-9616-3be12c794866
+                stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9592f03-8d41-4cbb-a1f8-9f6fd6335f7c
+          stepCounter: 11ad778b-ed95-43f5-bb18-55df49769f8c
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: OFFSET_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7b4f0ed4-9c11-47c7-b710-c30b800f75d2
+                stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+            transform: ""
+          - columnReferences:
+              - columnCounter: 7b4f0ed4-9c11-47c7-b710-c30b800f75d2
+                stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+            transform: STANDARD_OFFSET_MINUTES + DAYLIGHT_OFFSET_MINUTES
+          - columnReferences:
+              - columnCounter: 7b4f0ed4-9c11-47c7-b710-c30b800f75d2
+                stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 391831f7-74f8-40b3-879c-26dd959e68a7
+          stepCounter: 11ad778b-ed95-43f5-bb18-55df49769f8c
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: VALID_FROM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COALESCE(LAST_DAYLIGHT_END_UTC, CAST('1970-01-01' AS DATE))
+          - columnReferences:
+              - columnCounter: c8d14a63-f044-4524-a6bb-95b2ac3a377a
+                stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+            transform: ""
+          - columnReferences: []
+            transform: "MAX(DAYLIGHT_END_UTC) "
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d6a2ce57-ace7-47a0-a505-7bad6704281f
+          stepCounter: 11ad778b-ed95-43f5-bb18-55df49769f8c
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: VALID_UNTIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: COALESCE(DAYLIGHT_START_UTC, CAST(DATEADD(YEAR, 1, CURRENT_TIMESTAMP()) AS DATE))
+          - columnReferences:
+              - columnCounter: 69d35099-dbd6-4f37-89ad-75f5638fffb0
+                stepCounter: 5b05b63e-660e-46be-8e89-72544d8e2b07
+            transform: ""
+          - columnReferences: []
+            transform: CAST(DATEADD(YEAR, 1, CURRENT_TIMESTAMP()) AS DATE)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_ORDER_TIMEZONE_DT
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_ORDER_TIMEZONE_DT') }} "V_ORDER_TIMEZONE_DT"
+        name: STANDARD_SCHEDULE
+        noLinkRefs: []
+      - aliases:
+          V_ORDER_TIMEZONE_DT: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_ORDER_TIMEZONE_DT
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_ORDER_TIMEZONE_DT') }} "V_ORDER_TIMEZONE_DT"
+            where daylight_offset_minutes is not null
+        name: DT_SCHEDULE
+        noLinkRefs: []
+      - aliases:
+          V_ORDER_TIMEZONE_DT: 5b05b63e-660e-46be-8e89-72544d8e2b07
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_ORDER_TIMEZONE_DT
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_ORDER_TIMEZONE_DT') }} "V_ORDER_TIMEZONE_DT"
+            GROUP BY 1, 2 HAVING CAST(MAX(DAYLIGHT_END_UTC) AS DATE) < CAST(CURRENT_TIMESTAMP AS DATE)
+        name: LATEST_DST_END_TIME
+        noLinkRefs: []
+  name: V_SPLIT_TIMEZONES
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

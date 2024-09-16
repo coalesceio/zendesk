@@ -1,0 +1,85 @@
+fileVersion: 1
+id: 2d9739ff-0fd7-401f-aacc-f946aadac8e1
+name: V_CALCULATE_METRICS_UNASSIGNED_TIME
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a46c99f-3a40-4ebd-b784-8ebdff05d6e9
+          stepCounter: 2d9739ff-0fd7-401f-aacc-f946aadac8e1
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2572727e-7728-4d1f-92e7-5ca9b4863b41
+                stepCounter: 4c469b1c-b124-46af-8e47-811f8439bbd9
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 012c7722-d449-4259-b854-ef3a00a68ba2
+          stepCounter: 2d9739ff-0fd7-401f-aacc-f946aadac8e1
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: UNIQUE_ASSIGNEE_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9f297091-213e-4476-bb40-8b71611ed8a8
+                stepCounter: 4c469b1c-b124-46af-8e47-811f8439bbd9
+            transform: "COUNT(DISTINCT VALUE) "
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e6d7ae6a-39ff-4589-976d-f6d69f846483
+          stepCounter: 2d9739ff-0fd7-401f-aacc-f946aadac8e1
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: TICKET_UNASSIGNED_DURATION_CALENDAR_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "  SUM(CASE WHEN ASSIGNEE_ID IS NOT NULL AND PREVIOUS_ASSIGNEE IS NULL THEN TIMESTAMPDIFF(MINUTE,CAST(COALESCE(PREVIOUS_UPDATE,TICKET_CREATED_DATE) AS TIMESTAMP),CAST(VALID_STARTING_AT AS TIMESTAMP)) ELSE 0 END)"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_CALCULATE_METRICS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_CALCULATE_METRICS') }} "V_CALCULATE_METRICS"
+        name: V_CALCULATE_METRICS_UNASSIGNED_TIME
+        noLinkRefs: []
+  name: V_CALCULATE_METRICS_UNASSIGNED_TIME
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

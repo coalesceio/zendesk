@@ -1,0 +1,105 @@
+fileVersion: 1
+id: fcf8b0df-bb41-4e8d-b217-4b82d135655a
+name: INC_TICKET_SCHEDULE
+operation:
+  config:
+    incColumn:
+      columnCounter: b3dbdf90-efdc-4346-a55e-7e56bb5839c8
+      stepCounter: fcf8b0df-bb41-4e8d-b217-4b82d135655a
+    persistTableLocation: TARGET
+    persistTableName: PSTG_TICKET_SCHEDULE
+    refTable: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 46037446-91ab-4d0d-ab27-ce067374802c
+          stepCounter: fcf8b0df-bb41-4e8d-b217-4b82d135655a
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 91d4c894-294a-4bf1-9602-0e47bf800fe5
+                stepCounter: 429bd6e1-60ab-4430-8ef6-012d489c869d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c78e8391-532a-4afa-9d96-5a6cb6c533d5
+          stepCounter: fcf8b0df-bb41-4e8d-b217-4b82d135655a
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 85b437f1-cb13-44e3-b55b-4ff7e48931e4
+                stepCounter: 429bd6e1-60ab-4430-8ef6-012d489c869d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b3dbdf90-efdc-4346-a55e-7e56bb5839c8
+          stepCounter: fcf8b0df-bb41-4e8d-b217-4b82d135655a
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d536fe91-4b65-44b3-b0ea-a1394c42dc61
+                stepCounter: 429bd6e1-60ab-4430-8ef6-012d489c869d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b9dfe0f6-f16b-48ed-a854-b963eb93f632
+          stepCounter: fcf8b0df-bb41-4e8d-b217-4b82d135655a
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SCHEDULE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0d77c605-2352-4d95-909b-b4b7298e14c9
+                stepCounter: 429bd6e1-60ab-4430-8ef6-012d489c869d
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          TICKET_SCHEDULE: 429bd6e1-60ab-4430-8ef6-012d489c869d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: TICKET_SCHEDULE
+        join:
+          joinCondition: |
+
+
+            FROM{{ ref('TARGET', 'TICKET_SCHEDULE') }} "TICKET_SCHEDULE"
+              WHERE "TICKET_SCHEDULE"."_FIVETRAN_SYNCED" > 
+              (SELECT COALESCE(MAX("_FIVETRAN_SYNCED"), '1900-01-01') 
+                        FROM {{ ref_no_link('TARGET', 'PSTG_TICKET_SCHEDULE') }} )
+        name: INC_TICKET_SCHEDULE
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: PSTG_TICKET_SCHEDULE
+  name: INC_TICKET_SCHEDULE
+  overrideSQL: false
+  schema: ""
+  sqlType: Incr:::230
+  type: sql
+  version: 1
+type: Node

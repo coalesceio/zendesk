@@ -1,0 +1,139 @@
+fileVersion: 1
+id: def2198b-35aa-4bc1-bf5a-475c284d326e
+name: V_SCHEDULE_HOLIDAY
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c54d740-365a-49c8-be22-b424c621ee1a
+          stepCounter: def2198b-35aa-4bc1-bf5a-475c284d326e
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 529ebf0b-54a4-43b2-b787-646ea47a8efa
+                stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2cd81cc3-6add-43dc-9df5-df309a53e5c1
+          stepCounter: def2198b-35aa-4bc1-bf5a-475c284d326e
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: HOLIDAY_START_DATE_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: CAST(DATE_NODE."DATE_KEY"  AS TIMESTAMP )
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 91c063ea-0ca1-4571-9e1f-e7ff397e760f
+          stepCounter: def2198b-35aa-4bc1-bf5a-475c284d326e
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: HOLIDAY_END_DATE_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: CAST(DATE_NODE."DATE_KEY"  AS TIMESTAMP )
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 27903e37-7b26-417c-bd93-26f6c60d8666
+          stepCounter: def2198b-35aa-4bc1-bf5a-475c284d326e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: HOLIDAY_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c09eb70-66e5-4ac5-a5aa-d37d947610d5
+                stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3672ce60-7164-48ce-a2f9-c7d913989043
+          stepCounter: def2198b-35aa-4bc1-bf5a-475c284d326e
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: HOLIDAY_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c654b81a-129f-445e-9a4c-b327b18651b0
+                stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9024de2-cdec-4734-9308-436e2e19863b
+          stepCounter: def2198b-35aa-4bc1-bf5a-475c284d326e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SCHEDULE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f2f0f3d7-346c-4f73-b849-0abe56ea6e5f
+                stepCounter: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DATE_NODE: 68265ee6-bffe-433d-9867-51adb2f59d71
+          PSTG_SCHEDULE_HOLIDAY: ef17caa9-eb46-4625-b8a2-5399121d7c8b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: DATE_NODE
+          - locationName: TARGET
+            nodeName: PSTG_SCHEDULE_HOLIDAY
+        join:
+          joinCondition: |
+            FROM {{ ref('TARGET', 'PSTG_SCHEDULE_HOLIDAY') }} "PSTG_SCHEDULE_HOLIDAY"
+            INNER JOIN {{ ref('TARGET', 'DATE_NODE') }} "DATE_NODE"
+            ON "PSTG_SCHEDULE_HOLIDAY"."HOLIDAY_START_DATE_AT" <= CAST(DATE_NODE."DATE_KEY"  AS TIMESTAMP )
+            AND "PSTG_SCHEDULE_HOLIDAY"."HOLIDAY_END_DATE_AT" >=  CAST(DATE_NODE."DATE_KEY"  AS TIMESTAMP )
+        name: V_SCHEDULE_HOLIDAY
+        noLinkRefs: []
+  name: V_SCHEDULE_HOLIDAY
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

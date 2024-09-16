@@ -1,0 +1,154 @@
+fileVersion: 1
+id: ae84f160-bf43-453f-ac03-f884db40cffd
+name: V_INT_TICKET_HISTORICAL_SATISFACTION
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6ded1bae-ebb9-4e50-b0f6-9c28bd93a709
+          stepCounter: ae84f160-bf43-453f-ac03-f884db40cffd
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 940e2fc7-61bd-4d6c-b6e9-4bd1cfb65f31
+                stepCounter: d144122e-4a7b-48dc-899e-5fe1da5d12a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 90fcb94d-d2c8-4978-809b-c8e10441071c
+          stepCounter: ae84f160-bf43-453f-ac03-f884db40cffd
+        config: {}
+        dataType: ""
+        description: ""
+        name: LATEST_SATISFATION_REASON
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 142fdd3b-67f0-4b26-abd5-53098df44550
+                stepCounter: d144122e-4a7b-48dc-899e-5fe1da5d12a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4248a344-a8bd-4556-8a49-7687920679c3
+          stepCounter: ae84f160-bf43-453f-ac03-f884db40cffd
+        config: {}
+        dataType: ""
+        description: ""
+        name: LATEST_SATISFATION_COMMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c74e7dde-7f44-410a-8de0-38f4e1019219
+                stepCounter: d144122e-4a7b-48dc-899e-5fe1da5d12a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f47d8ff-f18e-4c42-b51c-58f3ebc9f5ef
+          stepCounter: ae84f160-bf43-453f-ac03-f884db40cffd
+        config: {}
+        dataType: ""
+        description: ""
+        name: FIRST_SATISFATION_SCORE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d5d78d50-600d-4b9a-ac6a-d9ad3aeb449d
+                stepCounter: d144122e-4a7b-48dc-899e-5fe1da5d12a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cb40500a-cd8d-4186-8466-6016176f3c88
+          stepCounter: ae84f160-bf43-453f-ac03-f884db40cffd
+        config: {}
+        dataType: ""
+        description: ""
+        name: LATEST_SATISFATION_SCORE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2b9c0433-aa36-4631-aa71-25c41c990982
+                stepCounter: d144122e-4a7b-48dc-899e-5fe1da5d12a6
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f0f7601-6232-4c11-b4f4-76c52c2c8847
+          stepCounter: ae84f160-bf43-453f-ac03-f884db40cffd
+        config: {}
+        dataType: ""
+        description: ""
+        name: COUNT_SATISFACTION_SCORES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1cc686d3-ce84-4175-861f-4c21690ba4a8
+                stepCounter: d144122e-4a7b-48dc-899e-5fe1da5d12a6
+            transform: |-
+              CASE WHEN COUNT_SATISFACTION_SCORES > 0
+              THEN (COUNT_SATISFACTION_SCORES - 1) 
+              ELSE COUNT_SATISFACTION_SCORES END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3bc819e5-2e56-4f54-a69a-29dca1023a04
+          stepCounter: ae84f160-bf43-453f-ac03-f884db40cffd
+        config: {}
+        dataType: ""
+        description: ""
+        name: IS_GOOD_TO_BAD_SATISFACTION_SCORE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 33f00f4e-e986-43c4-9f41-517915c5f800
+                stepCounter: d144122e-4a7b-48dc-899e-5fe1da5d12a6
+            transform: CASE WHEN TOTAL_GOOD_TO_BAD_SCORE > 0 THEN TRUE ELSE FALSE END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed572015-7ac5-4e2f-bc9d-07912eb6182e
+          stepCounter: ae84f160-bf43-453f-ac03-f884db40cffd
+        config: {}
+        dataType: ""
+        description: ""
+        name: IS_BAD_TO_GOOD_SATISFACTION_SCORE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 35abcf0c-0af5-40db-ad46-102ce2dcf5fd
+                stepCounter: d144122e-4a7b-48dc-899e-5fe1da5d12a6
+            transform: "CASE WHEN TOTAL_BAD_TO_GOOD_SCORE > 0 THEN TRUE ELSE FALSE END "
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_EINDOW_GROUP
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_EINDOW_GROUP') }} "V_EINDOW_GROUP"
+        name: V_INT_TICKET_HISTORICAL_SATISFACTION
+        noLinkRefs: []
+  name: V_INT_TICKET_HISTORICAL_SATISFACTION
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

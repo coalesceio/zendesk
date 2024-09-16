@@ -1,0 +1,232 @@
+fileVersion: 1
+id: fac6c990-dc80-446a-8cad-e998b7baaa28
+name: V_COMMENTS_ENRICHE_PREV_COMMENTER
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION ALL
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: true
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d0baa33c-f97d-4ff8-8208-aa77c53a976d
+          stepCounter: fac6c990-dc80-446a-8cad-e998b7baaa28
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 948811a3-03ad-4b62-853e-b2bc4faf8887
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+          - columnReferences:
+              - columnCounter: 948811a3-03ad-4b62-853e-b2bc4faf8887
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3741aa3b-c141-4446-92e2-4f211c33092e
+          stepCounter: fac6c990-dc80-446a-8cad-e998b7baaa28
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: FIELD_NAME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3abd34c4-72a1-4f92-a04c-6ce0b34d9f47
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+          - columnReferences:
+              - columnCounter: 3abd34c4-72a1-4f92-a04c-6ce0b34d9f47
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 13331811-9971-488e-b700-f30db6e131af
+          stepCounter: fac6c990-dc80-446a-8cad-e998b7baaa28
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: VALUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8c7932a2-c1a3-4b15-b1cd-cfa771f3c674
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+          - columnReferences:
+              - columnCounter: 8c7932a2-c1a3-4b15-b1cd-cfa771f3c674
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e2ba5d3e-a25d-40c2-bfbe-dac2ef50c04b
+          stepCounter: fac6c990-dc80-446a-8cad-e998b7baaa28
+        config: {}
+        dataType: ""
+        description: ""
+        name: IS_PUBLIC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c69d1d14-a0ae-43e5-8392-98db0199906e
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+          - columnReferences:
+              - columnCounter: c69d1d14-a0ae-43e5-8392-98db0199906e
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bfadabcc-377d-44cb-ab87-5d45239f189d
+          stepCounter: fac6c990-dc80-446a-8cad-e998b7baaa28
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dc245bbe-7ec8-413e-b7cc-54c400e13908
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+          - columnReferences:
+              - columnCounter: dc245bbe-7ec8-413e-b7cc-54c400e13908
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c426f07-a8a2-4102-ae19-bc3663f2dc20
+          stepCounter: fac6c990-dc80-446a-8cad-e998b7baaa28
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: VALID_STARTING_AT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 958f1ed3-2101-4846-939b-4f3a52e5d7b3
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+          - columnReferences:
+              - columnCounter: 958f1ed3-2101-4846-939b-4f3a52e5d7b3
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c072ab2d-3531-44eb-a340-bf98e8470a70
+          stepCounter: fac6c990-dc80-446a-8cad-e998b7baaa28
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: VALID_ENDING_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cdeccb23-ab08-4031-83fe-d282d63683ea
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+          - columnReferences:
+              - columnCounter: cdeccb23-ab08-4031-83fe-d282d63683ea
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: def8fe2a-27aa-4bd7-a14a-c7c5157aab0c
+          stepCounter: fac6c990-dc80-446a-8cad-e998b7baaa28
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        description: ""
+        name: TICKET_CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9b3aff3a-a94e-4bad-a447-5301d5297839
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+          - columnReferences:
+              - columnCounter: 9b3aff3a-a94e-4bad-a447-5301d5297839
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e164c933-121a-41cc-acff-f7e8af5cbd48
+          stepCounter: fac6c990-dc80-446a-8cad-e998b7baaa28
+        config: {}
+        dataType: ""
+        description: ""
+        name: COMMENTER_ROLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a6de567d-79e5-4dc8-8324-11111ea5e6d7
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+          - columnReferences:
+              - columnCounter: a6de567d-79e5-4dc8-8324-11111ea5e6d7
+                stepCounter: b729ea09-3a76-4feb-b599-f296c80ee4ba
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4b3f8104-d0d5-4845-9929-1f6664576b15
+          stepCounter: fac6c990-dc80-446a-8cad-e998b7baaa28
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: PREVIOUS_COMMENTER_ROLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "COALESCE(LAG(COMMENTER_ROLE) OVER (PARTITION BY TICKET_ID ORDER BY VALID_STARTING_AT, COMMENTER_ROLE), 'first_comment') "
+          - columnReferences: []
+            transform: "'non_public_comment'"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_COMMENTS_ENRICHE
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_COMMENTS_ENRICHE') }} "V_COMMENTS_ENRICHE"
+        name: is_public
+        noLinkRefs: []
+      - aliases:
+          V_COMMENTS_ENRICHE: b729ea09-3a76-4feb-b599-f296c80ee4ba
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_COMMENTS_ENRICHE
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_COMMENTS_ENRICHE') }} "V_COMMENTS_ENRICHE"
+        name: is_not_public
+        noLinkRefs: []
+  name: V_COMMENTS_ENRICHE_PREV_COMMENTER
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

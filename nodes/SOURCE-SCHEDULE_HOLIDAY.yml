@@ -1,0 +1,153 @@
+fileVersion: 1
+id: 252b93d0-2557-4a7b-94e0-dddd6fa76e4d
+name: SCHEDULE_HOLIDAY
+operation:
+  database: ""
+  dataset: ""
+  deployEnabled: true
+  description: ""
+  locationName: SOURCE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0beeb781-8a89-4027-8528-b377c8e67d10
+          stepCounter: 252b93d0-2557-4a7b-94e0-dddd6fa76e4d
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: SCHEDULE_ID
+        nullable: false
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 49ec3d16-3d3d-46ef-8478-3a5f3062584f
+          stepCounter: 252b93d0-2557-4a7b-94e0-dddd6fa76e4d
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: ID
+        nullable: false
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd5e2805-8722-43ef-8273-cbaecc22220a
+          stepCounter: 252b93d0-2557-4a7b-94e0-dddd6fa76e4d
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: END_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 45321da4-90e1-4401-a17c-bcbfb27d21dd
+          stepCounter: 252b93d0-2557-4a7b-94e0-dddd6fa76e4d
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 58989ae4-e296-46e6-a1f6-61c193f80118
+          stepCounter: 252b93d0-2557-4a7b-94e0-dddd6fa76e4d
+        config: {}
+        dataType: VARCHAR(256)
+        defaultValue: ""
+        description: ""
+        name: START_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b762be2c-dc60-40d9-8faf-88e9f9018f12
+          stepCounter: 252b93d0-2557-4a7b-94e0-dddd6fa76e4d
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_DELETED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 506e915f-4287-4335-a0f1-fade419d3cd4
+          stepCounter: 252b93d0-2557-4a7b-94e0-dddd6fa76e4d
+        config: {}
+        dataType: TIMESTAMP_TZ(9)
+        defaultValue: ""
+        description: ""
+        name: _FIVETRAN_SYNCED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+    join:
+      joinCondition: FROM {{ ref('SOURCE', 'SCHEDULE_HOLIDAY') }}
+  name: SCHEDULE_HOLIDAY
+  schema: ""
+  sqlType: Source
+  table: SCHEDULE_HOLIDAY
+  type: sourceInput
+  version: 1
+type: Node

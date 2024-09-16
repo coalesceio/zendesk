@@ -1,0 +1,191 @@
+fileVersion: 1
+id: 648d808f-af3b-454d-b961-ca3427c9166c
+name: V_TICKET_FULL_RESOLUTION_TIME
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: true
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 997c26b3-0911-4ac0-aabe-0e905ae84d9b
+          stepCounter: 648d808f-af3b-454d-b961-ca3427c9166c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 60bac521-e111-4b94-adf7-0613453cbae0
+                stepCounter: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fe427bc0-443f-4daa-a6dd-798cb3156ca5
+          stepCounter: 648d808f-af3b-454d-b961-ca3427c9166c
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SCHEDULE_CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9952affe-8340-4980-9bcd-062803e4c7b6
+                stepCounter: 36b4afbb-82dc-4c03-83b2-d362d14f4c12
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: adae9758-4244-48c7-bb13-612c400b43b6
+          stepCounter: 648d808f-af3b-454d-b961-ca3427c9166c
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SCHEDULE_INVALIDATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bec8bfa5-6b28-4386-8125-1119fffb09bf
+                stepCounter: 36b4afbb-82dc-4c03-83b2-d362d14f4c12
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: effbe90c-427c-4ed9-a570-3db25fb64c22
+          stepCounter: 648d808f-af3b-454d-b961-ca3427c9166c
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SCEDULED_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b2bd20ec-9116-4a8b-8790-fccfdcdeadd7
+                stepCounter: 36b4afbb-82dc-4c03-83b2-d362d14f4c12
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 21252c1b-1716-4c6d-98d5-cc813c0bfd38
+          stepCounter: 648d808f-af3b-454d-b961-ca3427c9166c
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: LAST_SOLVED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "min(V_INT_TICKET_RESOLUTION_TIMES_CALENDAR.last_solved_at) "
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8aaa94f1-eb34-45f3-9869-87df9caebfef
+          stepCounter: 648d808f-af3b-454d-b961-ca3427c9166c
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: START_TIME_IN_MINUTES_FROM_WEEK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              (
+                  DATEDIFF(
+                      second, 
+                      CAST(DATE_TRUNC('week', CONVERT_TIMEZONE('UTC', V_INT_TICKET_SCHEDULES.schedule_created_at)) AS TIMESTAMP), 
+                      CAST(V_INT_TICKET_SCHEDULES.schedule_created_at AS TIMESTAMP)
+                  ) / 60
+              )
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6638bdc9-cf2b-48d2-a79e-59f7d80d6c62
+          stepCounter: 648d808f-af3b-454d-b961-ca3427c9166c
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: RAW_DELTA_IN_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: |-
+              GREATEST(
+                  0,
+                  (
+                      DATEDIFF(
+                          second, 
+                          V_INT_TICKET_SCHEDULES.schedule_created_at, 
+                          LEAST(V_INT_TICKET_SCHEDULES.schedule_invalidated_at, MIN(V_INT_TICKET_RESOLUTION_TIMES_CALENDAR.last_solved_at))
+                      ) / 60
+                  )
+              )
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f748473-e778-4fd3-a759-3ea4b445d873
+          stepCounter: 648d808f-af3b-454d-b961-ca3427c9166c
+        config: {}
+        dataType: ""
+        defaultValue: ""
+        description: ""
+        name: START_WEEK_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: DATE_TRUNC('week', CONVERT_TIMEZONE('UTC', V_INT_TICKET_SCHEDULES.schedule_created_at))
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_INT_TICKET_RESOLUTION_TIMES_CALENDAR: 2ae5b76e-d0c8-4909-8f97-03d7f35dc8b1
+          V_INT_TICKET_SCHEDULES: 36b4afbb-82dc-4c03-83b2-d362d14f4c12
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_INT_TICKET_RESOLUTION_TIMES_CALENDAR
+          - locationName: TARGET
+            nodeName: V_INT_TICKET_SCHEDULES
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_INT_TICKET_RESOLUTION_TIMES_CALENDAR') }} "V_INT_TICKET_RESOLUTION_TIMES_CALENDAR"
+            JOIN {{ ref('TARGET', 'V_INT_TICKET_SCHEDULES') }} "V_INT_TICKET_SCHEDULES"
+            on V_INT_TICKET_RESOLUTION_TIMES_CALENDAR.ticket_id = V_INT_TICKET_SCHEDULES.ticket_id
+        name: V_TICKET_FULL_RESOLUTION_TIME
+        noLinkRefs: []
+  name: V_TICKET_FULL_RESOLUTION_TIME
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

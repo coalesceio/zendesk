@@ -1,0 +1,224 @@
+fileVersion: 1
+id: 81865730-162a-42f0-802a-204549c2286e
+name: V_SPINE_UNION
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION ALL
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: true
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63ca1e2d-89a6-450a-92e4-85900501bedb
+          stepCounter: 81865730-162a-42f0-802a-204549c2286e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SCHEDULE_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5bd2d330-faef-47ca-9f6d-7f4485d5e1a8
+                stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+            transform: ""
+          - columnReferences:
+              - columnCounter: b41beefb-23ea-44ef-b3eb-a7e39a20b495
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a2f8e44-85b8-4f11-bb51-bfdf3206832c
+          stepCounter: 81865730-162a-42f0-802a-204549c2286e
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: TIME_ZONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dd584acc-daf0-410d-8bb0-fc50b28fedfa
+                stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+            transform: ""
+          - columnReferences:
+              - columnCounter: c275daba-a63a-44f4-a1f1-5d5603f760a8
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f5d7421-7602-4b42-a544-d3de908aedff
+          stepCounter: 81865730-162a-42f0-802a-204549c2286e
+        config: {}
+        dataType: VARCHAR(256)
+        description: ""
+        name: SCHEDULE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9a1aa343-37f1-44bc-a6fb-a278b4142b1a
+                stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+            transform: ""
+          - columnReferences:
+              - columnCounter: 7ca9894f-0ee1-4c9e-94a5-461a4935ec45
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5e9d3935-1999-41db-83fc-db53bf9e2c15
+          stepCounter: 81865730-162a-42f0-802a-204549c2286e
+        config: {}
+        dataType: ""
+        description: ""
+        name: VALID_FROM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8fe3e3b6-f11e-45bb-a971-dddc1ff2b2a5
+                stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+            transform: ""
+          - columnReferences:
+              - columnCounter: fba02e24-5873-49dd-b84a-b804fa55fef8
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9736427f-e336-478b-a5d2-2055451f9a62
+          stepCounter: 81865730-162a-42f0-802a-204549c2286e
+        config: {}
+        dataType: ""
+        description: ""
+        name: VALID_UNTIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 572e13ee-41d9-4781-a15a-d1e186ac6566
+                stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+            transform: ""
+          - columnReferences:
+              - columnCounter: abcdd2b0-c133-4825-b74d-9abfdff2bf31
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f296d85-a21f-4e6f-955f-6689db657e17
+          stepCounter: 81865730-162a-42f0-802a-204549c2286e
+        config: {}
+        dataType: ""
+        description: ""
+        name: START_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b94b16a3-3160-4478-97c7-58e127a2ed47
+                stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+            transform: ""
+          - columnReferences:
+              - columnCounter: b1037c3a-6963-40a0-9f3a-d77eeb3bfff8
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c7a48564-e0cc-4f0b-a0b4-caa1fe62d6a8
+          stepCounter: 81865730-162a-42f0-802a-204549c2286e
+        config: {}
+        dataType: ""
+        description: ""
+        name: END_TIME_UTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d5629255-ac92-4fd0-954c-f2c8ee85674e
+                stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+            transform: ""
+          - columnReferences:
+              - columnCounter: 90322f9e-85dc-4f9e-834f-f79dc24b9a6a
+                stepCounter: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59b26706-03f1-4973-a72f-9fefffc5139a
+          stepCounter: 81865730-162a-42f0-802a-204549c2286e
+        config: {}
+        dataType: ""
+        description: ""
+        name: HOLIDAY_WEEK_START
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a4be9a1c-eb51-433a-bd67-aac0ff368a7b
+                stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+            transform: ""
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cbcb6a57-d95d-4bf3-a8eb-dbdfd76c4e07
+          stepCounter: 81865730-162a-42f0-802a-204549c2286e
+        config: {}
+        dataType: ""
+        description: ""
+        name: HOLIDAY_WEEK_END
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c9629d40-b74a-4498-906f-d99f478d731a
+                stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+            transform: ""
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cd343b21-9e4a-411a-a0ea-7874c1fb8fba
+          stepCounter: 81865730-162a-42f0-802a-204549c2286e
+        config: {}
+        dataType: ""
+        description: ""
+        name: HOLIDAY_NAME_CHECK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 335315b9-496a-4282-8cf4-6a858793814c
+                stepCounter: 026a61e8-782c-49fc-bb8c-1e437db56501
+            transform: ""
+          - columnReferences: []
+            transform: "NULL"
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_HOLIDAY_CONSOLIDATED
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_HOLIDAY_CONSOLIDATED') }} "V_HOLIDAY_CONSOLIDATED"
+        name: HOLIDAY_CONSOLIDATED
+        noLinkRefs: []
+      - aliases:
+          V_CALCULATE_SCHEDULES: 30918f61-7fd0-412c-a1b6-d0e0dccff2f7
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_CALCULATE_SCHEDULES
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'V_CALCULATE_SCHEDULES') }} "V_CALCULATE_SCHEDULES"
+        name: CALCULATE_SCHEDULES
+        noLinkRefs: []
+  name: V_SPINE_UNION
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

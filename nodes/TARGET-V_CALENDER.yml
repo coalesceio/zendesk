@@ -1,0 +1,154 @@
+fileVersion: 1
+id: 4dc15ef0-faae-4693-91ff-8d559c01c17f
+name: V_CALENDER
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41b07f11-14e1-4e30-88d0-7e330a168b56
+          stepCounter: 4dc15ef0-faae-4693-91ff-8d559c01c17f
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DATE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e6514bdc-29d6-4626-8d64-b57f6e15507d
+                stepCounter: 68265ee6-bffe-433d-9867-51adb2f59d71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ca63dd70-9a2c-4140-8b4f-22c3f4f30c86
+          stepCounter: 4dc15ef0-faae-4693-91ff-8d559c01c17f
+        config: {}
+        dataType: SMALLINT
+        description: ""
+        name: YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c271f495-f4c1-4189-b78b-342db89f664b
+                stepCounter: 68265ee6-bffe-433d-9867-51adb2f59d71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cbabbcd1-aa77-4d27-8d0b-831340a6aaac
+          stepCounter: 4dc15ef0-faae-4693-91ff-8d559c01c17f
+        config: {}
+        dataType: SMALLINT
+        description: ""
+        name: MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d207d94d-a40d-4ea7-acad-1fd26e382b74
+                stepCounter: 68265ee6-bffe-433d-9867-51adb2f59d71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9909557f-dc52-4600-adfc-6cd4aeaff074
+          stepCounter: 4dc15ef0-faae-4693-91ff-8d559c01c17f
+        config: {}
+        dataType: CHAR(3)
+        description: ""
+        name: MONTH_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 43ddc50d-d899-4b48-8976-2d0b2569d00a
+                stepCounter: 68265ee6-bffe-433d-9867-51adb2f59d71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed7d840b-4833-4382-9612-5a74b8b06424
+          stepCounter: 4dc15ef0-faae-4693-91ff-8d559c01c17f
+        config: {}
+        dataType: SMALLINT
+        description: ""
+        name: DAY_OF_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 34eb4fc5-302c-45fd-a263-a66bc6302dd6
+                stepCounter: 68265ee6-bffe-433d-9867-51adb2f59d71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8308cc84-6bf1-4fba-9c95-e77529db1ee7
+          stepCounter: 4dc15ef0-faae-4693-91ff-8d559c01c17f
+        config: {}
+        dataType: VARCHAR(9)
+        description: ""
+        name: DAY_OF_WEEK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f9d3520-c59e-45f9-91f9-b635ea49c87b
+                stepCounter: 68265ee6-bffe-433d-9867-51adb2f59d71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5af64dd1-a082-475c-b124-a4772c9ae829
+          stepCounter: 4dc15ef0-faae-4693-91ff-8d559c01c17f
+        config: {}
+        dataType: SMALLINT
+        description: ""
+        name: WEEK_OF_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ebc05438-72db-410e-a13b-c9c50ee93afc
+                stepCounter: 68265ee6-bffe-433d-9867-51adb2f59d71
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a3ef236e-8ebb-465c-9c13-c5d2b035e166
+          stepCounter: 4dc15ef0-faae-4693-91ff-8d559c01c17f
+        config: {}
+        dataType: SMALLINT
+        description: ""
+        name: DAY_OF_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cfc6d063-4701-4d0a-8f77-16836c5cbe21
+                stepCounter: 68265ee6-bffe-433d-9867-51adb2f59d71
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DATE_NODE: 68265ee6-bffe-433d-9867-51adb2f59d71
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: DATE_NODE
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'DATE_NODE') }} "DATE_NODE"
+            --WHERE DATE_KEY >= (select max(DATE_KEY) from {{ ref('TARGET', 'V_INT_FIELD_CALENDAR_SPINE') }}  ) --for incremental load
+        name: V_CALENDER
+        noLinkRefs: []
+  name: V_CALENDER
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node

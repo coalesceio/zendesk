@@ -1,0 +1,158 @@
+fileVersion: 1
+id: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+name: V_INT_TICKET_HISTORICAL_ASSIGNEE
+operation:
+  config:
+    OverrideSQLCreate: false
+    groupByAll: false
+    insertStrategy: UNION
+    secureoption: false
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8746ac39-19ac-421b-874d-f9806601d958
+          stepCounter: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TICKET_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0afbbc95-7a4f-43ae-a85a-10a3f1cb14ce
+                stepCounter: 04b12d03-9e5c-4adc-8cdb-58a92a17a7ef
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8499b6a3-f293-44df-820e-07aa1707c0ae
+          stepCounter: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+        config: {}
+        dataType: ""
+        description: ""
+        name: FIRST_AGENT_ASSIGNMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32a6f929-bb1f-49e0-a449-abe3524d6133
+                stepCounter: 04b12d03-9e5c-4adc-8cdb-58a92a17a7ef
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 22ce5573-e1d9-4795-8ed8-84168d27ec85
+          stepCounter: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+        config: {}
+        dataType: ""
+        description: ""
+        name: FIRST_ASSIGNEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 20e38f5b-7816-4720-9089-2678b77ac586
+                stepCounter: 04b12d03-9e5c-4adc-8cdb-58a92a17a7ef
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1e1294f-f8a1-49f8-8d46-956fdf7f3d80
+          stepCounter: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+        config: {}
+        dataType: ""
+        description: ""
+        name: LAST_AGENT_ASSIGNMENT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b44dba6a-b9f4-4265-84c2-0b9d5ab073a5
+                stepCounter: 04b12d03-9e5c-4adc-8cdb-58a92a17a7ef
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e9f7f2e9-dc80-4ece-9486-1f4bb06661c2
+          stepCounter: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+        config: {}
+        dataType: ""
+        description: ""
+        name: LAST_ASSIGNEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2da97584-b646-48ac-8406-97b09e4305f9
+                stepCounter: 04b12d03-9e5c-4adc-8cdb-58a92a17a7ef
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c5bf2d7c-aff9-43db-a0e8-4d85439045e4
+          stepCounter: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+        config: {}
+        dataType: ""
+        description: ""
+        name: ASSIGNEE_STATIONS_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: be585d3c-4f4b-4b9c-a3f0-8337b3c6736d
+                stepCounter: 04b12d03-9e5c-4adc-8cdb-58a92a17a7ef
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d8123d7-d448-4e6c-9743-a822185846fb
+          stepCounter: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+        config: {}
+        dataType: VARCHAR(512)
+        description: ""
+        name: UNIQUE_ASSIGNEE_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 012c7722-d449-4259-b854-ef3a00a68ba2
+                stepCounter: 2d9739ff-0fd7-401f-aacc-f946aadac8e1
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aabf75d4-937f-4b8f-ad61-783aa796790a
+          stepCounter: fd2b1497-253e-453f-a4aa-9e2c11dbaecd
+        config: {}
+        dataType: ""
+        description: ""
+        name: TICKET_UNASSIGNED_DURATION_CALENDAR_MINUTES
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e6d7ae6a-39ff-4589-976d-f6d69f846483
+                stepCounter: 2d9739ff-0fd7-401f-aacc-f946aadac8e1
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_CALCULATE_METRICS_UNASSIGNED_TIME: 2d9739ff-0fd7-401f-aacc-f946aadac8e1
+          V_WINDOW_GROUP_OF_CALCULATE_METRICS: 04b12d03-9e5c-4adc-8cdb-58a92a17a7ef
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_CALCULATE_METRICS_UNASSIGNED_TIME
+          - locationName: TARGET
+            nodeName: V_WINDOW_GROUP_OF_CALCULATE_METRICS
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_WINDOW_GROUP_OF_CALCULATE_METRICS') }} "V_WINDOW_GROUP_OF_CALCULATE_METRICS"
+            LEFT JOIN {{ ref('TARGET', 'V_CALCULATE_METRICS_UNASSIGNED_TIME') }} "V_CALCULATE_METRICS_UNASSIGNED_TIME"
+            ON "V_CALCULATE_METRICS_UNASSIGNED_TIME"."TICKET_ID" = "V_WINDOW_GROUP_OF_CALCULATE_METRICS"."TICKET_ID"
+        name: V_INT_TICKET_HISTORICAL_ASSIGNEE
+        noLinkRefs: []
+  name: V_INT_TICKET_HISTORICAL_ASSIGNEE
+  overrideSQL: false
+  schema: ""
+  sqlType: Base:::188
+  type: sql
+  version: 1
+type: Node
