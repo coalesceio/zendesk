@@ -16,7 +16,7 @@
   - Creates a daily issue history table so you can quickly create agile reports, such as burndown charts, along any issue field.
   - Enriches the core issue table with relevant data regarding its workflow and current state.
   - Aggregates bandwidth and issue velocity metrics along projects and users.
-- Generates a comprehensive data dictionary of your source and modeled Zendesk data available in your Coalesce Organization Generated Documentation tab. [Environment or Generated Documentation](https://docs.coalesce.io/docs/generated-documentation).
+- Generates a comprehensive data dictionary of your source and modeled Zendesk data available in your Coalesce Organization [Environment or Generated Documentation](https://docs.coalesce.io/docs/generated-documentation).
 
 <!--section="zendesk_transformation_model"-->
 The following table provides a detailed list of all models materialized within this package by default. 
@@ -48,7 +48,7 @@ To use this Coalesce pipeline, you must have the following:
 1. In Github select create a new repository and select `Import a repository`.
 2. The URL for the Zendesk source repository is https://github.com/coalesceio/zendesk.git.  This is a Public repository so no credentials are required.
 3. Select an owner and give your repository a name.
-4. After the import is complete you will see One branches available:
+4. After the import is complete you will see one branche available:
     - **Zendesk_views** - This is an entire pipeline of views to manage the Zendesk pipeline.
 5. This branch can be selected when setting up a Workspace which will be described below.
 
