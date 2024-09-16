@@ -108,11 +108,11 @@ After the Workspace has been configured commit any changes into Git.  If the onl
 
 At this point you can create the pipeline.  The easiest way to do this is select `Create All` from the Graph action menu.
 
-Assuming there are no errros the Zendesk Pipeline has now been deployed into your Development environment.  To refresh the pipeline simply run the node **JIRA__DAILY_ISSUE_FIELD_HISTORY** in the Dev Workspace.
+Assuming there are no errros the Zendesk Pipeline has now been deployed into your Development environment.  To refresh the pipeline simply run the node **zendesk_views_model_job** in the Dev Workspace.
 
 From here you can deploy to higher level environments, assuming you have created environments, utilizing the standard Coalesce deployment mechanisms.
 
-Once successfully deployed, execute the Job **JIRA__DAILY_ISSUE_FIELD_HISTORY_LOAD** against an environment.
+Once successfully deployed, execute the Job **zendesk_views_model_job** against an environment.
 
 # How is this pipeline maintained and can I contribute?
 ## Pipeline Maintenance
